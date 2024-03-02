@@ -1,0 +1,304 @@
+\RequirePackage{rotating}
+%%%%%%%% Document Styles and Packages %%%%%%
+
+\documentclass{amsart}  
+
+\usepackage[foot]{amsaddr}
+
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage[latin1]{inputenc}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+%\usepackage{tkz-berge}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usepackage{caption}
+\usepackage{adjustbox}
+%=============================
+\usepackage{algorithmic}
+\usepackage{epstopdf}
+\usepackage{fancybox}
+\usepackage{booktabs} 
+\usepackage{expl3}
+\usepackage{l3keys2e}
+\usepackage{xparse}
+\usepackage{blkarray}
+\usepackage{pst-node}
+\usepackage{animate}
+%\usepackage{tkz-graph}
+\usepackage{float}
+%\usepackage[table]{xcolor}
+%\usepackage{kbordermatrix}
+%\usepackage{nicematrix}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{systeme}
+\usepackage{placeins}
+\usepackage{young, pst-node}
+\usepackage{blindtext}
+%=============================
+\usetikzlibrary{matrix}
+\usetikzlibrary {positioning}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{trees}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
+\usetikzlibrary{graphs}
+\usetikzlibrary{positioning, arrows}
+\usetikzlibrary{fit}
+
+%============================
+
+\definecolor{mybluegreen}{rgb}{0.1, 0.55, 0.35}
+\usepackage{caption}
+\usepackage{array,booktabs}
+\usepackage{siunitx}
+\usepackage{rotating}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[spaces,hyphens]{url}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\setlength\defaultaddspace{0.5ex}
+\usepackage[math]{cellspace}
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+
+%%%%%%%%%%%  Environments  %%%%%%%%%%%%%%%% 
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{rem}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{procedure}{Procedure}[section]
+\newtheorem{question}{Question}[section]
+\newtheorem{quest}{Question for US}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\mr+}{mr_{+}}
+\DeclareMathOperator{\M+}{M_{+}}
+%\DeclareMathOperator{\mr}{mr}
+%\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\one}{\bf 1}
+\DeclareMathOperator{\rk}{rank}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem{conjecture}{Conjecture}[section]
+
+\newcommand{\Sym}{\mathrm{Sym}} 
+\newcommand{\ind}{\mathrm{ind}}
+\DeclareMathOperator{\spanof}{span}
+
+\newcommand{\Diff}[1]{D_{#1}}
+\newcommand{\diff}[1]{d_{#1}}
+\newcommand\fld{{\mathbb F}}
+\newcommand\flde{{\mathbb E}}
+\newcommand\cS{{\mathcal S}}
+\newcommand\cC{{\mathbb{C}}}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand\bigzero{\makebox(0,0){\text{\huge0}}}
+%\newcommand\HMD{Weakly Hadamardable}
+\definecolor{mybluegreen}{rgb}{0.1, 0.55, 0.35}
+\newcolumntype{?}{!{\vrule width 2pt}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\title[]{Exploring perfect binary trees with relation to the HK-property}
+
+\author[Atishaya Maharjan]{Atishaya Maharjan} \email[Atishaya Maharjan]{maharjaa@myumanitoba.ca}
+\author[M.~N.~Shirazi]{Mahsa N. Shirazi} \email[M.~N.~Shirazi]{mahsa.nasrollahi@gmail.com}
+\address{Department of Mathematics, University of Manitoba, Winnipeg,  R3T 2N2,
+Canada}
+
+
+\date{\today}
+
+\keywords{EKR, HK-property, Perfect binary trees, Escape paths}
+\subjclass[2010]{%05E30, 05C50, 05C25
+}
+
+\begin{document}
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{abstract}  
+
+
+\end{abstract}
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\maketitle
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Introduction and Preliminaries}
+
+For a given graph $G = (V,E)$, $V(G)$ and $E(G)$ denotes the vertex sets and edge sets of the graph $G$. For an arbitrary vertex, $v \in V(G)$, all vertices adjacent to $v$ by an edge are called the neighbours of $v$ and is denoted by $N_G(v)$. The degree of a vertex $v \in V(G)$ is the cardinality of the set of neighbours of $v$, and is denoted by $deg_G(v)$. 
+
+For $n \in \mathbb{Z^+}$ such that  $0 \leq n \leq |V(G)|$, a path of length $n$ in $G$ is a sequence of distinct vertices $v_1, v_2, \ldots, v_n$ such that $v_i$ is adjacent to $v_{i+1}$ for $1 \leq i \leq n-1$. A cycle is an extension of a path such that the last vertex is connected to the first vertex, i.e for a path of length $n$, $v_nv_i \in E(G)$. As such, the length of the cycle is $n + 1$.
+
+A connected graph is a graph if for all $u,v \in V(G)$, there exists a $uv$-path. An independent set is a set of vertices such that no two vertices in the set are adjacent to each other. It is denoted by $I$. We denote a family of indpendent sets of a graph $G$ as $I_G$. A family of independent set of a graph $G$ of cardinality $n$ is denoted by $\mathcal{I}^n_G$. For $v \in V(G)$, the family of indpendent sets, $\mathcal{I}^n_G(v) := \{A \in \mathcal{I}^n_G : v \in A\}$ is called a star of $\mathcal{I}^n_G$ and $v$ is called its center.
+
+A tree is a connected graph with no cycles, it is denoted by $T$. For a vertex $v \in V(T)$, if $deg_T(v) = 1$, it is called a leaf. A vertex that is not a leaf is called an interior vertex. The depth of a vertex is defined as length of the path from the root vertex to it. We study a more particular class of trees called binary trees, denoted by $T_B$, where each interior vertex $v$ has exactly $2$ children and all leaves have the same depth. Further, a perfect binary tree is a binary tree in which every vertex $v \in V(T)$ has either $0$ or $2$ children. A perfect binary tree is denoted by $T_{PB}$, however in this paper we will simply drop the subscript and denote it as $T$ for clarity. A level $n$ of a perfect binary tree is a set of vertices such that all vertices in the set have a depth of $n$.
+
+The star centers of a graph are interesting because they relate to the EKR theorem. From the EKR theorems, Holroyd and Talbot, \cite{MR2763040}, introduced the HK-property:
+
+\begin{conj}[HK-property]
+    For any k $\geq$ 1 and any tree T, there exists a leaf l of T such that $\left|\mathcal{I}^n_T(v)\right| \leq \left|\mathcal{I}^n_T(l)\right|$ for each $v \in V(T)$.
+\end{conj}
+
+This was in order to hopefully aid in the study of the EKR property which Holroyd and Talbot \cite{MR2136060} conjectured as follows:```````````````````'''''''''''''''''''
+
+\begin{conj}[k-ERK]
+    Let G be a graph, and let $\mu(G)$ be the size of its smallest maximal independent set. Then G is k-EKR for every 1 $\leq$ k $\leq$ $\frac{\mu(G)}{2}$
+\end{conj}
+
+The HK-property holds true for $k \leq 4$, but was proven false independetly by ~\cite{MR3271819, MR3612439, MR2523796}. The counterexample that that they arrived at is a type of graph that is defined as a class of trees called "lobsters" ~\cite{MR4245360}. This is interesting for this paper as the counterexample graph resembles a binary tree.
+
+In this paper, we study perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. This topic is fascinating due to the lobster being a part of the binary tree class. So this begs the question whether or not perfect binary trees or other classes of binary trees admit the HK-property. In our exploration, we also aim to expand the definition of the flip function, introduced in ~\cite{MR2763040}, to accomodate the presence of escape paths in perfect binary trees. We call this function the diagonal flip function, represented by $Diag_{f}$. In the event that the perfect binary tree does not admit the HK-property, we aim to find a counterexample.
+
+The rest of this paper is organized in the following manner:
+In section 2, we introduce the flip function and escape paths. In section 3, we present our results and examples. In section 4, we present our open problems and future works.
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Flip function and escape paths}
+
+In ~\cite{MR4245360}, Estrugo and Pastine came up with a generalized flip function which is defined as follows:
+
+\begin{definition}
+    Let P be a $(1,n)$-path with the vertex set \{1, 2, \ldots, n\}, and let flip : V(P) $\rightarrow$ V(P) be defined by flip(v) = n + 1 - v, for $1\leq v \leq n$.
+\end{definition}
+
+This definition admits the following properties ~\cite{MR4245360}:
+\begin{lemma}
+    The flip function maps independent sets into independent sets, and induces a bijection from $\mathcal{I}^k_p$ onto itself. Furthermore, flip($\mathcal{I}_p(1))$ = $\mathcal{I}_p(n)$.
+\end{lemma}
+
+They ~\cite{MR4245360} also defined the escape path as follows:
+
+\begin{definition}
+    Let $G$ be a graph and $P = v_1v_2, \ldots v_n$ a path of length $n$ such that $P \subset G$. We say that $P$ is an escape path from $v_1$ to $v_n$ in $G$ if deg($v_n)$ = 1 and deg($v_i$) = 2 for $2 \leq i \leq n-2$. If this is the case we say that $v_1$ has an escape path to $v_n$.
+\end{definition}
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{Flip}\label{Flip For Perfect Binary Trees}
+
+Our objective is to expand the flip function to accomodate the structure of the perfect binary tree. We want this function to map independent sets from an arbitrary vertex into independent sets that contain a leaf. Doing so, we will show that the flip function is injective. Furthermore, we aim to conserve the property of the flip function being an involution.
+
+We first show that for any vertex set of a fixed depth, $k$, the vertex choice does not matter. To do so, we first define an indexing for the vertices of depth $k$. 
+
+\begin{definition}[Depth Vertex]
+  Let $\mathcal{V}_k \in V(T)$ be the set of vertices of depth $k$. We call $\mathcal{V}_k$ as the depth vertex set of depth $k$. Index all vertices in $\mathcal{V}_k$ from left to right as $v_{k, i}$, where $k$ is the depth of the vertex and $i$ is the index of the vertex in $\mathcal{V}_k$ such that $1 \leq i \leq 2^{k - 1}$.
+\end{definition}
+
+\begin{figure}
+  \centering
+
+  \begin{tikzpicture}[scale=0.7,level distance=2cm,
+      level 1/.style={sibling distance=8cm},
+      level 2/.style={sibling distance=4cm},
+      level 3/.style={sibling distance=2cm},
+      every node/.style={circle, draw, fill=white}]
+      \node (v11) {$v_{1,1}$}
+        child {node (v21) {$v_{2,1}$}
+          child {node (v31) {$v_{3,1}$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+          child {node (v32) {$v_{3,2}$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+        }
+        child {node (v22) {$v_{2,2}$}
+          child {node (v33) {$v_{3,3}$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+          child {node (v34) {$v_{3,4}$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+        };
+
+        \begin{scope}[on background layer]
+          \node[draw,rectangle,fit=(v11),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 1}] {};
+          \node[draw,rectangle,fit=(v21) (v22),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 2}] {};
+          \node[draw,rectangle,fit=(v31) (v32) (v33) (v34),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 3}] {};
+        \end{scope}
+        \end{tikzpicture}
+\end{figure}
+
+We will now define the flip function on the vertices of depth $k$.
+
+\begin{definition}[Flip Function on Depth Vertex Set]
+  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip of $\mathcal{V}_k$ in $T$, denoted by $flip_\mathcal{K}: \mathcal{V}_k(G) \rightarrow \mathcal{V}_k(G)$, is the function defined as follows:
+
+  \begin{equation*}
+    flip_\mathcal{K}(v_{k, i}) = v_{(k, 2^{k-1} + 1 - i)}
+  \end{equation*}
+\end{definition}
+
+We now have the following lemma:
+
+\begin{lemma}[$flip_\mathcal{K}$ is a bijective involution]
+  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip function $flip_\mathcal{K}$ is an involution.
+\end{lemma}
+\begin{proof}
+  Let $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, applying the flip function twice, we have:
+    \begin{align*}
+      flip_\mathcal{K}(flip_\mathcal{K}(v_{k, i})) &= flip_\mathcal{K}(v_{(k, 2^{k-1} + 1 - i)}) \\
+      &= v_{(k, 2^{k-1} + 1 - (2^{k-1} + 1 - i)}) \\
+      &= v_{(k, i)}
+    \end{align*}
+  Hence, $flip_\mathcal{K}$ is an involution.
+\end{proof}
+
+We then proceed to show that the flip function on a depth vertex set maps independent sets into indpendent sets.
+
+\begin{lemma}
+  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip function $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself. 
+
+  In addition, $flip_\mathcal{K}(\mathcal{I}_{\mathcal{V}_k}(v_{k, 1})) = \mathcal{I}_{\mathcal{V}_k}(v_{k, 2^{k-1}})$.
+\end{lemma}
+
+\begin{proof}
+  
+\end{proof}
+
+The flip function for paths maps independent sets into independent sets if we can procure a similar result to ~\cite{MR4245360} to show that our flip function induces a one to one mapping from any vertex $v \in V(T)$ such that $\mathcal{I}_T(V)$ into a leaf $l \in V(T)$, then we will be able to show that the HK-property holds for perfect binary trees. 
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Open problems and future works}\label{future}
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\include{Bibliography}
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{Bibliography}
+
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\end{document}
