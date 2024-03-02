@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper provides an in-depth exploration of graph theory, focusing on the properties and implications of vertex sets, edge sets, paths, cycles, and independent sets. We delve into the concept of connected graphs and the conditions that define them. The paper further investigates the nature of trees, particularly binary trees, and their specialized form - perfect binary trees. We also introduce the concept of star centers and their significance in relation to the Erdős–Ko–Rado (EKR) theorem. The paper culminates with the introduction of the HK-property, a concept derived from the EKR theorem. This study aims to provide a comprehensive understanding of these complex concepts and inspire further research in this field.
+This study delves into the intricate world of graph theory, with a special focus on the HK-property, which is derived from the Erdős–Ko–Rado (EKR) theorem, and its relationship with perfect binary trees of any given depth. We examine the characteristics and implications of various graph elements such as vertex sets, edge sets, paths, cycles, and independent sets. The paper further explores the concept of connected graphs and the conditions that characterize them. We also investigate the nature of trees, specifically binary trees, and their specialized form - perfect binary trees. The concept of star centers and their relevance to the Erdős–Ko–Rado (EKR) theorem is also introduced. The ultimate goal of this paper is to provide a thorough understanding of these complex concepts and to stimulate further research in this fascinating field.
 
 ## Contents
 
