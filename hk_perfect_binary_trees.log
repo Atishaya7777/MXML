@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.28)  1 MAR 2024 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.28)  1 MAR 2024 21:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1048,21 +1048,21 @@ No file Bibliography.tex.
 
 ] (./hk_perfect_binary_trees.aux (./Bibliography.aux))
 Package rerunfilecheck Info: File `hk_perfect_binary_trees.out' has not changed.
-(rerunfilecheck)             Checksum: BA7490C724FFEDC0C09624CA499E86A0;974.
+(rerunfilecheck)             Checksum: 258DB73A7A6A4472D999C61F526398B6;1299.
  ) 
 Here is how much of TeX's memory you used:
- 36595 strings out of 476025
- 754651 string characters out of 5790016
+ 36597 strings out of 476025
+ 754713 string characters out of 5790016
  1872388 words of memory out of 5000000
- 56209 multiletter control sequences out of 15000+600000
+ 56211 multiletter control sequences out of 15000+600000
  519392 words of font info for 63 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  84i,14n,80p,919b,1390s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hk_perfect_binary_trees.pdf (5 pages, 223377 bytes).
+Output written on hk_perfect_binary_trees.pdf (5 pages, 227800 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
+ 181 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
  27 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

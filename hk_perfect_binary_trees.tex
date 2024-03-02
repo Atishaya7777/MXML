@@ -201,8 +201,8 @@ They ~\cite{MR4245360} also defined the escape path as follows:
 
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\subsection{Flip}\label{Flip For Perfect Binary Trees}
-
+\subsection{Depth Vertex Set and its Flip Function for Perfect Binary Trees}\label{Flip For Perfect Binary Trees}
+$ $
 Our objective is to expand the flip function to accomodate the structure of the perfect binary tree. We want this function to map independent sets from an arbitrary vertex into independent sets that contain a leaf. Doing so, we will show that the flip function is injective. Furthermore, we aim to conserve the property of the flip function being an involution.
 
 We first show that for any vertex set of a fixed depth, $k$, the vertex choice does not matter. To do so, we first define an indexing for the vertices of depth $k$. 
@@ -261,14 +261,14 @@ We will now define the flip function on the vertices of depth $k$.
 
 We now have the following lemma:
 
-\begin{lemma}[$flip_\mathcal{K}$ is a bijective involution]
+\begin{lemma}[$flip_\mathcal{K}$ is a bijective involution]\label{lemma_flip_bijective_involution}
   Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip function $flip_\mathcal{K}$ is an involution.
 \end{lemma}
 \begin{proof}
   Let $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, applying the flip function twice, we have:
     \begin{align*}
       flip_\mathcal{K}(flip_\mathcal{K}(v_{k, i})) &= flip_\mathcal{K}(v_{(k, 2^{k-1} + 1 - i)}) \\
-      &= v_{(k, 2^{k-1} + 1 - (2^{k-1} + 1 - i)}) \\
+      &= v_{(k, 2^{k-1} + 1 - (2^{k-1} + 1 - i))} \\
       &= v_{(k, i)}
     \end{align*}
   Hence, $flip_\mathcal{K}$ is an involution.
@@ -276,17 +276,25 @@ We now have the following lemma:
 
 We then proceed to show that the flip function on a depth vertex set maps independent sets into indpendent sets.
 
-\begin{lemma}
-  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip function $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself. 
+\begin{lemma}\label{lemma_flip_independent_sets}
+  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Let $\mathcal{I}^m_{\mathcal{V}_k}$ be the family of independent sets of cardinality $m$. Then, the flip function $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself. 
 
   In addition, $flip_\mathcal{K}(\mathcal{I}_{\mathcal{V}_k}(v_{k, 1})) = \mathcal{I}_{\mathcal{V}_k}(v_{k, 2^{k-1}})$.
 \end{lemma}
 
 \begin{proof}
-  
+  Let $\mathcal{I}$ be an independent set and assume two unique vertices $v_{k, i}, v_{k, j} \in flip_\mathcal{K}(\mathcal{I})$, i.e $i \neq j$. Since both $v_{k, i}$ and $v_{k, j}$ belong to the depth vertex set, and since this is a perfect binary tree, we see that $v_{k, i}$ and $v_{k, j}$ are not adjacent to each other. Hence, $flip_\mathcal{K}(\mathcal{I})$ is an independent set. Thus, $flip_\mathcal{K}$ maps independent sets into independent sets.
+
+  Now, let $\mathcal{I}^m_{\mathcal{V}_k}$ be the family of independent sets of cardinality $m$ of the depth vertex set $\mathcal{V}_k$. Then, $flip_\mathcal{K}$ is a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself.
+
+  Finally, we have $flip_\mathcal{K}(\mathcal{I}_{\mathcal{V}_k}(v_{k, 1})) = \mathcal{I}_{\mathcal{V}_k}(v_{k, 2^{k-1} + 1 - 1}) = \mathcal{I}_{\mathcal{V}_k}(v_{k, 2^{k-1}})$, as required.
+
+  Hence, $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself.
 \end{proof}
 
-The flip function for paths maps independent sets into independent sets if we can procure a similar result to ~\cite{MR4245360} to show that our flip function induces a one to one mapping from any vertex $v \in V(T)$ such that $\mathcal{I}_T(V)$ into a leaf $l \in V(T)$, then we will be able to show that the HK-property holds for perfect binary trees. 
+From $Lemma$ \ref{lemma_flip_independent_sets} and \ref{lemma_flip_bijective_involution}, we can easily see that we can pick any arbitrary vertex in any depth vertex set to show that our next flip function holds.
+
+Now, our objective is to procure a similar result to ~\cite{MR4245360} to show that our flip function induces a one to one mapping from any family of independent set $\mathcal{I}_{T}(v)$ for any vertex $v \in V(T)$ into any family of independent set $\mathcal{I}_{T}(l)$ for a leaf $l \in V(T)$.
 
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
