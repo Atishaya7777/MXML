@@ -25,6 +25,7 @@
 \usepackage{caption}
 \usepackage{adjustbox}
 %=============================
+\usepackage{algorithm2e}
 \usepackage{algorithmic}
 \usepackage{epstopdf}
 \usepackage{fancybox}
@@ -84,7 +85,7 @@
 \newtheorem{rem}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{conj}{Conjecture}[section]
-\newtheorem{procedure}{Procedure}[section]
+% \newtheorem{procedure}{Procedure}[section]
 \newtheorem{question}{Question}[section]
 \newtheorem{quest}{Question for US}[section]
 \theoremstyle{definition}
@@ -138,7 +139,7 @@ Canada}
 
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\begin{abstract}  
+\begin{abstract}
 
 
 \end{abstract}
@@ -151,7 +152,7 @@ Canada}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Introduction and Preliminaries}
 
-For a given graph $G = (V,E)$, $V(G)$ and $E(G)$ denotes the vertex sets and edge sets of the graph $G$. For an arbitrary vertex, $v \in V(G)$, all vertices adjacent to $v$ by an edge are called the neighbours of $v$ and is denoted by $N_G(v)$. The degree of a vertex $v \in V(G)$ is the cardinality of the set of neighbours of $v$, and is denoted by $deg_G(v)$. 
+For a given graph $G = (V,E)$, $V(G)$ and $E(G)$ denotes the vertex sets and edge sets of the graph $G$. For an arbitrary vertex, $v \in V(G)$, all vertices adjacent to $v$ by an edge are called the neighbours of $v$ and is denoted by $N_G(v)$. The degree of a vertex $v \in V(G)$ is the cardinality of the set of neighbours of $v$, and is denoted by $deg_G(v)$.
 
 For $n \in \mathbb{Z^+}$ such that  $0 \leq n \leq |V(G)|$, a path of length $n$ in $G$ is a sequence of distinct vertices $v_1, v_2, \ldots, v_n$ such that $v_i$ is adjacent to $v_{i+1}$ for $1 \leq i \leq n-1$. A cycle is an extension of a path such that the last vertex is connected to the first vertex, i.e for a path of length $n$, $v_nv_i \in E(G)$. As such, the length of the cycle is $n + 1$.
 
@@ -162,13 +163,13 @@ A tree is a connected graph with no cycles, it is denoted by $T$. For a vertex $
 The star centers of a graph are interesting because they relate to the EKR theorem. From the EKR theorems, Holroyd and Talbot, \cite{MR2763040}, introduced the HK-property:
 
 \begin{conj}[HK-property]
-    For any k $\geq$ 1 and any tree T, there exists a leaf l of T such that $\left|\mathcal{I}^n_T(v)\right| \leq \left|\mathcal{I}^n_T(l)\right|$ for each $v \in V(T)$.
+  For any k $\geq$ 1 and any tree T, there exists a leaf l of T such that $\left|\mathcal{I}^n_T(v)\right| \leq \left|\mathcal{I}^n_T(l)\right|$ for each $v \in V(T)$.
 \end{conj}
 
-This was in order to hopefully aid in the study of the EKR property which Holroyd and Talbot \cite{MR2136060} conjectured as follows:```````````````````'''''''''''''''''''
+This was in order to hopefully aid in the study of the EKR property which Holroyd and Talbot \cite{MR2136060} conjectured as follows:
 
 \begin{conj}[k-ERK]
-    Let G be a graph, and let $\mu(G)$ be the size of its smallest maximal independent set. Then G is k-EKR for every 1 $\leq$ k $\leq$ $\frac{\mu(G)}{2}$
+  Let G be a graph, and let $\mu(G)$ be the size of its smallest maximal independent set. Then G is k-EKR for every 1 $\leq$ k $\leq$ $\frac{\mu(G)}{2}$
 \end{conj}
 
 The HK-property holds true for $k \leq 4$, but was proven false independetly by ~\cite{MR3271819, MR3612439, MR2523796}. The counterexample that that they arrived at is a type of graph that is defined as a class of trees called "lobsters" ~\cite{MR4245360}. This is interesting for this paper as the counterexample graph resembles a binary tree.
@@ -185,18 +186,18 @@ In section 2, we introduce the flip function and escape paths. In section 3, we 
 In ~\cite{MR4245360}, Estrugo and Pastine came up with a generalized flip function which is defined as follows:
 
 \begin{definition}
-    Let P be a $(1,n)$-path with the vertex set \{1, 2, \ldots, n\}, and let flip : V(P) $\rightarrow$ V(P) be defined by flip(v) = n + 1 - v, for $1\leq v \leq n$.
+  Let P be a $(1,n)$-path with the vertex set \{1, 2, \ldots, n\}, and let flip : V(P) $\rightarrow$ V(P) be defined by flip(v) = n + 1 - v, for $1\leq v \leq n$.
 \end{definition}
 
 This definition admits the following properties ~\cite{MR4245360}:
 \begin{lemma}
-    The flip function maps independent sets into independent sets, and induces a bijection from $\mathcal{I}^k_p$ onto itself. Furthermore, flip($\mathcal{I}_p(1))$ = $\mathcal{I}_p(n)$.
+  The flip function maps independent sets into independent sets, and induces a bijection from $\mathcal{I}^k_p$ onto itself. Furthermore, flip($\mathcal{I}_p(1))$ = $\mathcal{I}_p(n)$.
 \end{lemma}
 
 They ~\cite{MR4245360} also defined the escape path as follows:
 
 \begin{definition}
-    Let $G$ be a graph and $P = v_1v_2, \ldots v_n$ a path of length $n$ such that $P \subset G$. We say that $P$ is an escape path from $v_1$ to $v_n$ in $G$ if deg($v_n)$ = 1 and deg($v_i$) = 2 for $2 \leq i \leq n-2$. If this is the case we say that $v_1$ has an escape path to $v_n$.
+  Let $G$ be a graph and $P = v_1v_2, \ldots v_n$ a path of length $n$ such that $P \subset G$. We say that $P$ is an escape path from $v_1$ to $v_n$ in $G$ if deg($v_n)$ = 1 and deg($v_i$) = 2 for $2 \leq i \leq n-2$. If this is the case we say that $v_1$ has an escape path to $v_n$.
 \end{definition}
 
 
@@ -205,7 +206,7 @@ They ~\cite{MR4245360} also defined the escape path as follows:
 $ $
 Our objective is to expand the flip function to accomodate the structure of the perfect binary tree. We want this function to map independent sets from an arbitrary vertex into independent sets that contain a leaf. Doing so, we will show that the flip function is injective. Furthermore, we aim to conserve the property of the flip function being an involution.
 
-We first show that for any vertex set of a fixed depth, $k$, the vertex choice does not matter. To do so, we first define an indexing for the vertices of depth $k$. 
+We first show that for any vertex set of a fixed depth, $k$, the vertex choice does not matter. To do so, we first define an indexing for the vertices of depth $k$.
 
 \begin{definition}[Depth Vertex]
   Let $\mathcal{V}_k \in V(T)$ be the set of vertices of depth $k$. We call $\mathcal{V}_k$ as the depth vertex set of depth $k$. Index all vertices in $\mathcal{V}_k$ from left to right as $v_{k, i}$, where $k$ is the depth of the vertex and $i$ is the index of the vertex in $\mathcal{V}_k$ such that $1 \leq i \leq 2^{k - 1}$.
@@ -219,34 +220,34 @@ We first show that for any vertex set of a fixed depth, $k$, the vertex choice d
       level 2/.style={sibling distance=4cm},
       level 3/.style={sibling distance=2cm},
       every node/.style={circle, draw, fill=white}]
-      \node (v11) {$v_{1,1}$}
-        child {node (v21) {$v_{2,1}$}
-          child {node (v31) {$v_{3,1}$}
+    \node (v11) {$v_{1,1}$}
+    child {node (v21) {$v_{2,1}$}
+        child {node (v31) {$v_{3,1}$}
             child {node {$\vdots$}}
             child {node {$\vdots$}}
           }
-          child {node (v32) {$v_{3,2}$}
+        child {node (v32) {$v_{3,2}$}
             child {node {$\vdots$}}
             child {node {$\vdots$}}
           }
-        }
-        child {node (v22) {$v_{2,2}$}
-          child {node (v33) {$v_{3,3}$}
+      }
+    child {node (v22) {$v_{2,2}$}
+        child {node (v33) {$v_{3,3}$}
             child {node {$\vdots$}}
             child {node {$\vdots$}}
           }
-          child {node (v34) {$v_{3,4}$}
+        child {node (v34) {$v_{3,4}$}
             child {node {$\vdots$}}
             child {node {$\vdots$}}
           }
-        };
+      };
 
-        \begin{scope}[on background layer]
-          \node[draw,rectangle,fit=(v11),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 1}] {};
-          \node[draw,rectangle,fit=(v21) (v22),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 2}] {};
-          \node[draw,rectangle,fit=(v31) (v32) (v33) (v34),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 3}] {};
-        \end{scope}
-        \end{tikzpicture}
+    \begin{scope}[on background layer]
+      \node[draw,rectangle,fit=(v11),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 1}] {};
+      \node[draw,rectangle,fit=(v21) (v22),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 2}] {};
+      \node[draw,rectangle,fit=(v31) (v32) (v33) (v34),inner xsep=10pt, inner ysep=2pt, fill=blue!10, label=right:{depth = 3}] {};
+    \end{scope}
+  \end{tikzpicture}
 \end{figure}
 
 We will now define the flip function on the vertices of depth $k$.
@@ -255,29 +256,48 @@ We will now define the flip function on the vertices of depth $k$.
   Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip of $\mathcal{V}_k$ in $T$, denoted by $flip_\mathcal{K}: \mathcal{V}_k(G) \rightarrow \mathcal{V}_k(G)$, is the function defined as follows:
 
   \begin{equation*}
-    flip_\mathcal{K}(v_{k, i}) = v_{(k, 2^{k-1} + 1 - i)}
+    flip_\mathcal{K}(v_{(k, i)}) = \begin{cases}
+      v_{(k, 2^{k-1} + 1 - i)}  & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \not\subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)}) \\
+      v_{(k, 2^{k-1} + 1 - i)}, & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})     \\
+      flip_N(v_{(k, i)}),       & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})
+    \end{cases}
+  \end{equation*}
+
+  \text{where, $flip_N$ is defined as:}
+  \begin{equation*}
+    flip_N(v_{(k, i)}) =  flip_\mathcal{K}(u), \text{ for all } u \in N_T(v_{(k, i)})
   \end{equation*}
 \end{definition}
 
-We now have the following lemma:
+The definition flips the vertices in the same vertex depth set and checks if the neighbours of the flipped vertex are in the independent set. If they are, then the flip function flips the neighbours of the vertex recursively.
+
+We then have the following lemma:
 
 \begin{lemma}[$flip_\mathcal{K}$ is a bijective involution]\label{lemma_flip_bijective_involution}
   Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip function $flip_\mathcal{K}$ is an involution.
 \end{lemma}
 \begin{proof}
-  Let $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, applying the flip function twice, we have:
-    \begin{align*}
-      flip_\mathcal{K}(flip_\mathcal{K}(v_{k, i})) &= flip_\mathcal{K}(v_{(k, 2^{k-1} + 1 - i)}) \\
-      &= v_{(k, 2^{k-1} + 1 - (2^{k-1} + 1 - i))} \\
-      &= v_{(k, i)}
-    \end{align*}
-  Hence, $flip_\mathcal{K}$ is an involution.
+  Let $\mathcal{V}_k$ be the depth vertex set of depth $k$. Since the function is defined recursively, we can evaulate the flipping step and then show that the flip function on the neighbours of a vertex also results in an involution.
+
+  We first evaluate the flipping step for when the neighbours of the vertex are not in the independent set. Then, applying the flip function twice, we have:
+
+  \begin{align*}
+    flip_\mathcal{K}(flip_\mathcal{K}(v_{k, i})) & = flip_\mathcal{K}(v_{(k, 2^{k-1} + 1 - i)}) \\
+                                                 & = v_{(k, 2^{k-1} + 1 - (2^{k-1} + 1 - i))}   \\
+                                                 & = v_{(k, i)}
+  \end{align*}
+  Hence, $flip_\mathcal{K}$ is an involution when the neighbours of the vertex are not in the independent set.
+
+  We now have to show that the flip function on a vertex when the neighbours of the vertex are in the same independent set is also an involution.
+
+  Consider a vertex, $v_{(k, i)}$, such that $N_T(v_{(k, 2^{k-1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k-1} + 1 - i)})$. Then, when we apply the $flip_\mathcal{K}$ function twice, we obtain that:
+
 \end{proof}
 
 We then proceed to show that the flip function on a depth vertex set maps independent sets into indpendent sets.
 
 \begin{lemma}\label{lemma_flip_independent_sets}
-  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Let $\mathcal{I}^m_{\mathcal{V}_k}$ be the family of independent sets of cardinality $m$. Then, the flip function $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself. 
+  Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Let $\mathcal{I}^m_{\mathcal{V}_k}$ be the family of independent sets of cardinality $m$. Then, the flip function $flip_\mathcal{K}$ maps independent sets into independent sets and induces a bijection from $\mathcal{I}^m_{\mathcal{V}_k}$ onto itself.
 
   In addition, $flip_\mathcal{K}(\mathcal{I}_{\mathcal{V}_k}(v_{k, 1})) = \mathcal{I}_{\mathcal{V}_k}(v_{k, 2^{k-1}})$.
 \end{lemma}
@@ -295,6 +315,68 @@ We then proceed to show that the flip function on a depth vertex set maps indepe
 From $Lemma$ \ref{lemma_flip_independent_sets} and \ref{lemma_flip_bijective_involution}, we can easily see that we can pick any arbitrary vertex in any depth vertex set to show that our next flip function holds.
 
 Now, our objective is to procure a similar result to ~\cite{MR4245360} to show that our flip function induces a one to one mapping from any family of independent set $\mathcal{I}_{T}(v)$ for any vertex $v \in V(T)$ into any family of independent set $\mathcal{I}_{T}(l)$ for a leaf $l \in V(T)$.
+\newpage
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Independent Sets Algorithm}\label{coclique-algorithm}
+$ $
+To validate our conjecture, we present a simple algorithm to generate all independent sets of a perfect binary tree of cardinality $k$. We then compare the number of independent sets containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
+
+To begin with, we present the following algorithm to generate a perfect binary tree:
+
+\RestyleAlgo{ruled}
+
+\SetKwComment{Comment}{/* }{ */}
+
+\begin{algorithm}[hbt!]
+  \caption{Perfect Binary Tree Generator}\label{alg:tree-generator}
+  \KwData{$n \geq 0$}
+  \KwResult{A perfect binary tree graph and its leaves}
+
+  \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
+  \SetKwFunction{FSub}{get\_leaves}
+
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{$n$}}{
+    \eIf{$n = 0$}{
+      \Return{Graph()}
+    }{
+      $g \gets Graph()$\;
+      $g$.add\_vertices([$2^{n - 1}$])\;
+      \For{$i$ in range($2^{n-1} - 1$)}{
+        $g$.add\_edge($i$, $2*i + 1$)\;
+        $g$.add\_edge($i$, $2*i + 2$)\;
+      }
+      \Return{$g$}
+    }
+  }
+\end{algorithm}
+
+This algorithm generates a perfect binary tree of depth $n$. We then present the following algorithm to generate all the leaves of the perfect binary tree:
+
+\begin{algorithm}[hbt!]
+  \caption{Perfect Binary Tree Leaves Generator}\label{alg:leaves-generator}
+  \KwData{$n \geq 0$}
+  \KwResult{A perfect binary tree graph's leaves' labels}
+
+  \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
+  \SetKwFunction{FSub}{get\_leaves}
+
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{$n$}}{
+    $num\_vertices \gets 2^{n - 1}$\;
+    $leaves \gets []$\;
+    $last\_row\_start \gets int(log(n - 1, 2)) - 1$\;
+    \For{$vertex$ in range($last\_row\_start$, $num\_vertices$)}{
+      $leaves$.append($vertex + num\_vertices - 1$)\;
+    }
+    \Return{$leaves$}
+  }
+\end{algorithm}
+
+\newpage
+%______________________________________________________________
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
