@@ -14,8 +14,5 @@ This study delves into the intricate world of graph theory, with a special focus
 To build the paper, you need a LaTeX distribution that includes `pdflatex`. Once you have that, you can build the paper using the following command:
 
 ```
-pdflatex hk_perfect_binary_trees.tex
-bibtex hk_perfect_binary_trees
-pdflatex hk_perfect_binary_trees.tex
-pdflatex hk_perfect_binary_trees.tex
+cd MXML && make
 ```

@@ -1,6 +1,6 @@
 PDFLATEX = pdflatex
 BIBTEX = bibtex
-TEXFILE = main
+TEXFILE = hk_perfect_binary_trees
 
 all: $(TEXFILE).pdf
 
