@@ -318,11 +318,11 @@ Now, our objective is to procure a similar result to ~\cite{MR4245360} to show t
 \newpage
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\section{Independent Sets Algorithm}\label{coclique-algorithm}
+\section{Independent Sets Algorithm and Analysis}\label{coclique-algorithm}
 $ $
 To validate our conjecture, we present a simple algorithm to generate all independent sets of a perfect binary tree of cardinality $k$. We then compare the number of independent sets containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
 
-To begin with, we present the following algorithm to generate a perfect binary tree:
+To begin with, we present the following algorithm to generate a perfect binary tree of depth $n$:
 
 \RestyleAlgo{ruled}
 
@@ -330,7 +330,7 @@ To begin with, we present the following algorithm to generate a perfect binary t
 
 \begin{algorithm}[hbt!]
   \caption{Perfect Binary Tree Generator}\label{alg:tree-generator}
-  \KwData{$n \geq 0$}
+  \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
   \KwResult{A perfect binary tree graph and its leaves}
 
   \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
@@ -342,8 +342,8 @@ To begin with, we present the following algorithm to generate a perfect binary t
       \Return{Graph()}
     }{
       $g \gets Graph()$\;
-      $g$.add\_vertices([$2^{n - 1}$])\;
-      \For{$i$ in range($2^{n-1} - 1$)}{
+      $g$.add\_vertices([$2^n$])\;
+      \For{$i$ in range($2^n - 1$)}{
         $g$.add\_edge($i$, $2*i + 1$)\;
         $g$.add\_edge($i$, $2*i + 2$)\;
       }
@@ -352,27 +352,80 @@ To begin with, we present the following algorithm to generate a perfect binary t
   }
 \end{algorithm}
 
-This algorithm generates a perfect binary tree of depth $n$. We then present the following algorithm to generate all the leaves of the perfect binary tree:
+The algorithm will generate a perfect binary tree of this form:
+\begin{figure}[hbt!]
+  \centering
+
+  \begin{tikzpicture}[scale=0.7,level distance=2cm,
+      level 1/.style={sibling distance=8cm},
+      level 2/.style={sibling distance=4cm},
+      level 3/.style={sibling distance=2cm},
+      every node/.style={circle, draw, fill=white}]
+    \node (0) {$0$}
+    child {node (1) {$1$}
+        child {node (3) {$3$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+        child {node (4) {$4$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+      }
+    child {node (2) {$2$}
+        child {node (5) {$5$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+        child {node (6) {$6$}
+            child {node {$\vdots$}}
+            child {node {$\vdots$}}
+          }
+      };
+  \end{tikzpicture}
+\end{figure}
+
+It is easy to see that the leaves will start with the value of $\left\lfloor\dfrac{2^{n + 1} - 1}{2}\right\rfloor$, where $n$ is the depth of the perfect binary tree.
+
+\newpage
+So to generate all the leaves of the perfect binary tree of depth $n$, we present the following algorithm:
 
 \begin{algorithm}[hbt!]
   \caption{Perfect Binary Tree Leaves Generator}\label{alg:leaves-generator}
-  \KwData{$n \geq 0$}
-  \KwResult{A perfect binary tree graph's leaves' labels}
+  \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
+  \KwResult{A perfect binary tree graph's leaves}
 
   \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
-  \SetKwFunction{FSub}{get\_leaves}
 
   \SetKwProg{Fn}{Function}{:}{}
   \Fn{\FMain{$n$}}{
-    $num\_vertices \gets 2^{n - 1}$\;
+    $num\_vertices \gets 2^{n + 1} - 1$\;
     $leaves \gets []$\;
-    $last\_row\_start \gets int(log(n - 1, 2)) - 1$\;
+    $last\_row\_start \gets floor(num\_vertices / 2)$\;
     \For{$vertex$ in range($last\_row\_start$, $num\_vertices$)}{
-      $leaves$.append($vertex + num\_vertices - 1$)\;
+      $leaves$.append($vertex$)\;
     }
     \Return{$leaves$}
   }
 \end{algorithm}
+
+We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a independent set of maximum cardinality for our perfect binary tree.
+
+\begin{algorithm}[hbt!]
+  \caption{Maximum Indpendent Set Algorithm}\label{alg:max-independent-set}
+  \KwData{A perfect binary tree graph $T$}
+  \KwResult{A maximum independent set of $T$}
+
+  \SetKwFunction{FMain}{maximum\_independent\_set}
+
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{$T$}}{
+    $cliquer \gets Cliquer(T)$\;
+    \Return{$cliquer$.get\_maximum\_independent\_set()}
+  }
+\end{algorithm}
+
+
 
 \newpage
 %______________________________________________________________
