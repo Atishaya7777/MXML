@@ -1,0 +1,106 @@
+%to present, remove handout from square brackets
+\documentclass[10pt,]{beamer}
+
+\usepackage{pgfpages}
+
+\mode<handout>{%
+    \pgfpagesuselayout{4 on 1}[a4paper,landscape] 
+    %\setbeameroption{show notes}
+    \setbeamercolor{note page}{bg=white}
+}
+
+\usepackage[]{amsmath}
+\usepackage{amsthm,amssymb,amsfonts}
+\usepackage{graphicx,xfrac,mathrsfs,subcaption}
+\usepackage{tikz,pgfplots}
+\usepackage{multicol,multirow}
+
+\usetikzlibrary{positioning,automata}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}}
+}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% long and short versions
+\newcommand{\extra}[1]{}
+\newcommand{\short}[1]{#1}
+
+\usetheme{Boadilla}
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+		\usebeamerfont{author in head/foot}\insertshortauthor
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+		\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+		\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+
+\setbeamertemplate{navigation symbols}{}
+\title[HK-property | Perfect Binary Trees]{Exploring perfect binary trees with relation to the HK-property}
+\subtitle{MXML Presentation} %This is where you can specify the conference name or presentation venue
+\author[A.M, M.N.S]{Atishaya Maharjan \\ Mahsa N. Shirazi}
+\date{\today}
+
+\begin{document}
+\parskip = \baselineskip
+
+\begin{frame} %Title page
+    \titlepage
+\end{frame}
+
+% TODO: Add a citation to Erdos-Ko-Rado Theorems by Chris Godsil
+\begin{frame}\frametitle{EKR Theorem}
+    \begin{definition}[Intersecting family]
+        A family of subsets $\mathcal{F}$ of some set is \textbf{intersecting} if any two members of $\mathcal{F}$ have a non-empty intersection.
+    \end{definition}
+    \begin{itemize}
+        \item The \textbf{Erd\H{o}s-Ko-Rado}  theorem limits the number of sets in an intersecting family.
+    \end{itemize}
+    \begin{theorem}[EKR Theorem]
+        If $\mathcal{F}$ is an intersecting family of $k$-subsets of an $n$-set (cardinality of the set is $n$), then
+        \begin{itemize}
+            \item $|\mathcal{F}| \leq \binom{n - 1}{k - 1}$
+            \item If equality holds, $\mathcal{F}$ consists of the $k$-subsets that contain $i$, for some $i$ in the $n$-set.
+        \end{itemize}
+    \end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{The Several Variable Case}
+
+    \begin{example}[example title]
+        You can add examples
+    \end{example}\pause
+
+    \begin{theorem}[Theorem name]
+        and theorems
+    \end{theorem}\pause %There are fancier ways to make things show up one at a time, but putting in pauses is the easiest
+
+    \begin{definition}[the concept you are defining]
+        and definitions, such as \(\mathbb{D} = \left\{z\in \mathbb{C} :\: \left|z\right|<1 \right\}\)
+    \end{definition}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Thank You!}
+    \framesubtitle{Summary}
+    A slideshow usually ends with a summary slide.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
