@@ -359,7 +359,7 @@ The algorithm will generate a perfect binary tree of this form:
       level 1/.style={sibling distance=8cm},
       level 2/.style={sibling distance=4cm},
       level 3/.style={sibling distance=2cm},
-      every node/.style={circle, draw, fill=white}]
+      every node/.style={circle, draw, fill=wfhite}]
     \node (0) {$0$}
     child {node (1) {$1$}
         child {node (3) {$3$}
@@ -425,7 +425,6 @@ We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a indep
 \end{algorithm}
 
 
-
 \newpage
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -433,6 +432,18 @@ We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a indep
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Open problems and future works}\label{future}
+
+As a side note, while exploring the properties of the perfect binary tree, we happened to stumble upon a conjecture that we believe to be true. We present it here for future work:
+
+\begin{conj}[Independent Number of a Perfect Binary Tree]
+  For a given perfect binary tree of depth $d$:
+  \begin{align*}
+    \alpha = \displaystyle\sum_{i = 0}^{\lfloor\frac{n}{2}\rfloor} 2^{d - 2i}
+  \end{align*}
+\end{conj}
+
+The conjecture follows from the idea that all the leaves are in the maximum coclique of the perfect binary tree and each successive level has a parity based on the depth of the perfect binary tree. We aim to prove this conjecture in the future.
+
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
