@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{EKR Theorem}{5}{0}{1}
+\beamer@sectionintoc {2}{HK-property}{6}{0}{2}
+\beamer@sectionintoc {3}{Perfect Binary Trees}{10}{0}{3}
