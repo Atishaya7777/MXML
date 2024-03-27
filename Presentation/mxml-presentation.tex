@@ -17,6 +17,8 @@
 \usepackage{tikz,pgfplots}
 \usepackage{tikzpagenodes}
 \usepackage{multicol,multirow}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
 
 \usetikzlibrary{positioning,automata}
 \usetikzlibrary{matrix}
@@ -240,6 +242,76 @@
     \end{figure}
 \end{frame}
 
+\section{Does a perfect binary tree satisfy the HK property?}
+\begin{frame}\frametitle{Does a perfect binary tree satisfy the HK property?}
+    \begin{itemize}
+        \setlength\itemsep{2em}
+        \item Probably.
+        \item The lobster partially satisfies the HK property and the perfect binary tree has a close relation to the lobster.
+        \item In addition, the perfect binary tree is very symmetric and has a lot of structure that we can maniputlate.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    \begin{itemize}
+        \item
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{An Algorithm to Generate Pefect Binary Trees}
+    \begin{algorithm}[H]
+        \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
+        \KwResult{A perfect binary tree graph's leaves}
+
+        \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
+
+        \SetKwProg{Fn}{Function}{:}{}
+        \Fn{\FMain{$n$}}{
+            $num\_vertices \gets 2^{n + 1} - 1$\;
+            $leaves \gets []$\;
+            $last\_row\_start \gets floor(num\_vertices / 2)$\;
+            \For{$vertex$ in range($last\_row\_start$, $num\_vertices$)}{
+                $leaves$.append($vertex$)\;
+            }
+            \Return{$leaves$}
+        }
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}\frametitle{Output of the Perfect Binary Trees}
+    The algorithm will generate a perfect binary tree of this form:
+    \begin{figure}[hbt!]
+        \centering
+
+        \begin{tikzpicture}[scale=0.7,level distance=2cm,
+                level 1/.style={sibling distance=8cm},
+                level 2/.style={sibling distance=4cm},
+                level 3/.style={sibling distance=2cm},
+                every node/.style={circle, draw, fill=white}]
+            \node (0) {$0$}
+            child {node (1) {$1$}
+                    child {node (3) {$3$}
+                            child {node {$\vdots$}}
+                            child {node {$\vdots$}}
+                        }
+                    child {node (4) {$4$}
+                            child {node {$\vdots$}}
+                            child {node {$\vdots$}}
+                        }
+                }
+            child {node (2) {$2$}
+                    child {node (5) {$5$}
+                            child {node {$\vdots$}}
+                            child {node {$\vdots$}}
+                        }
+                    child {node (6) {$6$}
+                            child {node {$\vdots$}}
+                            child {node {$\vdots$}}
+                        }
+                };
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
@@ -248,8 +320,6 @@
     \framesubtitle{Summary}
     A slideshow usually ends with a summary slide.
 \end{frame}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
