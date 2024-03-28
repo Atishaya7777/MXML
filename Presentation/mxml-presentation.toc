@@ -1,4 +1,7 @@
 \beamer@sectionintoc {1}{EKR Theorem}{5}{0}{1}
 \beamer@sectionintoc {2}{HK-property}{6}{0}{2}
 \beamer@sectionintoc {3}{Perfect Binary Trees}{10}{0}{3}
-\beamer@sectionintoc {4}{Does a perfect binary tree satisfy the HK property?}{12}{0}{4}
+\beamer@sectionintoc {4}{Does a perfect binary tree satisfy the HK property?}{11}{0}{4}
+\beamer@sectionintoc {5}{Idea 1}{12}{0}{5}
+\beamer@sectionintoc {6}{Idea 2}{20}{0}{6}
+\beamer@sectionintoc {7}{Idea 2}{22}{0}{7}

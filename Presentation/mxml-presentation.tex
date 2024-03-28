@@ -1,8 +1,10 @@
 \documentclass[10pt,]{beamer}
+\hypersetup{pdfpagemode=FullScreen}
 
 \usepackage{pgfpages}
 \usepackage[style=authortitle,backend=bibtex]{biblatex}
-\bibliography{Bibliography}
+\usepackage{animate}
+% \bibliography{Bibliography}
 \addbibresource{Bibliography.bib}
 
 \mode<handout>{%
@@ -42,18 +44,33 @@
 \newcommand{\extra}[1]{}
 \newcommand{\short}[1]{#1}
 
-% \usetheme{Warsaw}
-\definecolor{faded}{HTML}{8693AB}
+% Custom colors
+\definecolor{darkGreen}{HTML}{023618}
+\definecolor{darkPurple}{HTML}{1C0221}
+\definecolor{textGreen}{HTML}{628B48}
+
+% Custom theorem styles
 \makeatletter
-\def\th@mystyle{%
+\def\th@conjectureStyle{%
     \normalfont % body font
-    \setbeamercolor{block title example}{bg=faded,fg=white}
-    \setbeamercolor{block body example}{bg=faded!20,fg=black}
+    \setbeamercolor{block title example}{bg=darkGreen,fg=white}
+    \setbeamercolor{block body example}{bg=darkGreen!20,fg=black}
     \def\inserttheoremblockenv{exampleblock}
   }
 \makeatother
-\theoremstyle{mystyle}
+\theoremstyle{conjectureStyle}
 \newtheorem*{conjecture}{Conjecture}
+
+\makeatletter
+\def\th@notationStyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=darkPurple,fg=white}
+    \setbeamercolor{block body example}{bg=darkPurple!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{notationStyle}
+\newtheorem*{notation}{Notation}
 
 \usetheme{Boadilla}
 \makeatother
@@ -118,10 +135,10 @@
         A family of subsets $\mathcal{F}$ of some set is \textbf{intersecting} if any two members of $\mathcal{F}$ have a non-empty intersection.
     \end{definition}
     \begin{itemize}
-        \item The \textbf{Erd\H{o}s-Ko-Rado}  theorem limits the number of sets in an intersecting family.
+        \item The \textbf{Erd\H{o}s-Ko-Rado} theorem limits the number of sets in an intersecting family.
     \end{itemize}
     \begin{theorem}[EKR Theorem]
-        \footcite{Godsil_Meagher_2015} If $\mathcal{F}$ is an intersecting family of $k$-subsets of an $n$-set (cardinality of the set is $n$), then
+        \footcite{Erds1961INTERSECTIONTF} If $\mathcal{F}$ is an intersecting family of $k$-subsets of an $n$-set (cardinality of the set is $n$), then
         \begin{itemize}
             \item $|\mathcal{F}| \leq \binom{n - 1}{k - 1}$
             \item If equality holds, $\mathcal{F}$ consists of the $k$-subsets that contain $i$, for some $i$ in the $n$-set.
@@ -131,8 +148,6 @@
 
 \section{HK-property}
 \begin{frame}\frametitle{HK-property}
-    Some definitions before we get into the property:
-
     \begin{definition}[Cocliques]
         \begin{itemize}
             \item A \textbf{coclique} in a graph is a set of vertices such that no two vertices in the set are adjacent.
@@ -142,19 +157,20 @@
 
     \begin{definition}[Stars and Stars Center]
         \begin{itemize}
-            \item Let $G = (V, E)$ be a graph, and $v \in V(G)$. The family $\mathcal{I}^k_G(v) = {A \in \mathcal{I}^k_G : v \in A}$ is called a \textbf{star} of $\mathcal{I}^k_G$ and $v$ is called it's \textbf{star center}.
+            \item Let $G = (V, E)$ be a graph, and $v \in V$. The set of all cocliques of $G$ of cardinality $n$ is denoted as $\mathcal{I}^n_T$.
+            \item For $v \in V$, the family $\mathcal{I}^n_G(v) = \{A \in \mathcal{I}^n_G : v \in A\}$ is called a \textbf{star} of $\mathcal{I}^n_G$ and $v$ is called its \textbf{start center}.
         \end{itemize}
     \end{definition}
 
     \begin{definition}[k-EKR graph]
-        A graph is said to be $k$-EKR if for any family of indepdent sets $\mathcal{I}^k_G$ of size $k$, the intersection of any two sets in $\mathcal{I}^k_G$ is non-empty and that $|\mathcal{F}| \leq \mathcal{I}^k_G(v)$, for a vertex $v \in V(G)$.
+        A graph is said to be $k$-EKR if for any family of cocliques $\mathcal{F} \in \mathcal{I}^n_G$ with the intersection of any two sets in $\mathcal{F}$ being non-empty, there is a vertex $v \in V$ such that $|\mathcal{F}| \leq \mathcal{I}^n_G(v)$.
     \end{definition}
 \end{frame}
 
 \begin{frame}\frametitle{HK-property}
     Studying the EKR theorem, \footcite{HOLROYD2005165} Holroyd and Talbot made the following two conjectures:
     \begin{conjecture}[k-EKR Conjecture]
-        Let $G$ be a graph, and let $\mu(G)$ be the size of its smallest maximal independent set. Then $G$ is $k$-EKR for every $1 \leq k \leq \frac{\mu(G)}{2}$.
+        Let $G$ be a graph, and let $\mu(G)$ be the size of its smallest maximal coclique. Then $G$ is $k$-EKR for every $1 \leq k \leq \frac{\mu(G)}{2}$.
     \end{conjecture}
     \begin{conjecture}[HK-Property]
         For any $k \geq 1$ and any tree $T$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
@@ -191,13 +207,18 @@
                         }
                 };
         \end{tikzpicture}
-        \caption*{The largest k-star for $k \geq 5$ is centered at $v_0$}
+        \caption*{Figure 1: The largest k-star for $k \geq 5$ is centered at $v_0$}
     \end{figure}
 \end{frame}
 
-\begin{frame}\frametitle{Some graphs that DO satisfy the HK-property}
-    \footcite{MR4245360} The HK-property holds for spiders, caterpillars, and (partially) lobsters.
-    <INSERT IMAGES HERE WHEN YOU HAVE TIME>
+\begin{frame}\frametitle{Some graphs that DO satisfy the HK-property \footcite{MR2763040}}
+    \begin{itemize}
+        \item \textbf{Caterpillars:} A tree such that when you remove the leaves and incident edges, you get a path.
+        \item \textbf{Lobsters*:} A tree such that when you remove the leaves and incident edges, you get a caterpillar.
+        \item \textbf{Spiders:} A tree with exactly one vertex of degree greater than 2.
+    \end{itemize}
+
+    *Note: The graph shown in Figure 1 is a lobster. As such, it does not strictly satisfy the HK-property. Instead, the largest stars are centered at the vertices of degrees 1 or 2.
 \end{frame}
 
 \section{Perfect Binary Trees}
@@ -213,13 +234,60 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}\frametitle{Perfect Binary Tree}
-    \begin{definition}
-        Let $\mathcal{V}_k \in V(T)$ be the set of vertices of depth $k$. We call $\mathcal{V}_k$ as the depth vertex set of depth $k$. Index all vertices in $\mathcal{V}_k$ from left to right as $v_{k, i}$, where $k$ is the depth of the vertex and $i$ is the index of the vertex in $\mathcal{V}_k$ such that $1 \leq i \leq 2^{k - 1}$.
+
+
+\section{Does a perfect binary tree satisfy the HK property?}
+\begin{frame}\frametitle{Does a perfect binary tree satisfy the HK property?}
+    \begin{itemize}
+        \setlength\itemsep{2em}
+        \item Probably.
+        \item The lobster almost satisfies the HK property and the perfect binary tree has a close relation to the lobster.
+        \item In addition, the perfect binary tree is very symmetric and has a lot of structure that we can maniputlate.
+    \end{itemize}
+\end{frame}
+
+\section{Idea 1}
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    \begin{itemize}
+        \item Estrugo and Pastine\footcite{MR2763040} proved the HK-property holds for caterpillars and partially lobsters by utilizing a `flip' function alongside an `escape-path' property.
+
+        \item Why not expand the definition of the flip function to fit it to perfect binary trees?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    \begin{definition}[Escape Paths]
+        \footcite{MR2763040}Let $G = (V, E)$ be a graph and $P = v_1v_2, \ldots , v_n$ a path of length $n$ such that $P \subset G$. We say that $P$ is an \textbf{escape path} from $v_1$ to $v_n$ if $deg(v_n) = 1$ and $deg(v_i) = 2$ for every $2 \leq i \leq n - 2$. If this is the case, we say that $v_1$ has an escape path to $v_n$.
     \end{definition}
+
+    \begin{definition}[Flip function]
+        Let $G = (V, E)$ be a graph and $P = v_1v_2, \ldots, v_n$ be an escape path from $v_1$ to $v_n$ in $G$. Then the flip of $P$ in $G$, flip$_P$ : $V \rightarrow V$, is the function defined as follows:
+        \begin{align*}
+            \text{flip}_P(v) = \begin{cases}
+                                   v             & \text{if } v \not\in V(P)   \\
+                                   v_{n + 1 - i} & \text{if } v = v_i \in V(P)
+                               \end{cases}
+        \end{align*}
+    \end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    We need to address the following questions:
+    \begin{itemize}
+        \item How do we enumerate our vertices in the perfect binary tree so that we can use it in the flip function?
+        \item How do we define a flip function so that it works for any vertex in the perfect binary tree?
+        \item How do we define the escape paths in the perfect binary tree?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    \begin{notation}
+        Let $\mathcal{V}_k \in V(T)$ be the set of vertices of depth $k$. We call $\mathcal{V}_k$ as the depth vertex set of depth $k$. Index all vertices in $\mathcal{V}_k$ from left to right as $v_{k, i}$, where $k$ is the depth of the vertex and $i$ is the index of the vertex in $\mathcal{V}_k$ such that $1 \leq i \leq 2^{k - 1}$.
+    \end{notation}
     \begin{figure}
         \centering
-        \begin{tikzpicture}[scale=0.4,level distance=4cm,
+        \begin{tikzpicture}[scale=0.37,level distance=4cm,
                 level 1/.style={sibling distance=8cm},
                 level 2/.style={sibling distance=4cm},
                 level 3/.style={sibling distance=2cm},
@@ -242,23 +310,56 @@
     \end{figure}
 \end{frame}
 
-\section{Does a perfect binary tree satisfy the HK property?}
-\begin{frame}\frametitle{Does a perfect binary tree satisfy the HK property?}
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    To show that our flip function can work on any vertex, we approach it by defining a helper flip function on every depth vertex set.
+
+    \begin{definition}[Flip Function on Depth Vertex Set]
+        Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip of $\mathcal{V}_k$ in $T$, denoted by $flip_\mathcal{K}: \mathcal{V}_k(G) \rightarrow \mathcal{V}_k(G)$, is the function defined as follows:
+
+        \begin{equation*}
+            flip_\mathcal{K}(v_{(k, i)}) = \begin{cases}
+                v_{(k, 2^{k-1} + 1 - i)}  & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \not\subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)}) \\
+                v_{(k, 2^{k-1} + 1 - i)}, & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})     \\
+                flip_N(v_{(k, i)}),       & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})
+            \end{cases}
+        \end{equation*}
+
+        \text{where, $flip_N$ is defined as:}
+        \begin{equation*}
+            flip_N(v_{(k, i)}) =  flip_\mathcal{K}(u), \text{ for all } u \in N_T(v_{(k, i)})
+        \end{equation*}
+    \end{definition}
+\end{frame}
+
+
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    Then utilizing the flip function on the depth vertex set, we tried to define the flip function diagonally on the perfect binary tree.
+
+    Our approach is as follows:
+
     \begin{itemize}
-        \setlength\itemsep{2em}
-        \item Probably.
-        \item The lobster partially satisfies the HK property and the perfect binary tree has a close relation to the lobster.
-        \item In addition, the perfect binary tree is very symmetric and has a lot of structure that we can maniputlate.
+        \item Pick any leaf $\ell$.
+        \item Utilize the flip$_\mathcal{K}$ function on the depth vertex set of $\ell$ to flip it with either $\ell_{(k, 2^{k - 1} + 1)}$ or $\ell_{(k, 0)}$ (The leaves at the very extremes).
+        \item Take the path $P$ from the root to $l$.
+        \item Apply a `diagonal' flip function on $P$. (Note: This is still a work in progress).
     \end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    We have now addressed 2 of the 3 questions:
     \begin{itemize}
-        \item
+        \item \textcolor{textGreen}{How do we enumerate our vertices in the perfect binary tree so that we can use it in the flip function?}
+        \item \textcolor{textGreen}{How do we define a flip function so that it works for any vertex in the perfect binary tree?}
+        \item \textcolor{red}{How do we define the escape paths in the perfect binary tree?}
     \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{An Algorithm to Generate Pefect Binary Trees}
+\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
+    Unfortunately, we were unable to expand the definition of the escape path to the perfect binary tree. This is because it does not satisfy the core idea that we can generate a single path aside from the 2 vertices that we seek to flip. This is primarily due to the fact that all internal vertices (Excluding the root) have degree 3.
+\end{frame}
+
+\section{Idea 2}
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
     \begin{algorithm}[H]
         \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
         \KwResult{A perfect binary tree graph's leaves}
@@ -278,7 +379,7 @@
     \end{algorithm}
 \end{frame}
 
-\begin{frame}\frametitle{Output of the Perfect Binary Trees}
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
     The algorithm will generate a perfect binary tree of this form:
     \begin{figure}[hbt!]
         \centering
@@ -313,15 +414,95 @@
     \end{figure}
 \end{frame}
 
+\section{Idea 2}
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a coclique of maximum cardinality for our perfect binary tree.
+
+    \begin{algorithm}[H]
+        % \caption{Maximum Indpendent Set Algorithm}\label{alg:max-independent-set}
+        \KwData{A perfect binary tree graph $T$}
+        \KwResult{A maximum coclique of $T$}
+
+        \SetKwFunction{FMain}{maximum\_coclique}
+
+        \SetKwProg{Fn}{Function}{:}{}
+        \Fn{\FMain{$T$}}{
+            $cliquer \gets Cliquer(T)$\;
+            \Return{$cliquer$.get\_maximum\_coclique()}
+        }
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    \begin{algorithm}[H]
+        \KwData{A perfect binary tree graph $T$}
+        \KwResult{All cocliques of $T$}
+
+        \SetKwFunction{FMain}{enumerate\_cocliques}
+
+        \SetKwProg{Fn}{Function}{:}{}
+        \Fn{\FMain{$T$}}{
+            $cocliques \gets []$\;
+            $cocliques$.append($\emptyset$)\;
+            \For{$vertex$ in $T$}{
+                $new\_cocliques \gets []$\;
+                \For{$coclique$ in $cocliques$}{
+                    \For{$neighbor$ in $vertex.neighbors$}{
+                        \If{$neighbor \not\in coclique$}{
+                            $new\_coclique \gets coclique \cup \{neighbor\}$\;
+                            $new\_cocliques$.append($new\_coclique$)\;
+                        }
+                    }
+                }
+                $cocliques \gets new\_cocliques$\;
+            }
+            \Return{$cocliques$}
+        }
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    \begin{itemize}
+        \item We can then use the results from the algorithm to verify the HK-property for perfect binary trees.
+        \item Do note that the algorithm is a brute-force approach and is not efficient for large trees. Hence, in the future we plan to optimize the algorithm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    This is the data for a perfect binary tree of depth 5.
+    \centering
+    \animategraphics[loop,width=8cm]{21}{size_}{1}{21}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    \begin{itemize}
+        \item The results do indeed verify that the HK-property holds for perfect binary trees of depth 5. With the pattern, we do believe it holds for any depth perfect binary tree.
+        \item However, it is clearly still not a proof.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 3: An inductive proof}
+    \begin{conjecture}[Maximum coclique size of perfect binary trees contains all the leaves]
+        For a given perfect binary tree $T$ of depth $d$, the
+    \end{conjecture}
+\end{frame}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}\frametitle{Thank You!}
     \framesubtitle{Summary}
-    A slideshow usually ends with a summary slide.
+    \begin{itemize}
+        \item We explored the Erdős-Ko-Rado theorem and its relevance to intersecting families of sets.
+        \item Introduced perfect binary trees and their relation to the HK-property.
+        \item Discussed the HK-property and its relevance to intersecting families of sets.
+        \item Demonstrated the use of computer algorithms to verify the HK-property for perfect binary trees of depth 5.
+        \item Presented three ideas to investigate the HK-property for perfect binary trees.
+    \end{itemize}
 \end{frame}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
