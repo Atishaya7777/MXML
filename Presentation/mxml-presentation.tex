@@ -48,6 +48,7 @@
 \definecolor{darkGreen}{HTML}{023618}
 \definecolor{darkPurple}{HTML}{1C0221}
 \definecolor{textGreen}{HTML}{628B48}
+\definecolor{claimGreen}{HTML}{AF125A}
 
 % Custom theorem styles
 \makeatletter
@@ -72,6 +73,17 @@
 \theoremstyle{notationStyle}
 \newtheorem*{notation}{Notation}
 
+\makeatletter
+\def\th@claimStyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=claimGreen,fg=white}
+    \setbeamercolor{block body example}{bg=claimGreen!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{claimStyle}
+\newtheorem*{claim}{Claim}
+
 \usetheme{Boadilla}
 \makeatother
 \setbeamertemplate{footline}
@@ -92,7 +104,7 @@
 \setbeamertemplate{navigation symbols}{}
 \title[HK-property | Perfect Binary Trees]{Exploring perfect binary trees with relation to the HK-property}
 \subtitle{MXML Presentation} %This is where you can specify the conference name or presentation venue
-\author[A.M, M.N.S]{Atishaya Maharjan \\ Mahsa N. Shirazi}
+\author[A.M]{Atishaya Maharjan}
 \date{\today}
 
 \begin{document}
@@ -121,12 +133,12 @@
 \end{frame}
 
 \begin{frame}\frametitle{EKR Theorem}
-    \begin{itemize}
+    \begin{enumerate}[<+->]
         \item \footcite{Erds1961INTERSECTIONTF} The Erdős-Ko-Rado (EKR) theorem, named after mathematicians Paul Erdős, Chao Ko, and Richard Rado, is a fundamental result in extremal set theory.
         \item The theorem deals with intersecting families of sets, which are collections of sets that share a common non-empty intersection.
         \item  Specifically, the EKR theorem provides conditions under which the size of the largest intersecting family of sets can be determined.
         \item \footcite{MR0892525} This result has applications in combinatorics, graph theory, probability and other areas of statistics and mathematics.
-    \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 \section{EKR Theorem}
@@ -134,9 +146,8 @@
     \begin{definition}[Intersecting family]
         A family of subsets $\mathcal{F}$ of some set is \textbf{intersecting} if any two members of $\mathcal{F}$ have a non-empty intersection.
     \end{definition}
-    \begin{itemize}
-        \item The \textbf{Erd\H{o}s-Ko-Rado} theorem limits the number of sets in an intersecting family.
-    \end{itemize}
+    \pause
+    The \textbf{Erd\H{o}s-Ko-Rado} theorem limits the number of sets in an intersecting family.
     \begin{theorem}[EKR Theorem]
         \footcite{Erds1961INTERSECTIONTF} If $\mathcal{F}$ is an intersecting family of $k$-subsets of an $n$-set (cardinality of the set is $n$), then
         \begin{itemize}
@@ -151,9 +162,10 @@
     \begin{definition}[Cocliques]
         \begin{itemize}
             \item A \textbf{coclique} in a graph is a set of vertices such that no two vertices in the set are adjacent.
-            \item The maximum size of a coclique in a graph is called the \textbf{indepdence number} of the graph. For a graph $G$, it is denoted by $\alpha(G)$.
+            \item The maximum size of a coclique in a graph is called the \textbf{independence number} of the graph. For a graph $G$, it is denoted by $\alpha(G)$.
         \end{itemize}
     \end{definition}
+    \pause
 
     \begin{definition}[Stars and Stars Center]
         \begin{itemize}
@@ -161,6 +173,7 @@
             \item For $v \in V$, the family $\mathcal{I}^n_G(v) = \{A \in \mathcal{I}^n_G : v \in A\}$ is called a \textbf{star} of $\mathcal{I}^n_G$ and $v$ is called its \textbf{start center}.
         \end{itemize}
     \end{definition}
+    \pause
 
     \begin{definition}[k-EKR graph]
         A graph is said to be $k$-EKR if for any family of cocliques $\mathcal{F} \in \mathcal{I}^n_G$ with the intersection of any two sets in $\mathcal{F}$ being non-empty, there is a vertex $v \in V$ such that $|\mathcal{F}| \leq \mathcal{I}^n_G(v)$.
@@ -172,6 +185,7 @@
     \begin{conjecture}[k-EKR Conjecture]
         Let $G$ be a graph, and let $\mu(G)$ be the size of its smallest maximal coclique. Then $G$ is $k$-EKR for every $1 \leq k \leq \frac{\mu(G)}{2}$.
     \end{conjecture}
+    \pause
     \begin{conjecture}[HK-Property]
         For any $k \geq 1$ and any tree $T$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
     \end{conjecture}
@@ -226,9 +240,11 @@
     \begin{definition}[Depth of a vertex]
         For a tree $T = (V, E)$ with a root vertex $r \in V$, the \textbf{depth} of a vertex $v \in V$ is defined as the length of the path from the $r$ to $v$.
     \end{definition}
+    \pause
     \begin{definition}[Binary Tree]
         A \textbf{binary tree} is a tree in which each vertex has at most two children, referred to as the left child and the right child.
     \end{definition}
+    \pause
     \begin{definition}[Perfect Binary Tree]
         A \textbf{perfect binary tree} is a binary tree in which all the internal nodes have exactly two children and all the leaves are at the same depth.
     \end{definition}
@@ -238,12 +254,12 @@
 
 \section{Does a perfect binary tree satisfy the HK property?}
 \begin{frame}\frametitle{Does a perfect binary tree satisfy the HK property?}
-    \begin{itemize}
+    \begin{enumerate}[<+->]
         \setlength\itemsep{2em}
-        \item Probably.
+        \item At least partially.
         \item The lobster almost satisfies the HK property and the perfect binary tree has a close relation to the lobster.
         \item In addition, the perfect binary tree is very symmetric and has a lot of structure that we can maniputlate.
-    \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 \section{Idea 1}
@@ -260,6 +276,7 @@
     \begin{definition}[Escape Paths]
         \footcite{MR2763040}Let $G = (V, E)$ be a graph and $P = v_1v_2, \ldots , v_n$ a path of length $n$ such that $P \subset G$. We say that $P$ is an \textbf{escape path} from $v_1$ to $v_n$ if $deg(v_n) = 1$ and $deg(v_i) = 2$ for every $2 \leq i \leq n - 2$. If this is the case, we say that $v_1$ has an escape path to $v_n$.
     \end{definition}
+    \pause
 
     \begin{definition}[Flip function]
         Let $G = (V, E)$ be a graph and $P = v_1v_2, \ldots, v_n$ be an escape path from $v_1$ to $v_n$ in $G$. Then the flip of $P$ in $G$, flip$_P$ : $V \rightarrow V$, is the function defined as follows:
@@ -274,11 +291,11 @@
 
 \begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
     We need to address the following questions:
-    \begin{itemize}
+    \begin{enumerate}[<+->]
         \item How do we enumerate our vertices in the perfect binary tree so that we can use it in the flip function?
         \item How do we define a flip function so that it works for any vertex in the perfect binary tree?
         \item How do we define the escape paths in the perfect binary tree?
-    \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
@@ -310,27 +327,6 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
-    To show that our flip function can work on any vertex, we approach it by defining a helper flip function on every depth vertex set.
-
-    \begin{definition}[Flip Function on Depth Vertex Set]
-        Let $T$ be a perfect binary tree and $\mathcal{V}_k$ be the depth vertex set of depth $k$. Then, the flip of $\mathcal{V}_k$ in $T$, denoted by $flip_\mathcal{K}: \mathcal{V}_k(G) \rightarrow \mathcal{V}_k(G)$, is the function defined as follows:
-
-        \begin{equation*}
-            flip_\mathcal{K}(v_{(k, i)}) = \begin{cases}
-                v_{(k, 2^{k-1} + 1 - i)}  & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \not\subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)}) \\
-                v_{(k, 2^{k-1} + 1 - i)}, & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})     \\
-                flip_N(v_{(k, i)}),       & \text{if } N_T(v_{(k, 2^{k - 1} + 1 - i)}) \subseteq \mathcal{I}_T(v_{(k, 2^{k - 1} + 1 - i)})
-            \end{cases}
-        \end{equation*}
-
-        \text{where, $flip_N$ is defined as:}
-        \begin{equation*}
-            flip_N(v_{(k, i)}) =  flip_\mathcal{K}(u), \text{ for all } u \in N_T(v_{(k, i)})
-        \end{equation*}
-    \end{definition}
-\end{frame}
-
 
 \begin{frame}\frametitle{Idea 1: Expand the definition of the flip function to relate it to the perfect binary trees}
     Then utilizing the flip function on the depth vertex set, we tried to define the flip function diagonally on the perfect binary tree.
@@ -360,6 +356,19 @@
 
 \section{Idea 2}
 \begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    Well if we can't be smart about the proof, then let's try and brute force it!
+
+    \begin{enumerate}[<+->]
+        \item We can use computer algorithms to generate cocliques for perfect binary trees.
+        \item We can then verify the HK-property for perfect binary trees of a certain depth.
+        \item We can then use the results to conjecture some properties that may aid us in understanding the HK-property for perfect binary trees.
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
+    An algorithm to generate a perfect binary tree in order.
+
     \begin{algorithm}[H]
         \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
         \KwResult{A perfect binary tree graph's leaves}
@@ -414,7 +423,6 @@
     \end{figure}
 \end{frame}
 
-\section{Idea 2}
 \begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
     We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a coclique of maximum cardinality for our perfect binary tree.
 
@@ -476,16 +484,93 @@
 \end{frame}
 
 \begin{frame}\frametitle{Idea 2: Use an enumeration approach with computer algorithms to verify the results}
-    \begin{itemize}
-        \item The results do indeed verify that the HK-property holds for perfect binary trees of depth 5. With the pattern, we do believe it holds for any depth perfect binary tree.
-        \item However, it is clearly still not a proof.
-    \end{itemize}
+    \begin{enumerate}[<+->]
+        \item The results do indeed verify that the HK-property holds for perfect binary trees of depth 5. With the pattern, it might hold for any depth perfect binary tree.
+        \item It does also show us that all the leaves are included in the maximum coclique.
+        \item However, patterns have a history of misleading mathematicians and as such, we will need a proof.
+    \end{enumerate}
 \end{frame}
 
-\begin{frame}\frametitle{Idea 3: An inductive proof}
-    \begin{conjecture}[Maximum coclique size of perfect binary trees contains all the leaves]
-        For a given perfect binary tree $T$ of depth $d$, the
+\section{Idea 3}
+\begin{frame}\frametitle{Idea 3: Another angle}
+    We approach this from a different angle.
+
+    What if we take a step back and observe what kind of properties we can utilize of the perfect binary tree?
+
+    \begin{enumerate}[<+->]
+        \item We know that the perfect binary tree is symmetric.
+        \item We know that the perfect binary tree has a lot of similar structure.
+        \item We know that the perfect binary tree has a lot of leaves.
+    \end{enumerate}
+
+    \pause
+    Wait....A lot of leaves?
+\end{frame}
+
+\begin{frame}\frametitle{Idea 3: A LOT OF LEAVES!}
+    Observation:
+
+    From our computation of the cocliques, we observed that the maximum coclique always seemed to contain all the leaves of the perfect binary tree. So, maybe that always holds?
+
+    As we are mathematicians, perhaps it would be better to represent it more formally.
+\end{frame}
+
+\begin{frame}\frametitle{Idea 3: A LOT OF LEAVES!}
+    Observation:
+
+    The maximum coclique always seems to contain the last depth vertex set (All the leaves) and step up from there to the root alternately.
+
+    If $T$ is our perfect binary tree of depth $d$, then
+    \begin{align*}
+        \alpha(T) = 2^d + 2^{d-2} + \ldots
+    \end{align*}
+
+    When $d$ is even, we see that
+    \begin{align*}
+        \alpha(T) = 2^d + 2^{d-2} + \ldots + 2^0
+    \end{align*}
+
+    When $d$ is odd, we see that
+    \begin{align*}
+        \alpha(T) = 2^d + 2^{d-2} + \ldots + 2^1
+    \end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Idea 3: A LOT OF LEAVES!}
+    We can then conjecture up a formula:
+
+    \begin{conjecture}
+        For any perfect binary tree $T$ of depth $d$, the maximum coclique $\alpha(T)$ is given by
+        \begin{align*}
+            \alpha(T) = \sum_{i= 0}^{\left\lfloor\frac{d}{2}\right\rfloor} 2^{d - 2i}
+        \end{align*}
     \end{conjecture}
+
+    This is still a work in progress, but we believe that we can give an inductive proof for this conjecture by inducting on $d$.
+\end{frame}
+
+\begin{frame}\frametitle{Idea 3: Inductive proof}
+    If the previous conjecture holds, then we claim that:
+
+    \begin{claim}
+        There is a unique maximum coclique set that contains all the leaves.
+    \end{claim}
+
+    Then from the claim and all the observations, we can conjecture the following:
+
+    \begin{conjecture}
+        Let $T$ be a perfect binary tree of depth $d$. Let $r$ be the root of $T$. Then, for all possible values of $d$ and $k$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V\setminus{r}$.
+    \end{conjecture}
+
+    Which is partially the HK conjecture. Note that this is the exact statement for the HK conjecture for lobsters given by \footcite{MR4245360} Estrugo and Pastine.
+\end{frame}
+
+\section{Open Questions and Future Work}
+\begin{frame}\frametitle{Open Questions and Future work}
+    Note that a perfect binary tree is just a specific case for a perfect $k$-nary tree. So, we can probably generalize the results for perfect $k$-nary trees to show that they satisfy a partial HK-property, similar to those of the binary tree.
+
+    In addition, we can also investigate the HK-property for other types of binary trees (Full, Complete, Normal, etc) and see if they satisfy the HK-property.
+    For future work, we plan to:
 \end{frame}
 
 

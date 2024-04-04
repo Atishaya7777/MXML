@@ -17,31 +17,6 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{MR0892525}{book}{}
-    \name{author}{1}{}{%
-      {{hash=AI}{%
-         family={Anderson},
-         familyi={A\bibinitperiod},
-         given={Ian},
-         giveni={I\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {The Clarendon Press, Oxford University Press, New York}%
-    }
-    \strng{namehash}{AI1}
-    \strng{fullhash}{AI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{isbn}{0-19-853367-5}
-    \field{pages}{xvi+250}
-    \field{series}{Oxford Science Publications}
-    \field{title}{Combinatorics of finite sets}
-    \field{year}{1987}
-  \endentry
-
   \entry{MR3271819}{book}{}
     \name{author}{1}{}{%
       {{hash=BR}{%
@@ -211,60 +186,6 @@
     \field{year}{2021}
   \endentry
 
-  \entry{HOLROYD2005165}{article}{}
-    \name{author}{2}{}{%
-      {{hash=HF}{%
-         family={Holroyd},
-         familyi={H\bibinitperiod},
-         given={Fred},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=TJ}{%
-         family={Talbot},
-         familyi={T\bibinitperiod},
-         given={John},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \keyw{Erdős–Ko–Rado Theorem, EKR property, Graphs, Independent vertex
-  sets}
-    \strng{namehash}{HFTJ1}
-    \strng{fullhash}{HFTJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \field{abstract}{%
-    For a graph G vertex v of G and integer r⩾1, we denote the family of
-  independent r-sets of V(G) by I(r)(G) and the subfamily {A∈I(r)(G):v∈A}
-  by Iv(r)(G); such a subfamily is called a star. Then, G is said to be r-EKR
-  if no intersecting subfamily of I(r)(G) is larger than the largest star in
-  I(r)(G). If every intersecting subfamily of Iv(r)(G) of maximum size is a
-  star, then G is said to be strictly r-EKR. We show that if a graph G is r-EKR
-  then its lexicographic product with any complete graph is r-EKR. For any
-  graph G, we define μ(G) to be the minimum size of a maximal independent
-  vertex set. We conjecture that, if 1⩽r⩽12μ(G), then G is r-EKR, and if
-  r<12μ(G), then G is strictly r-EKR. This is known to be true when G is an
-  empty graph, a cycle, a path or the disjoint union of complete graphs. We
-  show that it is also true when G is the disjoint union of a pair of complete
-  multipartite graphs.%
-    }
-    \verb{doi}
-    \verb https://doi.org/10.1016/j.disc.2004.08.028
-    \endverb
-    \field{issn}{0012-365X}
-    \field{note}{19th British Combinatorial Conference}
-    \field{number}{1}
-    \field{pages}{165\bibrangedash 176}
-    \field{title}{Graphs with the Erdős–Ko–Rado property}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0012365X05000592
-    \endverb
-    \field{volume}{293}
-    \field{journaltitle}{Discrete Mathematics}
-    \field{year}{2005}
-  \endentry
-
   \entry{MR2763040}{article}{}
     \name{author}{2}{}{%
       {{hash=HG}{%
@@ -300,35 +221,6 @@
     \field{volume}{118}
     \field{journaltitle}{J. Combin. Theory Ser. A}
     \field{year}{2011}
-  \endentry
-
-  \entry{Niskanen2003CliquerUG}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=NS}{%
-         family={Niskanen},
-         familyi={N\bibinitperiod},
-         given={Sampo},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=OPRJ}{%
-         family={{\"O}sterg{\aa}rd},
-         familyi={{\"O}\bibinitperiod},
-         given={Patric R.\bibnamedelima J.},
-         giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
-  J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{NSOPRJ1}
-    \strng{fullhash}{NSOPRJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{title}{Cliquer user's guide, version 1.0}
-    \verb{url}
-    \verb https://api.semanticscholar.org/CorpusID:125687590
-    \endverb
-    \field{year}{2003}
   \endentry
 \enddatalist
 \endinput
