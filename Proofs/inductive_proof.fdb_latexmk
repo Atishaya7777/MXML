@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1717456365 "inductive_proof.tex" "inductive_proof.pdf" "inductive_proof" 1717456365
+["pdflatex"] 1717456683 "inductive_proof.tex" "inductive_proof.pdf" "inductive_proof" 1717456683
   "/etc/texmf/web2c/texmf.cnf" 1709525103 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -11,6 +11,8 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1136768653 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
@@ -78,9 +80,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1709525117 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710674237 2801545 db9093cfb83f5aadead92466d13d91af ""
-  "inductive_proof.aux" 1717456365 921 f4f21fbff08b555dceb9cb59c1cf8000 "pdflatex"
-  "inductive_proof.out" 1717456365 144 729fe096bdef8c947d00d0cd216e1c2b "pdflatex"
-  "inductive_proof.tex" 1717456363 5456 3f8d279f07bcabfd670fc8a203b8fed3 ""
+  "inductive_proof.aux" 1717456679 921 f4f21fbff08b555dceb9cb59c1cf8000 "pdflatex"
+  "inductive_proof.out" 1717456679 144 729fe096bdef8c947d00d0cd216e1c2b "pdflatex"
+  "inductive_proof.tex" 1717456677 5616 a09726b57aaa8eb66754061bf77a3104 ""
   (generated)
   "inductive_proof.aux"
   "inductive_proof.log"

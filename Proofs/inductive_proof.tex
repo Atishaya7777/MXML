@@ -31,10 +31,10 @@
 \newlist{subcaseof}{enumerate}{1}
 \setlist[subcaseof,1]{label = Case \arabic*: , wide=0pt, leftmargin=\dimexpr\casewd + \labelsep, font=\bfseries, topsep=2pt, itemsep=0pt}%
 
-\crefname{lemma}{Lemma}{Lemmas}
 
 \begin{document}
 
+\refname{lemma}{Lemma}{Lemmas}
 \section{Theorems and Lemmas}
 
 \begin{definition}[Depth]
@@ -126,19 +126,24 @@
 
 			Then, by our induction hypothesis,
 			\begin{align*}
-				\alpha(T) & = 2(2^{d - 1} + 2^{d - 3} + \dots + 1) \\
-				\alpha(T) & = 2(2^{d - 1} + 2^{d - 3} + \dots + 1)
+				\alpha(T) & = 2(2^{d - 1} + 2^{d - 3} + \dots + 1)          \\
+				\alpha(T) & = 2^d + 2^{d-2} + \dots + 2\label{eq:even_case}
 			\end{align*}
 		\end{subcaseof}
 
-		From (\ref{eq:odd_case}) and (~\cref{eq:odd_case})
+		Since $\alpha(T)$ is the maximum independent set,
+		\begin{align*}
+			\alpha(T) = \max(\ref{eq:odd_case}, \ref{eq:even_case})
+		\end{align*}
+
+		From (\ref{eq:odd_case}) and (\ref{eq:even_case}),
 
 		\item $d$ is even
 	\end{caseof}
 \end{proof}
 
 \begin{lemma}
-	Following from the previous lemma ~\cref{independence_num}, we claim that the star whose cardinality is $\alpha(T)$ is unique, i.e there is a unique maximum family of cocliques.
+	Following from the previous lemma ~\ref{independence_num}, we claim that the star whose cardinality is $\alpha(T)$ is unique, i.e there is a unique maximum family of cocliques.
 \end{lemma}
 
 \end{document}
