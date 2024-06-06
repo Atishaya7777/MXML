@@ -94,10 +94,10 @@
 
 			Then, from our induction hypothesis, we get that:
 
-			\begin{align*}
+			\begin{align}
 				\alpha(T_{d+1}) & = 4(2^{d - 2} + 2^{d - 4} + \ldots + 2) + 1                           \\
-				                & = 2^d + 2^{d - 2} + \ldots + 2^3 + 1 \quad  & (i) \label{eq:odd_case}
-			\end{align*}
+						& = \underbrace{2^d + 2^{d - 2} + \ldots + 2^3 + 1}_{\frac{d-1}{2} \text{terms}} \label{eq:odd_case}
+			\end{align}
 
 			\item Root $\not\in \mathcal{I}_d$
 
@@ -125,18 +125,38 @@
 			\end{align*}
 
 			Then, by our induction hypothesis,
-			\begin{align*}
+			\begin{align}
 				\alpha(T) & = 2(2^{d - 1} + 2^{d - 3} + \dots + 1)          \\
-				\alpha(T) & = 2^d + 2^{d-2} + \dots + 2\label{eq:even_case}
-			\end{align*}
+				\alpha(T) & = \underbrace{2^d + 2^{d-2} + \dots + 2}_{\frac{d}{2} \text{terms}}\label{eq:even_case}
+			\end{align}
 		\end{subcaseof}
 
 		Since $\alpha(T)$ is the maximum independent set,
 		\begin{align*}
 			\alpha(T) = \max(\ref{eq:odd_case}, \ref{eq:even_case})
-		\end{align*}
+		\end{align}
 
 		From (\ref{eq:odd_case}) and (\ref{eq:even_case}),
+
+		Note that \ref{eq:odd_case} can be rewritten in summation notation as the following:
+
+		\begin{align}
+			= \displaystyle\sum_{i = 1}^{\frac{d-1}{2}}2^{d - 2i} 
+		\end{align}
+
+		And that \ref{eq:even_case} can be rewritten in summation notation as the following:
+
+		\begin{align}
+			= \displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)} 
+		\end{align}
+
+		Since $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, then the upper bound on the summation can be rewritten as:
+
+		\begin{align}
+			= \displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)} 
+		\end{align}
+
+
 
 		\item $d$ is even
 	\end{caseof}
@@ -145,8 +165,4 @@
 \begin{lemma}
 	Following from the previous lemma ~\ref{independence_num}, we claim that the star whose cardinality is $\alpha(T)$ is unique, i.e there is a unique maximum family of cocliques.
 \end{lemma}
-
 \end{document}
-
-
-
