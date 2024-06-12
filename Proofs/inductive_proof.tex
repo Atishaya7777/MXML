@@ -5,6 +5,7 @@
 \usepackage{cleveref}% http://ctan.org/pkg/cleveref
 
 \usepackage{calc} 
+\usepackage{graphicx}
 \newlength{\casewd}
 \setlength{\casewd}{\widthof{\bfseries Case 0.}}%
 
@@ -41,8 +42,8 @@
 	The depth starts from 1-index. A single vertex is of depth 1.
 \end{definition}
 
-\begin{definition}[Max Independent Set]
-	We denote the maximum independent set of a perfect binary tree of depth $d$ by $\mathcal{I}_d$.
+\begin{definition}[Maximum Coclique]
+	We denote the maximum coclique of a perfect binary tree of depth $d$ by $\mathcal{I}_d$.
 \end{definition}
 
 \begin{conjecture}[HK property for a perfect binary tree]
@@ -58,9 +59,11 @@
 		            \end{cases}
 	\end{align*}
 
+	And for odd $d$, $Root \in \mathcal{I}_d$, otherwise $Root \not\in \mathcal{I}_d$.
+
 	Or, in summation notation:
 	\begin{align*}
-		\alpha(T) = \sum_{i= 0}^{\left\lfloor\frac{d}{2}\right\rfloor} 2^{d - 2i}
+		\alpha(T) = \sum_{i= 0}^{\left\lfloor\frac{d}{2}\right\rfloor} 2^{d - 2i - 1}
 	\end{align*}
 \end{lemma}
 
@@ -73,9 +76,13 @@
 
 		For our base case, consider the trivial case of $d = 1$. Here, $\alpha(T) = 1$. Hence, the base case holds. \\
 
-		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. \\
+		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect binary tree $T$ of depth $d + 1$. Note that if $d$ is odd, then $d + 1$ is even. Hence, we expect that:
 
-		We now consider 2 cases:
+		\begin{align*}
+			\alpha(T) = 2^d + 2^{d - 2} + \ldots + 2 
+		\end{align*}
+
+		Consider these 2 cases:
 
 		\begin{subcaseof}
 			\item $Root \in \mathcal{I}_{d + 1}$
@@ -87,7 +94,7 @@
 			If the root $\in \mathcal{I}_{d + 1}$, then $v_0 \not\in \mathcal{I}_d$ and $v_1 \not\in \mathcal{I}_d$. This means that the remaining vertices of $\mathcal{I}_d$ is in one of the 4 components.
 			Since the current depth from the $Root$ is $d + 1$, then $T \setminus \{Root, v_0, v_1\}$ will have depth of $d + 1 - 2 = d - 1$. Since $d$ is odd, then $d + 1$ is even which implies that $d - 1$ is also even.
 
-			By symmetry, it is enough to consider one of the 4 components' maximum independent set for our calculations. Since the 4 components are disjoint, then we can add their independence numbers together along with the $Root$ and obtain the following:
+			By symmetry, it is enough to consider one of the 4 components' maximum coclique for our calculations. Since the 4 components are disjoint, then we can add their independence numbers together along with the $Root$ and obtain the following:
 			\begin{align*}
 				\alpha(T_{d + 1}) = 4(\alpha(T_{d - 1})) + 1
 			\end{align*}
@@ -95,11 +102,13 @@
 			Then, from our induction hypothesis, we get that:
 
 			\begin{align}
-				\alpha(T_{d+1}) & = 4(2^{d - 2} + 2^{d - 4} + \ldots + 2) + 1                           \\
-						& = \underbrace{2^d + 2^{d - 2} + \ldots + 2^3 + 1}_{\frac{d-1}{2} \text{terms}} \label{eq:odd_case}
+				\alpha(T_{d+1}) & = 4\underbrace{(2^{d - 2} + 2^{d - 4} + \ldots + 2)}_{\frac{d-1}{2} \text{terms}} + 1                           \nonumber \\
+						& = 4 \displaystyle\sum_{i = 1}^{\frac{d-1}{2}}2^{d - 2i} + 1 	
+			\label{eq:odd_case}
 			\end{align}
 
-			\item Root $\not\in \mathcal{I}_d$
+
+		\item Root $\not\in \mathcal{I}_{d + 1}$
 
 			If $Root \not\in \mathcal{I}_d$, then the remaining elements of $\mathcal{I}_d$ are from $T \setminus \{Root\}$.
 
@@ -126,43 +135,90 @@
 
 			Then, by our induction hypothesis,
 			\begin{align}
-				\alpha(T) & = 2(2^{d - 1} + 2^{d - 3} + \dots + 1)          \\
-				\alpha(T) & = \underbrace{2^d + 2^{d-2} + \dots + 2}_{\frac{d}{2} \text{terms}}\label{eq:even_case}
+				\alpha(T) & = \underbrace{2(2^{d - 1} + 2^{d - 3} + \dots + 1)}_{\left\lceil\frac{d}{2}\right\rceil \text{terms}}          \nonumber \\
+					  & = 2\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)}\right) \nonumber
 			\end{align}
+
+			Note that $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, since $d$ is odd, then,
+			\begin{align}
+				\alpha(T) & = 2\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)}\right) \nonumber \\
+					  & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)  \label{eq:even_case} 
+			\end{align}
+
+
 		\end{subcaseof}
 
-		Since $\alpha(T)$ is the maximum independent set,
+		Since $\alpha(T)$ is the maximum coclique,
 		\begin{align*}
 			\alpha(T) = \max(\ref{eq:odd_case}, \ref{eq:even_case})
-		\end{align}
+		\end{align*}
 
-		From (\ref{eq:odd_case}) and (\ref{eq:even_case}),
+		Remember that our objective is to show that $\alpha(T) = (\ref{eq:even_case})$ as this aligns with our inductive hypothesis.
 
-		Note that \ref{eq:odd_case} can be rewritten in summation notation as the following:
+		From (\ref{eq:even_case}), we can simplify it as the following:
 
-		\begin{align}
-			= \displaystyle\sum_{i = 1}^{\frac{d-1}{2}}2^{d - 2i} 
-		\end{align}
+		\begin{align*}
+			\alpha(T) & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)  \\
+				  & = 2\left(2^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
+				  & = 2\left(2^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
+				  & = 2\left(2^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
+				  & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
+				  & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i + 1)}\right)\\
+				  & = 2\left(1 + 2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i)}\right)\\
+				  & = 2 + 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i}\\
+				  & = 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 2 \\
+				  & > 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 1 \\
+				  & = (\ref{eq:odd_case})
+		\end{align*}
 
-		And that \ref{eq:even_case} can be rewritten in summation notation as the following:
+		Which implies that,
 
-		\begin{align}
-			= \displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)} 
-		\end{align}
+		\begin{align*}
+			\alpha(T) = \max(\ref{eq:odd_case}, \ref{eq:even_case}) = (\ref{eq:even_case})\; \text{as required.}
+		\end{align*}
 
-		Since $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, then the upper bound on the summation can be rewritten as:
+	\item $d$ is even \\
 
-		\begin{align}
-			= \displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)} 
-		\end{align}
+		We will proceed similarly to the odd case.
+
+		For our base case, consider the case of $d = 2$. Let $v_0$ and $v_1$ be the leaves of the perfect binary tree of depth $2$. We claim that $\mathcal{I}_2 = \{v_0, v_1\}$. This implies that $Root \not\in \mathcal{I}_2$. 
+
+		We will prove the claim by using contradiction.	
+
+		For contradiction, say that $Root \in \mathcal{I}_2$, then $v_0 \not\in \mathcal{I}_2$ and $v_0 \not\in \mathcal{I}_2$ since both $v_0$ and $v_1$ are neighbours of $Root$. This then implies that $\alpha(T) = 1$. However, the set of leaves $\{v_0, v_1\}$ has cardinality $2 > 1 = \alpha(T)$ which is a contradiction.
+
+		Hence, for a perfect binary tree $T$ of depth $2$, $\alpha(T) = 2$. Thus, our base case holds.
 
 
+		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect binary tree $T$ of depth $d + 1$. Note that if $d$ is even, then $d + 1$ is odd. Hence, we expect that:
 
-		\item $d$ is even
+		\begin{align*}
+			\alpha(T) = 2^d + 2^{d - 2} + \ldots + 1
+		\end{align*}
+
+		which follows from our previous case.
 	\end{caseof}
 \end{proof}
 
 \begin{lemma}
-	Following from the previous lemma ~\ref{independence_num}, we claim that the star whose cardinality is $\alpha(T)$ is unique, i.e there is a unique maximum family of cocliques.
+Following from the previous lemma ~\ref{independence_num}, we claim that if $|\mathcal{I}_d| = \alpha(T)$, then $\mathcal{I}_d$ is unique.
 \end{lemma}
+\begin{proof}
+	$ $ \\
+	Let $\mathcal{I}_d$ be the maximum coclique, we will first construct a set of vertices that build $\mathcal{I}_d$ and then show that no other vertex can be added to the set nor removed which will satisfy uniqueness.
+
+	We shall proceed by cases.
+	\begin{caseof}
+	\item $d$ is odd \\
+		From ~\ref{independence_num}, we know that if $d$ is odd, then $Root \in \mathcal{I}_d$. 
+
+		Let $v_0$ and $v_1$ be the children of $Root$, 
+
+		If $Root \in \mathcal{I}_d$, then we know that $v_0 \not\in \mathcal{I}_d$ and $v_1 \not\in \mathcal{I}_d$.
+
+		Let $T_1, T_2, T_3, T_4$ be the disjoint components obtained from $T\setminus\{v_0, v_1, Root\}$. Note that $T_1, T_2, T_3, \text{and } T_4$ are all perfect binary trees of depth $d - 2$.
+
+		Since $d$ was odd, then $d - 2$ is also odd.
+	\end{caseof}
+\end{proof}
 \end{document}
