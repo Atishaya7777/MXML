@@ -4,8 +4,7 @@
 R.~Baber.
 \newblock {\em Some results in extremal combinatorics}.
 \newblock ProQuest LLC, Ann Arbor, MI, 2011.
-\newblock Thesis (Ph.D.)--University of London, University College London
-  (United Kingdom).
+\newblock Thesis (Ph.D.)--University of London, University College London (United Kingdom).
 
 \bibitem{MR3612439}
 Peter Borg.
@@ -14,8 +13,7 @@ Peter Borg.
 
 \bibitem{MR2523796}
 Peter Borg and Fred Holroyd.
-\newblock The {E}rd{\H{o}}s-{K}o-{R}ado properties of various graphs containing
-  singletons.
+\newblock The {E}rd{\H{o}}s-{K}o-{R}ado properties of various graphs containing singletons.
 \newblock {\em Discrete Math.}, 309(9):2877--2885, 2009.
 
 \bibitem{MR4245360}
@@ -36,6 +34,6 @@ Glenn Hurlbert and Vikram Kamat.
 \bibitem{Niskanen2003CliquerUG}
 Sampo Niskanen and Patric R.~J. {\"O}sterg{\aa}rd.
 \newblock Cliquer user's guide, version 1.0.
-\newblock 2003.
+\newblock In {\em Cliquer user's guide, version 1.0}, 2003.
 
 \end{thebibliography}
