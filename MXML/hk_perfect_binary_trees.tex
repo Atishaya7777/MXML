@@ -147,7 +147,7 @@ Canada}
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
-  A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of cocliques of size $k$ ($k$-coclique) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We also aim to expand the definition of the flip function mentioned by Estrugo and Passtine in the context of perfect binary trees. We then use an algorithm by Niskanen and R. J. to generate all cocliques of a perfect binary tree of depth $d$ and compare the number of $k$-cocliques containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
+  A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of cocliques of size $k$ ($k$-coclique) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all cocliques of a perfect binary tree of depth $d$ and compare the number of $k$-cocliques containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.
 \end{abstract}
 
 %______________________________________________________________
@@ -176,38 +176,45 @@ Studying the EKR theorem, ~\cite{MR2763040} Hulbert and Kamat tried to narrow it
 	Let $G$ be a graph, and let $\mu(G)$ be the size of its smallest maximal coclique. Then $G$ is $k$-EKR for every $1 \leq k \leq \frac{\mu(G)}{2}$.
 \end{conjecture}
 
+\newpage
+
 However, this conjecture is hard to understand and prove, so they narrowed the class of graphs to be trees and gave the following conjecture:
 
 \begin{conjecture}[HK-Property]
 	For any $k \geq 1$ and any tree $T$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
 \end{conjecture}
 
-The HK-property holds true for $k \leq 4$, but was proven false independetly in ~\cite{MR3271819, MR3612439, MR2523796}. The counterexample that that they arrived at is a type of graph that is defined as a class of trees called $lobster$ ~\cite{MR4245360}.
+The HK-property holds true for $k \leq 4$, but was proven false independently in ~\cite{MR3271819, MR3612439, MR2523796}. The counterexample that that they arrived at is a type of graph that is defined as a class of trees called $lobster$ ~\cite{MR4245360}.
 A tree $C$ is called a $caterpillar$ if $G$ removing the leaves and incident edges produces a path graph $P$, called the spine. A tree $L$ is called a $lobster$ if removing the leaves and incident edges produces a caterpillar $C$.
 
 This is interesting for us as $lobster$ graphs resemble a binary tree.
 
-\begin{figure}
+\begin{figure}[hbt!]
 	\centering
 	\begin{tikzpicture}[scale=0.7,level distance=2cm,
-			level 1/.style={sibling distance=8cm},
+			level 1/.style={sibling distance=10cm},
 			level 2/.style={sibling distance=4cm},
-			level 3/.style={sibling distance=2cm},
 			every node/.style={circle, draw, fill=white, minimum size=1.75em},]
 		\node (v11) {$v_0$}
 		child {node (v21) {$v_1$}
 				child {node  {}
 						child {node {}}
 					}
-				child {node (v32) {}
+				child {node {}
+						child {node {}}
+					}
+				child {node {}
 						child {node {}}
 					}
 			}
 		child {node (v22) {$v_2$}
-				child {node (v33) {}
+				child {node {}
 						child {node {}}
 					}
-				child {node (v34) {}
+				child {node {}
+						child {node {}}
+					}
+				child {node {}
 						child {node {}}
 					}
 			};
@@ -217,29 +224,15 @@ This is interesting for us as $lobster$ graphs resemble a binary tree.
 
 They figured out that the lobsters, while not completely obeying the HK-property, almost obey the HK-property by either having the largest stars centered around the leaves or at the root of the tree.
 
-From the EKR theorems, Holroyd and Talbot, \cite{MR2763040}, introduced the HK-property:
-
-\begin{conj}[HK-property]
-  For any k $\geq$ 1 and any tree T, there exists a leaf l of T such that $\left|\mathcal{I}^n_T(v)\right| \leq \left|\mathcal{I}^n_T(l)\right|$ for each $v \in V(T)$.
-\end{conj}
-
-This was in order to hopefully aid in the study of the EKR property which Holroyd and Talbot \cite{MR2136060} conjectured as follows:
-
-\begin{theorem}[k-EKR]
-  Let G be a graph, and let $\mu(G)$ be the size of its smallest maximal coclique. Then G is k-EKR for every 1 $\leq$ k $\leq$ $\frac{\mu(G)}{2}$
-\end{theorem}
-
-The HK-property holds true for $k \leq 4$, but was proven false independetly by ~\cite{MR3271819, MR3612439, MR2523796}. The counterexample that that they arrived at is a type of graph that is defined as a class of trees called "lobsters" ~\cite{MR4245360}. This is interesting for this paper as the counterexample graph resembles a binary tree.
-
-In this paper, we study perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. This topic is fascinating due to the lobster being a part of the binary tree class. So this begs the question whether or not perfect binary trees or other classes of binary trees admit the HK-property. In our exploration, we also aim to expand the definition of the flip function, introduced in ~\cite{MR2763040}, to accomodate the presence of escape paths in perfect binary trees. We call this function the diagonal flip function, represented by $Diag_{f}$. In the event that the perfect binary tree does not admit the HK-property, we aim to find a counterexample.
+\newpage
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Some classes of graphs that are HK and a counterexample}
 
-In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of classes of graphs that have the HK-property. The classes of graphs that they gave were the caterpillars and the stars.
+In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of classes of graphs that have the HK-property. The classes of graphs that they gave were the $caterpillars$ and the $spiders$. The definition of $caterpillars$ is given above. The $spiders$ are trees that only have 1 vertex with degree greater than 2.
 
 \begin{figure}[htb!]
-	\begin{minipage}{0.5\textwidth}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\begin{tikzpicture}[every node/.style={circle, draw, fill=white, minimum size=1.75em}]
 			% Draw the path (spine)
@@ -258,8 +251,8 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			\draw (v4) -- (v9);  % Edge to the new vertex
 		\end{tikzpicture}
 		\caption{A caterpillar}
-	\end{minipage}
-	\begin{minipage}{0.5\textwidth}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\begin{tikzpicture}[every node/.style={circle, draw, fill=white, minimum size=1.75em}]
 			% Draw the path (spine)
@@ -280,10 +273,8 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			\draw (v2) -- (v10);
 		\end{tikzpicture}
 		\caption{A Spider}
-	\end{minipage}
+	\end{subfigure}
 \end{figure}
-
-The caterpillars are trees that have a path as the spine and the leaves are attached to the spine. The spiders are trees that only have 1 vertex with degree greater than 2.
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Perfect Binary Trees are HK}
@@ -305,17 +296,17 @@ The caterpillars are trees that have a path as the spine and the leaves are atta
 		            \end{cases}
 	\end{align*}
 
-	And for odd $d$, $Root \in \mathcal{I}_d$, otherwise $Root \not\in \mathcal{I}_d$.
-
 	Or, in summation notation:
 	\begin{align*}
-		\alpha(T) = \sum_{i= 0}^{\left\lfloor\frac{d}{2}\right\rfloor} 2^{d - 2i - 1}
+		\alpha(T) = \displaystyle\sum_{i = 1}^{\left\lceil \frac{d}{2} \right\rceil} 2^{d - 2i + 1}
 	\end{align*}
+
+	And for odd $d$, $Root \in \mathcal{I}_d$, otherwise $Root \not\in \mathcal{I}_d$.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}[Proof for ~\ref{independence_num}]
 	$ $ \\
-	We shall proceed by inducing on $d$.\\
+	We shall proceed by inducting on $d$.\\
 	We will have two cases, one for $d$ being odd and another for $d$ being even.
 	\begin{caseof}
 		\item $d$ is odd \\
@@ -446,10 +437,10 @@ The caterpillars are trees that have a path as the spine and the leaves are atta
 	\end{caseof}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{unique_independence_num}
 Following from the previous lemma ~\ref{independence_num}, we claim that if $|\mathcal{I}_d| = \alpha(T)$, then $\mathcal{I}_d$ is unique.
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof for ~\ref{unique_independence_num}]
 	$ $ \\
 	Let $\mathcal{I}_d$ be the maximum coclique, we will first construct a set of vertices that build $\mathcal{I}_d$ and then show that no other vertex can be added to the set nor removed which will satisfy uniqueness.
 
@@ -468,6 +459,7 @@ Following from the previous lemma ~\ref{independence_num}, we claim that if $|\m
 	\end{caseof}
 \end{proof}
 
+\newpage
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{appendix}
 \section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
@@ -578,33 +570,92 @@ We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a cocli
 \end{algorithm}
 
 
-The next page shows the results of the algorithm for a perfect binary tree of depth 5. The X-axis denotes the vertice's labels (not the actual numbers) and the Y-axis denotes the cardinality of the stars centered around the vertices.
+The next couple of pages show the results of the algorithm for a perfect binary tree of depth 4, 5, and 6. The X-axis denotes the vertice's labels (not the actual numbers) and the Y-axis denotes the cardinality of the stars centered around the vertices.
 
 \begin{figure}[hbt!]
-	\begin{subfigure}{.5\textwidth}
+	\caption*{Depth 4}
+	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{size_1.png}
+		\includegraphics[width=1\linewidth]{depth_4_size_1.png}
 		\caption{coclique of size 1}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{size_5.png}
+		\includegraphics[width=1\linewidth]{depth_4_size_2.png}
+		\caption{coclique of size 2}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_5.png}
 		\caption{coclique of size 5}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{size_11.png}
+		\includegraphics[width=1\linewidth]{depth_4_size_7.png}
+		\caption{coclique of size 7}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_10.png}
+		\caption{coclique of size 10}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\caption*{Depth 5}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_5_size_1.png}
+		\caption{coclique of size 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_5_size_5.png}
+		\caption{coclique of size 5}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_5_size_11.png}
 		\caption{coclique of size 11}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{size_16.png}
+		\includegraphics[width=1\linewidth]{depth_5_size_16.png}
 		\caption{coclique of size 16}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{size_21.png}
+		\includegraphics[width=1\linewidth]{depth_5_size_21.png}
 		\caption{coclique of size 21}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\caption*{Depth 6}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_1.png}
+		\caption{coclique of size 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_2.png}
+		\caption{coclique of size 2}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_5.png}
+		\caption{coclique of size 5}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_7.png}
+		\caption{coclique of size 7}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{depth_4_size_10.png}
+		\caption{coclique of size 10}
 	\end{subfigure}
 \end{figure}
 
