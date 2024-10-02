@@ -155,7 +155,7 @@ Canada}
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
-  A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of cocliques of size $k$ ($k$-coclique) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all cocliques of a perfect binary tree of depth $d$ and compare the number of $k$-cocliques containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.
+	A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of cocliques of size $k$ ($k$-coclique) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all cocliques of a perfect binary tree of depth $d$ and compare the number of $k$-cocliques containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.
 \end{abstract}
 
 %______________________________________________________________
@@ -173,8 +173,7 @@ A connected graph is a graph if for all $u,v \in V(G)$, there exists a $uv$-path
 
 A tree is a connected graph with no cycles, it is denoted by $T$. For a vertex $v \in V(T)$, if $deg_T(v) = 1$, it is called a leaf. A vertex that is not a leaf is called an interior vertex. The vertex at the top which branches $2$ children is called the root vertex and is denoted by $r$. The depth of a vertex is defined as the cardinality of the set of vertices of the path from the root vertex to it. The parent of a vertex $v$ is the vertex connected to $v$ on the path to $r$. A child of a vertex $v$ is a vertex of which $v$ is the parent. We study a more particular class of trees called binary trees, denoted by $T_B$, where each interior vertex $v$ has exactly $2$ children and all leaves have the same depth. Further, a perfect binary tree is a binary tree in which every vertex $v \in V(T)$ has either $0$ or $2$ children. A perfect binary tree is denoted by $T_{PB}$, however in this paper we will simply drop the subscript and denote it as $T$ for clarity. A level $n$ of a perfect binary tree is a set of vertices such that all vertices in the set have a depth of $n$. A perfect $m$-nary tree is a tree in which every vertex $v \in V(T)$ has either $0$ or $m$ children, where $m \in \mathbb{Z}^+$.
 
-The star centers of a graph are interesting because they relate to the EKR theorem. 
-
+The star centers of a graph are interesting because they relate to the EKR theorem.
 
 The Erd\H{o}s-Ko-Rado (EKR) theorem limits the number of sets in a family of sets that can be pairwise intersecting. The theorem states that for a family of $k$-sets of a ground set of size $n$, the maximum number of sets that can be pairwise intersecting is $\binom{n-1}{k-1}$. This theorem has wide applications in combinatorics, graph theory, probability, and other areas of statistics and mathematics.
 
@@ -322,14 +321,15 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 
 		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect $m$-nary tree $T$ of depth $d + 1$. Note that if $d$ is odd, then $d + 1$ is even. Hence, we expect that:
 
+
 		\begin{align*}
-			\alpha(T) = m^d + m^{d - 2} + \ldots + m 
+			\alpha(T) = m^d + m^{d - 2} + \ldots + m
 		\end{align*}
 
 		Consider these 2 cases:
 
 		\begin{subcaseof}
-		\item $r \in \mathcal{I}_{d + 1}$
+			\item $r \in \mathcal{I}_{d + 1}$
 
 			Let $v_i, i \in \{1, \dots, m\}$ be the children of $r$.
 
@@ -349,12 +349,12 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 
 			\begin{align}
 				\alpha(T_{d+1}) & = m^2\underbrace{(m^{d - 2} + m^{d - 4} + \ldots + m)}_{\frac{d-1}{2} \text{terms}} + 1                           \nonumber \\
-						& = m^2\displaystyle\sum_{i = 1}^{\frac{d-1}{2}}m^{d - 2i} + 1 	
-			\label{eq:mnary_odd_case}
+				                & = m^2\displaystyle\sum_{i = 1}^{\frac{d-1}{2}}m^{d - 2i} + 1
+				\label{eq:mnary_odd_case}
 			\end{align}
 
 
-		\item $r \not\in \mathcal{I}_{d + 1}$
+			\item $r \not\in \mathcal{I}_{d + 1}$
 
 			If $r \not\in \mathcal{I}_{d + 1}$, then the remaining elements of $\mathcal{I}_{d + 1}$ are from $T \setminus \{r\}$.
 
@@ -382,13 +382,13 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			Then, by our induction hypothesis,
 			\begin{align}
 				\alpha(T) & = m\underbrace{(m^{d - 1} + m^{d - 3} + \dots + 1)}_{\left\lceil\frac{d}{2}\right\rceil \text{terms}}          \nonumber \\
-					  & = m\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}m^{d - (2i - 1)}\right) \nonumber
+				          & = m\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}m^{d - (2i - 1)}\right) \nonumber
 			\end{align}
 
 			Note that $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, since $d$ is odd, then,
 			\begin{align}
 				\alpha(T) & = m\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}m^{d - (2i - 1)}\right) \nonumber \\
-					  & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)  \label{eq:mnary_even_case} 
+				          & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)  \label{eq:mnary_even_case}
 			\end{align}
 
 
@@ -404,17 +404,17 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 		From (\ref{eq:mnary_even_case}), we can simplify it as the following:
 
 		\begin{align*}
-			\alpha(T) & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)  \\
-				  & = m\left(m^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)\\
-				  & = m\left(m^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)\\
-				  & = m\left(m^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)\\
-				  & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)\\
-				  & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i + 1}\right)\\
-				  & = m\left(1 + m\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i)}\right)\\
-				  & = m + m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i}\\
-				  & = m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + m \\
-				  & > m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + 1 \\
-				  & = (\ref{eq:mnary_odd_case})
+			\alpha(T) & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)                                             \\
+			          & = m\left(m^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right) \\
+			          & = m\left(m^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                         \\
+			          & = m\left(m^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                                       \\
+			          & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                                         \\
+			          & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i + 1}\right)                                           \\
+			          & = m\left(1 + m\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i)}\right)                                             \\
+			          & = m + m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i}                                                          \\
+			          & = m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + m                                                          \\
+			          & > m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + 1                                                          \\
+			          & = (\ref{eq:mnary_odd_case})
 		\end{align*}
 
 		Which implies that,
@@ -423,7 +423,7 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			\alpha(T) = \max(\ref{eq:mnary_odd_case}, \ref{eq:mnary_even_case}) = (\ref{eq:mnary_even_case})\; \text{as required.}
 		\end{align*}
 
-	\item $d$ is even \\
+		\item $d$ is even \\
 
 		We will proceed similarly to the odd case.
 
@@ -465,12 +465,12 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			Thus, we obtain that $\alpha(T_{d+1})$ becomes the following:
 
 			\begin{align}
-				\alpha(T_{d + 1}) &= m^2(\underbrace{m^{d - 2} + m^{d - 4} + \dots + 1}_{\frac{d}{2} \text{terms}}) + 1 \nonumber \\
-				&= m^2 \displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i} + 1
+				\alpha(T_{d + 1}) & = m^2(\underbrace{m^{d - 2} + m^{d - 4} + \dots + 1}_{\frac{d}{2} \text{terms}}) + 1 \nonumber \\
+				                  & = m^2 \displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i} + 1
 				\label{eq:mnary_even_case_root_in}
 			\end{align}
 
-		\item  $r \not\in \mathcal{I}_{d+1}$
+			\item  $r \not\in \mathcal{I}_{d+1}$
 			If $r \not\in \mathcal{I}_{d + 1}$, then the remaining elements of $\mathcal{I}_{d + 1}$ are from $T \setminus \{r\}$.
 
 
@@ -482,7 +482,7 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 
 			Since all $C_i$ are disjoint and distinct perfect $m$-nary subtrees,
 			\begin{align*}
-				 \alpha(T') = \displaystyle\sum_{i = 1}^{m}\alpha(C_i)
+				\alpha(T') = \displaystyle\sum_{i = 1}^{m}\alpha(C_i)
 			\end{align*}
 
 			By symmetry we get that,
@@ -498,24 +498,24 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 			Since $d$ is even and by our induction hypothesis,
 			\begin{align}
 				\alpha(T) & = m\underbrace{(m^{d - 1} + m^{d - 3} + \dots + m)}_{\frac{d}{2} \text{terms}}           \nonumber \\
-					  & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right) 
-					  \label{eq:mnary_even_case_root_not_in}
+				          & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right)
+				\label{eq:mnary_even_case_root_not_in}
 			\end{align}
 
 			From (\ref{eq:mnary_even_case_root_not_in}), we see that,
 
 			\begin{align*}
-				& = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right) \\
-				& = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i + 1}\right) \\
-				& = m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right) \\
-				& < m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right) + 1 \\
-				& = (\ref{eq:mnary_even_case_root_in})
+				 & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right) \\
+				 & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i + 1}\right)   \\
+				 & = m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right)     \\
+				 & < m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right) + 1 \\
+				 & = (\ref{eq:mnary_even_case_root_in})
 			\end{align*}
 
-		Since $\alpha(T)$ is the maximum coclique,
-		\begin{align*}
-			\alpha(T) = \max(\ref{eq:mnary_even_case_root_in}, \ref{eq:mnary_even_case_root_not_in}) = (\ref{eq:mnary_even_case_root_in})\; \text{as required.}
-		\end{align*}
+			Since $\alpha(T)$ is the maximum coclique,
+			\begin{align*}
+				\alpha(T) = \max(\ref{eq:mnary_even_case_root_in}, \ref{eq:mnary_even_case_root_not_in}) = (\ref{eq:mnary_even_case_root_in})\; \text{as required.}
+			\end{align*}
 		\end{subcaseof}
 	\end{caseof}
 
@@ -527,7 +527,7 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 \end{corollary}
 
 \begin{theorem}\label{theorem:unique_independence_num}
-Following from the previous Theorem ~\ref{theorem:mnary_independence_num}, we claim that $\mathcal{I}_d$ is unique.
+	Following from the previous Theorem ~\ref{theorem:mnary_independence_num}, we claim that $\mathcal{I}_d$ is unique.
 \end{theorem}
 \begin{proof}[Proof for ~\ref{theorem:unique_independence_num}]
 	$ $ \\
@@ -541,237 +541,346 @@ Following from the previous Theorem ~\ref{theorem:mnary_independence_num}, we cl
 	We shall proceed by cases.
 
 	\begin{caseof}
-	\item $d + 1$ is odd \\
-		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is odd, then $r \in \mathcal{I}_{d + 1}$. 
-\\
+		\item $d + 1$ is odd \\
+		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is odd, then $r \in \mathcal{I}_{d + 1}$.
+		\\
 		If $r \in \mathcal{I}_{d + 1}$, then that means that all the children of $r$ cannot be included in $\mathcal{I}_{d + 1}$. Then the only remaining options are from the subtrees of depth $d - 1$ rooted at the children of the children of $r$.
-\\
+		\\
 		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-\\
-		Since $d + 1$ is odd, then $d - 1$ is also odd. Hence, we can use our inductive hypothesis to conclude that all the elements for $\mathcal{I}_{d + 1}$ will be made up of distinct disjoint components which implies that $\mathcal{I}_{d + 1}$ is unique. 
-\\
+		\\
+		Since $d + 1$ is odd, then $d - 1$ is also odd. Hence, we can use our inductive hypothesis to conclude that all the elements for $\mathcal{I}_{d + 1}$ will be made up of distinct disjoint components which implies that $\mathcal{I}_{d + 1}$ is unique.
+		\\
 		This concludes this case.
-	
-	\item $d + 1$ is even \\
-		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is even, then $r \not\in \mathcal{I}_{d + 1}$. 
-\\
+
+		\item $d + 1$ is even \\
+		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is even, then $r \not\in \mathcal{I}_{d + 1}$.
+		\\
 		If $r \not\in \mathcal{I}_{d + 1}$, then that means that the remaining vertices of $\mathcal{I}_{d+1}$ are going to be from the subtrees of depth $d$ rooted at the $m$ children of $r$.
-\\
+		\\
 		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-\\
+		\\
 		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-\\
+		\\
 		Since $d + 1$ is even, then $d$ is odd. Then, we can use case 1 along with our inductive hypothesis to conclude that all the elements for $\mathcal{I}_{d + 1}$ will be made up of distinct disjoint components which implies that $\mathcal{I}_{d+1}$ is unique.
-\\
+		\\
 		This concludes the case.
 	\end{caseof}
 
 	Hence, by strong mathematical induction, we see that $\mathcal{I}_{d}$ is unqiue, as required.
 \end{proof}
 
+\begin{theorem}[Perfect m-nary trees are HK]\label{theorem:mnary_hk}
+	Let $T$ be a perfect $m$-nary tree with depth $d$. Then, $T$ is HK.
+\end{theorem}
+
+\begin{proof}[Proof for ~\ref{theorem:mnary_hk}]
+	$ $ \\
+
+	Let $T$ be a perfect $m$-nary tree of depth $d$.
+\end{proof}
+
+
+\begin{definition}[Depth Vertex Set]
+	Let $T = (V, E)$ be a perfect binary tree of depth $d$. A depth vertex set is the set of all vertices at the same depth. A depth vertex set of depth $i$ is denoted by $\mathcal{D}_i$, for $i \leq d$.
+\end{definition}
+
+\begin{definition}[Parent vertex]
+	Let $T = (V, E)$ be a perfect binary tree of depth $d$. Let $v \in V$, the vertex adjacent to $v$ having one less depth is called the parent vertex. If $v \in \mathcal{D_i}$, then the parent of $v$ will be included in $\mathcal{D_{i - 1}}$.
+\end{definition}
+
+\begin{definition}[Grandparent vertex]
+	A grandparent vertex is the parent of the parent vertex of a given vertex $v$.
+\end{definition}
+
+\begin{theorem}[Stars around the leaves dominates stars around the root]\label{theorem:leaves_dom_root}
+	For a given perfect binary tree $T = (V, E)$	of depth $d$, there exists a leaf $l$ such that $|\mathcal{I}^k_T(l)| > |\mathcal{I}^k_T(r)|.$
+\end{theorem}
+
+\begin{proof}[Proof for ~\ref{theorem:leaves_dom_root}]
+	$ $ \\
+
+	Due to the symmetric nature of $T$ it is easy to see that $\mathcal{I}^k_T(l)$ is the same for all choices of leaves $l$. We will pick the first leaf from the left, $l$. We will then show that $|\mathcal{I}^k_T(l)| > |\mathcal{I}^k_T(r)|.$
+
+	Firstly, we will count the total number of cocliques of size $k$ that are centered around $r$. We will use an enumerative approach to select $t_i$ vertices from the depth vertex set of depth $i$, $\mathcal{D}_i$, for $i \leq d$. In essence, we will select for all possible depth vertex sets that are not affected by our choice of vertex $t_i$ vertices such that the sum of them will be equal to $k - 1$. Succintly, we want to choose $t_i$ such that:
+	\begin{align*}
+		\displaystyle\sum_{i = 3}^{d}t_i = k - 1
+	\end{align*}
+
+	Since we are counting the star centered at the root $r$, $r$'s children of $\mathcal{D}_2$ cannot be included and hence, our enumeration starts from selecting $t_3$ vertices from $\mathcal{D}_3$.
+
+	There are $\binom{2^{3 - 1}}{t_3} = \binom{2^2}{t_3}$ possible combinations of vertices that you can choose from $\mathcal{D}_3$. Since $T$ is a perfect binary tree, whenever we select a vertex and add it to our coclique, all of it's children in the next depth vertex set invalid selections for that particular coclique. Hence, since we selected $t_3$ vertices from $\mathcal{D}_3$, we cannot select the children of those $t_3$ vertices from $\mathcal{D}_4$. Hence, there are $\binom{2^{4 - 1} - 2t_3}{t_4} = \binom{2^3 - 2t_3}{t_4}$ possible combinations of vertices that you can choose from $\mathcal{D}_4$. A similar pattern continues until you reach the last depth $d$. Overall, the total number of cocliques of size $k$ that include the root $r$ is the following:
+
+	\begin{align}
+		|\mathcal{I}^k_T(r)| & = \binom{2^2}{t_3} \binom{2^3 - 2t_3}{t_4} \binom{2^4 - 2t_4}{t_5}\dots \binom{2^{d - 1} - 2t_{d - 1}}{t_d}
+		\nonumber
+		\\
+		                     & = \binom{2^2}{t_3}\displaystyle\prod_{i = 4}^{d} \binom{2^{i - 1} - 2t_{i - 1}}{t_i}
+		\label{eq:root_star_card}
+	\end{align}
+
+	Now, we calculate the total number of cocliques of size $k$ that are centered around $l$. We will use a similar enumerative method; however we will need to split this counting into cases:
+
+	\begin{caseof}
+		\item $r \in \mathcal{I}^k_T(l)$
+
+		We want to choose $t_i$ such that:
+		\begin{align*}
+			\displaystyle\sum_{i = 3}^{d}t_i = k - 2
+		\end{align*}
+
+		Note that we only need to choose the rest of $k - 2$ vertices because $r, l \in \mathcal{I}^k_T(l)$.
+
+		Note that this enumeration differs with our previous enumeration argument due to the fact that the grandparent of $l$ may or may not be included in the counting which will lead to differing number of possible vertices to be selected in a given coclique.
+
+		We can proceed similarly to our calculation of the number of cocliques of size $k$ centered around $r$ with the two following sub cases:
+
+		\begin{subcaseof}
+			\item Grandparent vertex of $l$ is selected in $t_{d - 2}$\\
+			If the grandparent vertex of $l$ is selected in $t_{d - 2}$, then this case is the same as the one for the enumeration of cocliques containing $r$:
+			\begin{align*}
+				\binom{2^{d - 1 - 1} - 2t_{d - 1 - 1}}{t_{d - 1}} = \binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}}
+			\end{align*}
+			\item Grandparent vertex of $l$ is not selected in $t_{d - 2}$ \\
+			If the grandparent vertex of $l$ is not selected in $t_{d - 2}$, then we have to account for one less vertex that can be selected from $\mathcal{D}_{d - 1}$:
+			\begin{align*}
+				\binom{2^{d - 1 - 1} - 2t_{d - 1 - 1} - 1}{t_{d - 1}} = \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}
+			\end{align*}
+		\end{subcaseof}
+
+		Finally, we also note that since we already included $l$ in our enumeration, we have one less vertex that we can select from for $t_d$:
+		\begin{align*}
+			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}
+		\end{align*}
+
+		Note that our sub cases are independent events and hence we have to add them instead of multiplying them.
+
+		In total, we obtain the number of cocliques of size $k$ centered around $l$ which include $r$ as:
+
+		\begin{align}
+			\binom{2^2}{t_3}\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}\left(\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}} + \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}\right)\displaystyle\prod_{i = 4}^{d - 2}\binom{2^{i - 1} - 2t_{i - 1}}{t_i}\label{eq:leaf_star_card_1}
+		\end{align}
+
+		This concludes the first case.
+
+		\item $r \not\in \mathcal{I}^k_T(l)$
+
+		We want to choose $t_i$ such that:
+		\begin{align*}
+			\displaystyle\sum_{i = 2}^{d}t_i = k - 1
+		\end{align*}
+
+		Note that we only need to choose the rest of the $k - 1$ vertices because $l \in \mathcal{I}^k_T(l)$. We can proceed similarly to the previous case and differentiate the cases where the grandparent vertex of $l$ is included in $t_{d - 2}$ or not.
+
+		\begin{subcaseof}
+			\item Grandparent vertex of $l$ is selected in $t_{d - 2}$\\
+			Similarly to the previous case, we get the following expression:
+			\begin{align*}
+				\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}}
+			\end{align*}
+
+
+			\item Grandparent vertex of $l$ is not selected in $t_{d - 2}$\\
+			Similary to the previous case, we also get the following expression:
+
+			\begin{align*}
+				\binom{2^{d - 2} - 2_{d - 2} - 1}{t_{d - 1}}
+			\end{align*}
+
+		\end{subcaseof}
+
+		Again, we also note that we already included $l$ in our enumeration and thus have one less vertex that we can select from for $t_d$:
+
+		\begin{align*}
+			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}
+		\end{align*}
+
+		All in all, for this case we obtain the number of cocliques of size $k$ centered around $l$ that do not include $r$ as:
+
+		\begin{align}
+			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}\left(\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}} + \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}\right)\displaystyle\prod_{i = 2}^{d - 2}\binom{2^{i - 1} - 2t_{i - 1}}{t_i}\label{eq:leaf_star_card_2}
+		\end{align}
+
+		This concludes the second case.
+	\end{caseof}
+
+
+	We now show that (\ref{eq:leaf_star_card_1}) + (\ref{eq:leaf_star_card_2}) is greater than (\ref{eq:root_star_card}):
+\end{proof}
+
 \newpage
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{appendix}
-\section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
-$ $
-To validate our conjecture, we present a simple algorithm to generate all cocliques of a perfect binary tree of cardinality $k$. We then compare the number of cocliques containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
+	\section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
+	$ $
+	To validate our conjecture, we present a simple algorithm to generate all cocliques of a perfect binary tree of cardinality $k$. We then compare the number of cocliques containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
 
-To begin with, we present the following algorithm to generate a perfect binary tree of depth $n$:
+	To begin with, we present the following algorithm to generate a perfect binary tree of depth $n$:
 
-\RestyleAlgo{ruled}
+	\RestyleAlgo{ruled}
 
-\SetKwComment{Comment}{/* }{ */}
+	\SetKwComment{Comment}{/* }{ */}
 
-\begin{algorithm}[hbt!]
-  \caption{Perfect Binary Tree Generator}\label{alg:tree-generator}
-  \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
-  \KwResult{A perfect binary tree graph and its leaves}
+	\begin{algorithm}[hbt!]
+		\caption{Perfect Binary Tree Generator}\label{alg:tree-generator}
+		\KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
+		\KwResult{A perfect binary tree graph and its leaves}
 
-  \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
-  \SetKwFunction{FSub}{get\_leaves}
+		\SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
+		\SetKwFunction{FSub}{get\_leaves}
 
-  \SetKwProg{Fn}{Function}{:}{}
-  \Fn{\FMain{$n$}}{
-    \eIf{$n = 0$}{
-      \Return{Graph()}
-    }{
-      $g \gets Graph()$\;
-      $g$.add\_vertices([$2^n$])\;
-      \For{$i$ in range($2^n - 1$)}{
-        $g$.add\_edge($i$, $2*i + 1$)\;
-        $g$.add\_edge($i$, $2*i + 2$)\;
-      }
-      \Return{$g$}
-    }
-  }
-\end{algorithm}
+		\SetKwProg{Fn}{Function}{:}{}
+		\Fn{\FMain{$n$}}{
+			\eIf{$n = 0$}{
+				\Return{Graph()}
+			}{
+				$g \gets Graph()$\;
+				$g$.add\_vertices([$2^n$])\;
+				\For{$i$ in range($2^n - 1$)}{
+					$g$.add\_edge($i$, $2*i + 1$)\;
+					$g$.add\_edge($i$, $2*i + 2$)\;
+				}
+				\Return{$g$}
+			}
+		}
+	\end{algorithm}
 
-The algorithm will generate a perfect binary tree of this form:
-\begin{figure}[hbt!]
-  \centering
-
-  \begin{tikzpicture}[scale=0.7,level distance=2cm,
-      level 1/.style={sibling distance=8cm},
-      level 2/.style={sibling distance=4cm},
-      level 3/.style={sibling distance=2cm},
-      every node/.style={circle, draw, fill=white}]
-    \node (0) {$0$}
-    child {node (1) {$1$}
-        child {node (3) {$3$}
-            child {node {$\vdots$}}
-            child {node {$\vdots$}}
-          }
-        child {node (4) {$4$}
-            child {node {$\vdots$}}
-            child {node {$\vdots$}}
-          }
-      }
-    child {node (2) {$2$}
-        child {node (5) {$5$}
-            child {node {$\vdots$}}
-            child {node {$\vdots$}}
-          }
-        child {node (6) {$6$}
-            child {node {$\vdots$}}
-            child {node {$\vdots$}}
-          }
-      };
-  \end{tikzpicture}
-\end{figure}
-
-It is easy to see that the leaves will start with the value of $\left\lfloor\dfrac{2^{n + 1} - 1}{2}\right\rfloor$, where $n$ is the depth of the perfect binary tree.
-
-\newpage
-So to generate all the leaves of the perfect binary tree of depth $n$, we present the following algorithm:
-
-\begin{algorithm}[hbt!]
-  \caption{Perfect Binary Tree Leaves Generator}\label{alg:leaves-generator}
-  \KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
-  \KwResult{A perfect binary tree graph's leaves}
-
-  \SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
-
-  \SetKwProg{Fn}{Function}{:}{}
-  \Fn{\FMain{$n$}}{
-    $num\_vertices \gets 2^{n + 1} - 1$\;
-    $leaves \gets []$\;
-    $last\_row\_start \gets floor(num\_vertices / 2)$\;
-    \For{$vertex$ in range($last\_row\_start$, $num\_vertices$)}{
-      $leaves$.append($vertex$)\;
-    }
-    \Return{$leaves$}
-  }
-\end{algorithm}
-
-We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a coclique of maximum cardinality for our perfect binary tree.
-
-\begin{algorithm}[hbt!]
-  \caption{Maximum Indpendent Set Algorithm}\label{alg:max-independent-set}
-  \KwData{A perfect binary tree graph $T$}
-  \KwResult{A maximum coclique of $T$}
-
-  \SetKwFunction{FMain}{maximum\_independent\_set}
-
-  \SetKwProg{Fn}{Function}{:}{}
-  \Fn{\FMain{$T$}}{
-    $cliquer \gets Cliquer(T)$\;
-    \Return{$cliquer$.get\_maximum\_independent\_set()}
-  }
-\end{algorithm}
-
-
-The next couple of pages show the results of the algorithm for a perfect binary tree of depth 4, 5, and 6. The X-axis denotes the vertice's labels (not the actual numbers) and the Y-axis denotes the cardinality of the stars centered around the vertices.
-
-\begin{figure}[hbt!]
-	\caption*{Depth 4}
-	\begin{subfigure}[b]{.45\textwidth}
+	The algorithm will generate a perfect binary tree of this form:
+	\begin{figure}[hbt!]
 		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_1.png}
-		\caption{coclique of size 1}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_2.png}
-		\caption{coclique of size 2}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_5.png}
-		\caption{coclique of size 5}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_7.png}
-		\caption{coclique of size 7}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_10.png}
-		\caption{coclique of size 10}
-	\end{subfigure}
-\end{figure}
 
-\begin{figure}[hbt!]
-	\caption*{Depth 5}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_5_size_1.png}
-		\caption{coclique of size 1}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_5_size_5.png}
-		\caption{coclique of size 5}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_5_size_11.png}
-		\caption{coclique of size 11}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_5_size_16.png}
-		\caption{coclique of size 16}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_5_size_21.png}
-		\caption{coclique of size 21}
-	\end{subfigure}
-\end{figure}
+		\begin{tikzpicture}[scale=0.7,level distance=2cm,
+				level 1/.style={sibling distance=8cm},
+				level 2/.style={sibling distance=4cm},
+				level 3/.style={sibling distance=2cm},
+				every node/.style={circle, draw, fill=white}]
+			\node (0) {$0$}
+			child {node (1) {$1$}
+					child {node (3) {$3$}
+							child {node {$\vdots$}}
+							child {node {$\vdots$}}
+						}
+					child {node (4) {$4$}
+							child {node {$\vdots$}}
+							child {node {$\vdots$}}
+						}
+				}
+			child {node (2) {$2$}
+					child {node (5) {$5$}
+							child {node {$\vdots$}}
+							child {node {$\vdots$}}
+						}
+					child {node (6) {$6$}
+							child {node {$\vdots$}}
+							child {node {$\vdots$}}
+						}
+				};
+		\end{tikzpicture}
+	\end{figure}
 
-\begin{figure}[hbt!]
-	\caption*{Depth 6}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_1.png}
-		\caption{coclique of size 1}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_2.png}
-		\caption{coclique of size 2}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_5.png}
-		\caption{coclique of size 5}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_7.png}
-		\caption{coclique of size 7}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{depth_4_size_10.png}
-		\caption{coclique of size 10}
-	\end{subfigure}
-\end{figure}
+	It is easy to see that the leaves will start with the value of $\left\lfloor\dfrac{2^{n + 1} - 1}{2}\right\rfloor$, where $n$ is the depth of the perfect binary tree.
 
-The data shown in the figures above verifies that the Partial HK-Property holds for perfect binary trees of depth 5. The next step would be to verify this for perfect binary trees of depth 6 and 7.
+	\newpage
+	So to generate all the leaves of the perfect binary tree of depth $n$, we present the following algorithm:
 
-However, the algorithm is very slow and inefficient and it scaled exponentially. Hence, running the algorithm for perfect binary trees of depth 6 and 7 would be very computationally expensive.
+	\begin{algorithm}[hbt!]
+		\caption{Perfect Binary Tree Leaves Generator}\label{alg:leaves-generator}
+		\KwData{$n \geq 0$, where $n$ is the depth of the perfect binary tree}
+		\KwResult{A perfect binary tree graph's leaves}
+
+		\SetKwFunction{FMain}{perfect\_binary\_tree\_generator}
+
+		\SetKwProg{Fn}{Function}{:}{}
+		\Fn{\FMain{$n$}}{
+			$num\_vertices \gets 2^{n + 1} - 1$\;
+			$leaves \gets []$\;
+			$last\_row\_start \gets floor(num\_vertices / 2)$\;
+			\For{$vertex$ in range($last\_row\_start$, $num\_vertices$)}{
+				$leaves$.append($vertex$)\;
+			}
+			\Return{$leaves$}
+		}
+	\end{algorithm}
+
+	We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a coclique of maximum cardinality for our perfect binary tree.
+
+	\begin{algorithm}[hbt!]
+		\caption{Maximum Indpendent Set Algorithm}\label{alg:max-independent-set}
+		\KwData{A perfect binary tree graph $T$}
+		\KwResult{A maximum coclique of $T$}
+
+		\SetKwFunction{FMain}{maximum\_independent\_set}
+
+		\SetKwProg{Fn}{Function}{:}{}
+		\Fn{\FMain{$T$}}{
+			$cliquer \gets Cliquer(T)$\;
+			\Return{$cliquer$.get\_maximum\_independent\_set()}
+		}
+	\end{algorithm}
+
+
+	The next couple of pages show the results of the algorithm for a perfect binary tree of depth 4, 5, and 6. The X-axis denotes the vertice's labels (not the actual numbers) and the Y-axis denotes the cardinality of the stars centered around the vertices.
+
+	\begin{figure}[hbt!]
+		\caption*{Depth 4}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_4_size_1.png}
+			\caption{coclique of size 1}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_4_size_2.png}
+			\caption{coclique of size 2}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_4_size_5.png}
+			\caption{coclique of size 5}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_4_size_7.png}
+			\caption{coclique of size 7}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_4_size_10.png}
+			\caption{coclique of size 10}
+		\end{subfigure}
+	\end{figure}
+
+	\begin{figure}[hbt!]
+		\caption*{Depth 5}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_5_size_1.png}
+			\caption{coclique of size 1}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_5_size_5.png}
+			\caption{coclique of size 5}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_5_size_11.png}
+			\caption{coclique of size 11}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_5_size_16.png}
+			\caption{coclique of size 16}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{depth_5_size_21.png}
+			\caption{coclique of size 21}
+		\end{subfigure}
+	\end{figure}
+
+	The data shown in the figures above verifies that the Partial HK-Property holds for perfect binary trees of depth 5. The next step would be to verify this for perfect binary trees of depth 6 and 7.
+
+	However, the algorithm is very slow and inefficient and it scaled exponentially. Hence, running the algorithm for perfect binary trees of depth 6 and 7 would be very computationally expensive.
 
 \end{appendix}
 

@@ -79,7 +79,7 @@
 		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect binary tree $T$ of depth $d + 1$. Note that if $d$ is odd, then $d + 1$ is even. Hence, we expect that:
 
 		\begin{align*}
-			\alpha(T) = 2^d + 2^{d - 2} + \ldots + 2 
+			\alpha(T) = 2^d + 2^{d - 2} + \ldots + 2
 		\end{align*}
 
 		Consider these 2 cases:
@@ -103,12 +103,12 @@
 
 			\begin{align}
 				\alpha(T_{d+1}) & = 4\underbrace{(2^{d - 2} + 2^{d - 4} + \ldots + 2)}_{\frac{d-1}{2} \text{terms}} + 1                           \nonumber \\
-						& = 4 \displaystyle\sum_{i = 1}^{\frac{d-1}{2}}2^{d - 2i} + 1 	
-			\label{eq:odd_case}
+				                & = 4 \displaystyle\sum_{i = 1}^{\frac{d-1}{2}}2^{d - 2i} + 1
+				\label{eq:odd_case}
 			\end{align}
 
 
-		\item Root $\not\in \mathcal{I}_{d + 1}$
+			\item Root $\not\in \mathcal{I}_{d + 1}$
 
 			If $Root \not\in \mathcal{I}_d$, then the remaining elements of $\mathcal{I}_d$ are from $T \setminus \{Root\}$.
 
@@ -136,13 +136,13 @@
 			Then, by our induction hypothesis,
 			\begin{align}
 				\alpha(T) & = \underbrace{2(2^{d - 1} + 2^{d - 3} + \dots + 1)}_{\left\lceil\frac{d}{2}\right\rceil \text{terms}}          \nonumber \\
-					  & = 2\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)}\right) \nonumber
+				          & = 2\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)}\right) \nonumber
 			\end{align}
 
 			Note that $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, since $d$ is odd, then,
 			\begin{align}
 				\alpha(T) & = 2\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}2^{d - (2i - 1)}\right) \nonumber \\
-					  & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)  \label{eq:even_case} 
+				          & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)  \label{eq:even_case}
 			\end{align}
 
 
@@ -158,17 +158,17 @@
 		From (\ref{eq:even_case}), we can simplify it as the following:
 
 		\begin{align*}
-			\alpha(T) & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)  \\
-				  & = 2\left(2^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
-				  & = 2\left(2^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
-				  & = 2\left(2^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
-				  & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)\\
-				  & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i + 1)}\right)\\
-				  & = 2\left(1 + 2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i)}\right)\\
-				  & = 2 + 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i}\\
-				  & = 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 2 \\
-				  & > 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 1 \\
-				  & = (\ref{eq:odd_case})
+			\alpha(T) & = 2\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}2^{d - (2i - 1)}\right)                                             \\
+			          & = 2\left(2^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right) \\
+			          & = 2\left(2^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)                         \\
+			          & = 2\left(2^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)                                       \\
+			          & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - (2i - 1)}\right)                                         \\
+			          & = 2\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i + 1)}\right)                                          \\
+			          & = 2\left(1 + 2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i)}\right)                                             \\
+			          & = 2 + 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i}                                                            \\
+			          & = 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 2                                                            \\
+			          & > 4\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}2^{d - 2i} + 1                                                            \\
+			          & = (\ref{eq:odd_case})
 		\end{align*}
 
 		Which implies that,
@@ -177,13 +177,13 @@
 			\alpha(T) = \max(\ref{eq:odd_case}, \ref{eq:even_case}) = (\ref{eq:even_case})\; \text{as required.}
 		\end{align*}
 
-	\item $d$ is even \\
+		\item $d$ is even \\
 
 		We will proceed similarly to the odd case.
 
-		For our base case, consider the case of $d = 2$. Let $v_0$ and $v_1$ be the leaves of the perfect binary tree of depth $2$. We claim that $\mathcal{I}_2 = \{v_0, v_1\}$. This implies that $Root \not\in \mathcal{I}_2$. 
+		For our base case, consider the case of $d = 2$. Let $v_0$ and $v_1$ be the leaves of the perfect binary tree of depth $2$. We claim that $\mathcal{I}_2 = \{v_0, v_1\}$. This implies that $Root \not\in \mathcal{I}_2$.
 
-		We will prove the claim by using contradiction.	
+		We will prove the claim by using contradiction.
 
 		For contradiction, say that $Root \in \mathcal{I}_2$, then $v_0 \not\in \mathcal{I}_2$ and $v_0 \not\in \mathcal{I}_2$ since both $v_0$ and $v_1$ are neighbours of $Root$. This then implies that $\alpha(T) = 1$. However, the set of leaves $\{v_0, v_1\}$ has cardinality $2 > 1 = \alpha(T)$ which is a contradiction.
 
@@ -201,7 +201,7 @@
 \end{proof}
 
 \begin{lemma}
-Following from the previous lemma ~\ref{independence_num}, we claim that if $|\mathcal{I}_d| = \alpha(T)$, then $\mathcal{I}_d$ is unique.
+	Following from the previous lemma ~\ref{independence_num}, we claim that if $|\mathcal{I}_d| = \alpha(T)$, then $\mathcal{I}_d$ is unique.
 \end{lemma}
 \begin{proof}
 	$ $ \\
@@ -209,10 +209,10 @@ Following from the previous lemma ~\ref{independence_num}, we claim that if $|\m
 
 	We shall proceed by cases.
 	\begin{caseof}
-	\item $d$ is odd \\
-		From ~\ref{independence_num}, we know that if $d$ is odd, then $Root \in \mathcal{I}_d$. 
+		\item $d$ is odd \\
+		From ~\ref{independence_num}, we know that if $d$ is odd, then $Root \in \mathcal{I}_d$.
 
-		Let $v_0$ and $v_1$ be the children of $Root$, 
+		Let $v_0$ and $v_1$ be the children of $Root$,
 
 		If $Root \in \mathcal{I}_d$, then we know that $v_0 \not\in \mathcal{I}_d$ and $v_1 \not\in \mathcal{I}_d$.
 
