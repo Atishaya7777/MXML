@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex hk_perfect_binary_trees"] 1722271108.80937 "hk_perfect_binary_trees.aux" "hk_perfect_binary_trees.bbl" "hk_perfect_binary_trees" 1727386250.21066 0
+["bibtex hk_perfect_binary_trees"] 1729036519.16048 "hk_perfect_binary_trees.aux" "hk_perfect_binary_trees.bbl" "hk_perfect_binary_trees" 1729036551.59751 0
   "./Bibliography.bib" 1718482812.09435 3911 4d33aaf85e458b32091e274eb38a2747 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "Bibliography.aux" 1727386249.8966 1712 126411b8b0905399f142156bea12932a "pdflatex"
-  "hk_perfect_binary_trees.aux" 1727386249.90187 3688 f2ead52d08862c69b7f8077d048d6d4d "pdflatex"
+  "Bibliography.aux" 1729036551.27982 1712 5dff693f9476ccf9bd89abe021d00509 "pdflatex"
+  "hk_perfect_binary_trees.aux" 1729036551.28878 3688 f2ead52d08862c69b7f8077d048d6d4d "pdflatex"
   (generated)
   "hk_perfect_binary_trees.bbl"
   "hk_perfect_binary_trees.blg"
   (rewritten before read)
-["pdflatex"] 1727386247.78611 "hk_perfect_binary_trees.tex" "hk_perfect_binary_trees.pdf" "hk_perfect_binary_trees" 1727386250.21079 0
+["pdflatex"] 1729036549.36581 "hk_perfect_binary_trees.tex" "hk_perfect_binary_trees.pdf" "hk_perfect_binary_trees" 1729036551.59765 0
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -270,7 +270,7 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1717698885.90981 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1717698823 8221442 33fcb9ca0a00719bfcd892d58b190c4c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Bibliography.aux" 1727386249.8966 1712 126411b8b0905399f142156bea12932a "pdflatex"
+  "Bibliography.aux" 1729036551.27982 1712 5dff693f9476ccf9bd89abe021d00509 "pdflatex"
   "Bibliography.tex" 0 -1 0 ""
   "depth_4_size_1.png" 1718747574.75577 15718 52a6c322657a2a343bb3fe7f5d072ca0 ""
   "depth_4_size_10.png" 1718747575.55571 23122 4cf47818b9c7d1751bb311cba449f38c ""
@@ -282,10 +282,10 @@
   "depth_5_size_16.png" 1718748203.043 24783 a1800c8dda8bdf6dff58e698b83b4898 ""
   "depth_5_size_21.png" 1718748203.52503 23499 766ac69a3456e414909e87502d6276db ""
   "depth_5_size_5.png" 1718748199.06475 21723 6b5f4103641614c576982ea6893401d1 ""
-  "hk_perfect_binary_trees.aux" 1727386249.90187 3688 f2ead52d08862c69b7f8077d048d6d4d "pdflatex"
-  "hk_perfect_binary_trees.bbl" 1722271108.87463 1142 449e22530d9906ec8ad935a0c5fc2820 "bibtex hk_perfect_binary_trees"
-  "hk_perfect_binary_trees.out" 1727386249.90627 1311 63c500f952bdad5e366ccc5d5358237b "pdflatex"
-  "hk_perfect_binary_trees.tex" 1727386246.72127 41554 3e8f994ea206cbfa948f1a423add407c ""
+  "hk_perfect_binary_trees.aux" 1729036551.28878 3688 f2ead52d08862c69b7f8077d048d6d4d "pdflatex"
+  "hk_perfect_binary_trees.bbl" 1729036519.27892 1142 449e22530d9906ec8ad935a0c5fc2820 "bibtex hk_perfect_binary_trees"
+  "hk_perfect_binary_trees.out" 1729036551.29297 1311 63c500f952bdad5e366ccc5d5358237b "pdflatex"
+  "hk_perfect_binary_trees.tex" 1729036549.02295 41640 678140b8002b9ed24b1190f50c160384 ""
   (generated)
   "Bibliography.aux"
   "hk_perfect_binary_trees.aux"
