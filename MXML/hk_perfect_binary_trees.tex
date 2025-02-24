@@ -112,6 +112,7 @@
 \newcommand\fld{{\mathbb F}}
 \newcommand\flde{{\mathbb E}}
 \newcommand\cS{{\mathcal S}}
+\newcommand\II{{\mathcal I}}
 \newcommand\cC{{\mathbb{C}}}
 
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
@@ -287,430 +288,162 @@ In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of cla
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Perfect M-Nary Trees are HK}
 
+It is not hard to see that the perfect $m$-nary tree has a unique maximum coclique.
+
 \begin{definition}[Maximum Coclique]
 	We denote the maximum coclique of a perfect $m$-nary tree of depth $d$ by $\mathcal{I}_d$.
 \end{definition}
 
 \begin{conjecture}[HK property for a perfect m-nary tree]
-	For any given perfect m-nary tree $T$, the maximum number of cocliques lie in the leaves. The number of cocliques is denoted by $k$. $\alpha(T)$ denotes the independence number of a tree $T$.
+	For any $k \geq 1$ and a given perfect $m$-nary tree $T$, there exists any leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$. 
 \end{conjecture}
 
-%% For perfect m-nary trees
-\begin{theorem}\label{theorem:mnary_independence_num}
-	For a given perfect $m$-nary tree $T$ with depth $d$ and maximum number of cocliques possible, i.e. $k = \alpha(T)$ we have:
-	\begin{align*}
-		\alpha(T) = \begin{cases}
-			            m^{d - 1} + m^{d-3} + \ldots + 1 \text{ for odd $d$}  \\
-			            m^{d - 1} + m^{d-3} + \ldots + m \text{ for even $d$} \\
-		            \end{cases}
-	\end{align*}
+We note that the HK conjecture for perfect m-nary trees still remains open.
 
-	Or, in summation notation:
-	\begin{align*}
-		\alpha(T) = \displaystyle\sum_{i = 1}^{\left\lceil \frac{d}{2} \right\rceil} m^{d - 2i + 1}
-	\end{align*}
+\begin{theorem}{\label{theorem:mnary_independence_num}}
+	Let $T$ be a perfect $m$-nary tree of depth $d$. Then the unique maximum independent set $\mathcal{I}_d$ consists precisely of the vertices on levels
+	\[
+		d,\, d-2,\, d-4,\, \dots,
+	\]
+	and its size is given by
+	\[
+		\alpha(T)=\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}.
+	\]
 \end{theorem}
 
-\begin{proof}[Proof for ~\ref{theorem:mnary_independence_num}]
-	$ $ \\
-	We shall proceed by inducting on $d$.\\
-	We will have two cases, one for $d$ being odd and another for $d$ being even.
-	\begin{caseof}
-		\item $d$ is odd \\
+\begin{proof}
+	$ $
+	\\
+	We prove the claim by induction on $d$.
 
-		For our base case, consider the trivial case of $d = 1$. Here, $\alpha(T) = 1$. Hence, the base case holds. \\
+	\textbf{Base Cases:}
+	For $d=1$, the tree consists of a single vertex $r$, so that $\mathcal{I}_1=\{r\}$ and $\alpha(T)=1$. For $d=2$, the maximum independent set is given by the set of leaves, i.e., $\mathcal{I}_2=\{l_1,\dots,l_m\}$, so that $\alpha(T)=m$. In both cases the formula
+	\[
+		\alpha(T)=\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}
+	\]
+	holds and the independent set is unique.
 
-		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect $m$-nary tree $T$ of depth $d + 1$. Note that if $d$ is odd, then $d + 1$ is even. Hence, we expect that:
+	\medskip
 
+	\textbf{Inductive Step:}
+	Assume the result holds for all perfect $m$-nary trees of depth up to $d$. Consider a tree $T$ of depth $d+1$. Two cases arise:
 
-		\begin{align*}
-			\alpha(T) = m^d + m^{d - 2} + \ldots + m
-		\end{align*}
+	\medskip
 
-		Consider these 2 cases:
+	\textbf{Case 1:} $r\in \mathcal{I}_{d+1}$ (which occurs when $d+1$ is odd).\\[1mm]
+	Since the root is in the independent set, none of its $m$ children may be included. Removing $r$ and its children disconnects $T$ into $m^2$ disjoint subtrees (each of depth $d-1$). By the inductive hypothesis each such subtree has a unique maximum independent set of size
+	\[
+		\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{\, (d-1)-2i+1}.
+	\]
+	Thus, combining these disjoint choices and adding $r$, we obtain
+	\[
+		\alpha(T)=1 + m^2\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{\,d-2i-1}\right).
+	\]
+	A short calculation shows that this expression simplifies to the claimed formula.
 
-		\begin{subcaseof}
-			\item $r \in \mathcal{I}_{d + 1}$
+	\medskip
 
-			Let $v_i, i \in \{1, \dots, m\}$ be the children of $r$.
+	\textbf{Case 2:} $r\notin \mathcal{I}_{d+1}$ (when $d+1$ is even).\\[1mm]
+	In this case the maximum independent set is obtained by taking the unique maximum independent sets from the $m$ subtrees rooted at the children of $r$, each of depth $d$. Therefore,
+	\[
+		\alpha(T)=m\,\alpha(T_d)= m\left(\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}\right).
+	\]
+	Again, one verifies that this expression agrees with the unified formula.
 
-			Disregarding the first two depth levels, we obtain that the number of elements in the third depth level is $m^{3-1} = m^2$.
+	\medskip
 
-			Let $C_i, i \in \{1,\dots, m^2\}$ be the $m^2$ perfect $m$-nary sub-tree components generated by $T \setminus \{r, v_i\}$.
+	In both cases the choices in the disjoint subtrees are forced (by the inductive hypothesis), ensuring the uniqueness of $\mathcal{I}_{d+1}$. A suitable re-indexing of the summations confirms that the closed-form expression for $\alpha(T)$ holds for depth $d+1$.
 
-			If the root $\in \mathcal{I}_{d + 1}$, then $v_i \not\in \mathcal{I}_d$. This means that the remaining vertices of $\mathcal{I}_d$ is in one of the $m^2$ components.
-			Since the current depth from the $r$ is $d + 1$, then $T \setminus \{r, v_i\}$ will have depth of $d + 1 - 2 = d - 1$. Since $d$ is odd, then $d + 1$ is even which implies that $d - 1$ is also even.
-
-			By symmetry, it is enough to consider one of the $m^2$ components' maximum coclique for our calculations. Since the $m^2$ components are disjoint, then we can add their independence numbers together along with the $r$ and obtain the following:
-			\begin{align*}
-				\alpha(T_{d + 1}) = m^2(\alpha(T_{d - 1})) + 1
-			\end{align*}
-
-			Then, from our induction hypothesis, we get that:
-
-			\begin{align}
-				\alpha(T_{d+1}) & = m^2\underbrace{(m^{d - 2} + m^{d - 4} + \ldots + m)}_{\frac{d-1}{2} \text{terms}} + 1                           \nonumber \\
-				                & = m^2\displaystyle\sum_{i = 1}^{\frac{d-1}{2}}m^{d - 2i} + 1
-				\label{eq:mnary_odd_case}
-			\end{align}
-
-
-			\item $r \not\in \mathcal{I}_{d + 1}$
-
-			If $r \not\in \mathcal{I}_{d + 1}$, then the remaining elements of $\mathcal{I}_{d + 1}$ are from $T \setminus \{r\}$.
-
-			Let $T' = T\setminus\{r\}$. Then $T'$ is a forest of $m$ disjoint and distinct components. Let $C_i, i \in \{1, \dots, m\}$ be the $m$ components of $T'$. Since $T$ was a perfect $m$-nary tree of depth $d + 1$, then all $C_i$ are also perfect $m$-nary subtrees of depth:
-			\begin{align*}
-				 & = (d + 1) - 1 \\
-				 & = d
-			\end{align*}
-
-			Since $d$ is odd, and all $C_i$ are disjoint and distinct perfect $m$-nary subtrees,
-			\begin{align*}
-				\alpha(T') = \displaystyle\sum_{i = 1}^{m}\alpha(C_i)
-			\end{align*}
-
-			By symmetry we get that,
-			\begin{align*}
-				\alpha(T') = m \alpha(C_1)
-			\end{align*}
-
-			Since $r \not\in \mathcal{I}_d$,
-			\begin{align*}
-				\alpha(T) = \alpha(T') = m \alpha(C_1)
-			\end{align*}
-
-			Then, by our induction hypothesis,
-			\begin{align}
-				\alpha(T) & = m\underbrace{(m^{d - 1} + m^{d - 3} + \dots + 1)}_{\left\lceil\frac{d}{2}\right\rceil \text{terms}}          \nonumber \\
-				          & = m\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}m^{d - (2i - 1)}\right) \nonumber
-			\end{align}
-
-			Note that $\left\lceil\frac{d}{2}\right\rceil = \frac{d + 1}{2}$, since $d$ is odd, then,
-			\begin{align}
-				\alpha(T) & = m\left(\displaystyle\sum_{i = 1}^{\left\lceil\frac{d}{2}\right\rceil}m^{d - (2i - 1)}\right) \nonumber \\
-				          & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)  \label{eq:mnary_even_case}
-			\end{align}
-
-
-		\end{subcaseof}
-
-		Since $\alpha(T)$ is the maximum coclique,
-		\begin{align*}
-			\alpha(T) = \max(\ref{eq:mnary_odd_case}, \ref{eq:mnary_even_case})
-		\end{align*}
-
-		Remember that our objective is to show that $\alpha(T) = (\ref{eq:mnary_even_case})$ as this aligns with our inductive hypothesis.
-
-		From (\ref{eq:mnary_even_case}), we can simplify it as the following:
-
-		\begin{align*}
-			\alpha(T) & = m\left(\displaystyle\sum_{i = 1}^{\frac{d + 1}{2}}m^{d - (2i - 1)}\right)                                             \\
-			          & = m\left(m^{d - 2\left(\frac{d + 1}{2}\right) + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right) \\
-			          & = m\left(m^{d - d - 1 + 1} + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                         \\
-			          & = m\left(m^0 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                                       \\
-			          & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - (2i - 1)}\right)                                         \\
-			          & = m\left(1 + \displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i + 1}\right)                                           \\
-			          & = m\left(1 + m\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i)}\right)                                             \\
-			          & = m + m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i}                                                          \\
-			          & = m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + m                                                          \\
-			          & > m^2\displaystyle\sum_{i = 1}^{\frac{d - 1}{2}}m^{d - 2i} + 1                                                          \\
-			          & = (\ref{eq:mnary_odd_case})
-		\end{align*}
-
-		Which implies that,
-
-		\begin{align*}
-			\alpha(T) = \max(\ref{eq:mnary_odd_case}, \ref{eq:mnary_even_case}) = (\ref{eq:mnary_even_case})\; \text{as required.}
-		\end{align*}
-
-		\item $d$ is even \\
-
-		We will proceed similarly to the odd case.
-
-		For our base case, consider the case of $d = 2$. It is quite easy to see that the maximum coclique will be made up of all the leaves aside from $m$ which resolves the base case.
-
-		Now, say that the statement holds for all $d$. We now have to show that it holds for $d+1$. That is, we need to show that it holds for a given perfect $m$-nary tree $T$ of depth $d + 1$. Note that if $d$ is even, then $d + 1$ is odd. Hence, we expect that:
-
-		\begin{align*}
-			\alpha(T) = m^d + m^{d - 2} + \ldots + 1
-		\end{align*}
-
-		Consider these 2 cases:
-
-		\begin{subcaseof}
-			\item $r \in \mathcal{I}_{d + 1}$
-
-			Let $v_i, i \in \{1, \dots, m\}$ be the children of $r$.
-
-			Disregarding the first two depth levels, we obtain that the number of elements in the third depth level is $m^{3-1} = m^2$.
-
-			Let $C_i, i \in \{1,\dots, m^2\}$ be the $m^2$ perfect $m$-nary sub-tree components generated by $T \setminus \{r, v_i\}$.
-
-			If the root $\in \mathcal{I}_{d + 1}$, then $v_i \not\in \mathcal{I}_d$. This means that the remaining vertices of $\mathcal{I}_d$ is in one of the $m^2$ components.
-
-			Since the current depth from the $r$ is $d + 1$, then $T \setminus \{r, v_i\}$ will have depth of $d + 1 - 2 = d - 1$. Since $d$ is even, then $d + 1$ is odd which implies that $d - 1$ is also odd.
-
-			By symmetry, it is enough to consider one of the $m^2$ components' maximum coclique for our calculations. Since the $m^2$ components are disjoint, then we can add their independence number together along with the $1$ from $r$ and obtain the following:
-
-			\begin{align*}
-				\alpha(T_{d + 1}) = m^2(\alpha(T_{d - 1})) + 1
-			\end{align*}
-
-			Since $d - 1$ is odd, from our induction hypothesis, we have that:
-
-			\begin{align*}
-				\alpha(T_{d - 1}) = \underbrace{m^{d - 2} + m^{d - 4} + \dots + 1}_{\left\lceil\frac{d - 1}{2}\right\rceil = \frac{d - 1 + 1}{2} = \frac{d}{2} \text{terms}}
-			\end{align*}
-
-			Thus, we obtain that $\alpha(T_{d+1})$ becomes the following:
-
-			\begin{align}
-				\alpha(T_{d + 1}) & = m^2(\underbrace{m^{d - 2} + m^{d - 4} + \dots + 1}_{\frac{d}{2} \text{terms}}) + 1 \nonumber \\
-				                  & = m^2 \displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i} + 1
-				\label{eq:mnary_even_case_root_in}
-			\end{align}
-
-			\item  $r \not\in \mathcal{I}_{d+1}$
-			If $r \not\in \mathcal{I}_{d + 1}$, then the remaining elements of $\mathcal{I}_{d + 1}$ are from $T \setminus \{r\}$.
-
-
-			Let $T' = T\setminus\{r\}$. Then $T'$ is a forest of $m$ disjoint and distinct components. Let $C_i, i \in \{1, \dots, m\}$ be the $m$ components of $T'$. Since $T$ was a perfect $m$-nary tree of depth $d + 1$, then all $C_i$ are also perfect $m$-nary subtrees of depth:
-			\begin{align*}
-				 & = (d + 1) - 1 \\
-				 & = d
-			\end{align*}
-
-			Since all $C_i$ are disjoint and distinct perfect $m$-nary subtrees,
-			\begin{align*}
-				\alpha(T') = \displaystyle\sum_{i = 1}^{m}\alpha(C_i)
-			\end{align*}
-
-			By symmetry we get that,
-			\begin{align*}
-				\alpha(T') = m \alpha(C_1)
-			\end{align*}
-
-			Since $r \not\in \mathcal{I}_d$,
-			\begin{align*}
-				\alpha(T) = \alpha(T') = m \alpha(C_1)
-			\end{align*}
-
-			Since $d$ is even and by our induction hypothesis,
-			\begin{align}
-				\alpha(T) & = m\underbrace{(m^{d - 1} + m^{d - 3} + \dots + m)}_{\frac{d}{2} \text{terms}}           \nonumber \\
-				          & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right)
-				\label{eq:mnary_even_case_root_not_in}
-			\end{align}
-
-			From (\ref{eq:mnary_even_case_root_not_in}), we see that,
-
-			\begin{align*}
-				 & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - (2i - 1)}\right) \\
-				 & = m\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i + 1}\right)   \\
-				 & = m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right)     \\
-				 & < m^2\left(\displaystyle\sum_{i = 1}^{\frac{d}{2}}m^{d - 2i}\right) + 1 \\
-				 & = (\ref{eq:mnary_even_case_root_in})
-			\end{align*}
-
-			Since $\alpha(T)$ is the maximum coclique,
-			\begin{align*}
-				\alpha(T) = \max(\ref{eq:mnary_even_case_root_in}, \ref{eq:mnary_even_case_root_not_in}) = (\ref{eq:mnary_even_case_root_in})\; \text{as required.}
-			\end{align*}
-		\end{subcaseof}
-	\end{caseof}
-
-	Thus, by the mathematical induction, our formula for the independence number of a perfect $m$-nary tree holds.
+	Thus, by strong induction, the result holds for all $d$.
 \end{proof}
+
+%% For perfect m-nary trees
 
 \begin{corollary}\label{cor:root_in_not_in}
 	By $Theorem$ (\ref{theorem:mnary_independence_num}), we see that for perfect $m$-nary trees with odd depth $d$, $r \in \mathcal{I}_d$. For even depth $d$, $r \not\in \mathcal{I}_d$.
 \end{corollary}
 
-\begin{theorem}\label{theorem:unique_independence_num}
-	Following from the previous Theorem ~\ref{theorem:mnary_independence_num}, we claim that $\mathcal{I}_d$ is unique.
-\end{theorem}
-\begin{proof}[Proof for ~\ref{theorem:unique_independence_num}]
-	$ $ \\
-
-	Let $T$ be a perfect $m$-nary tree of depth $d$. We shall induct on $d$ to show that $\mathcal{I}_d$ is unique.
-
-	For our base case, consider the trivial case of $d = 1$. Then, we see that $\mathcal{I}_d = \{r\}$. In addition, for $d = 2$, it is quite easy to see that $\mathcal{I}_d = \{l_1,\dots, l_m\}$, where $l_i, i \in \{1,\dots, m\}$ are the leaves.
-
-	Now, say that our statement holds for all $d$. We now have to show that it holds for $d + 1$. That is, we need to show that it holds for a given perfect $m$-nary tree $T'$ of depth $d + 1$.
-
-	We shall proceed by cases.
-
-	\begin{caseof}
-		\item $d + 1$ is odd \\
-		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is odd, then $r \in \mathcal{I}_{d + 1}$.
-		\\
-		If $r \in \mathcal{I}_{d + 1}$, then that means that all the children of $r$ cannot be included in $\mathcal{I}_{d + 1}$. Then the only remaining options are from the subtrees of depth $d - 1$ rooted at the children of the children of $r$.
-		\\
-		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-		\\
-		Since $d + 1$ is odd, then $d - 1$ is also odd. Hence, we can use our inductive hypothesis to conclude that all the elements for $\mathcal{I}_{d + 1}$ will be made up of distinct disjoint components which implies that $\mathcal{I}_{d + 1}$ is unique.
-		\\
-		This concludes this case.
-
-		\item $d + 1$ is even \\
-		From ~\ref{cor:root_in_not_in}, we know that if $d + 1$ is even, then $r \not\in \mathcal{I}_{d + 1}$.
-		\\
-		If $r \not\in \mathcal{I}_{d + 1}$, then that means that the remaining vertices of $\mathcal{I}_{d+1}$ are going to be from the subtrees of depth $d$ rooted at the $m$ children of $r$.
-		\\
-		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-		\\
-		It is important to note that our subtrees are distinct and disjoint components, hence we will not have any overlapping vertices between them. This also means that by symmetry, we can just consider one of the subtrees.
-		\\
-		Since $d + 1$ is even, then $d$ is odd. Then, we can use case 1 along with our inductive hypothesis to conclude that all the elements for $\mathcal{I}_{d + 1}$ will be made up of distinct disjoint components which implies that $\mathcal{I}_{d+1}$ is unique.
-		\\
-		This concludes the case.
-	\end{caseof}
-
-	Hence, by strong mathematical induction, we see that $\mathcal{I}_{d}$ is unqiue, as required.
-\end{proof}
 
 \begin{theorem}[Perfect m-nary trees are HK]\label{theorem:mnary_hk}
 	Let $T$ be a perfect $m$-nary tree with depth $d$. Then, $T$ is HK.
 \end{theorem}
 
 \begin{proof}[Proof for ~\ref{theorem:mnary_hk}]
-	$ $ \\
-
-	Let $T$ be a perfect $m$-nary tree of depth $d$.
+We still don't have a proof of this one.
 \end{proof}
-
 
 \begin{definition}[Depth Vertex Set]
 	Let $T = (V, E)$ be a perfect binary tree of depth $d$. A depth vertex set is the set of all vertices at the same depth. A depth vertex set of depth $i$ is denoted by $\mathcal{D}_i$, for $i \leq d$.
 \end{definition}
 
 \begin{definition}[Parent vertex]
-	Let $T = (V, E)$ be a perfect binary tree of depth $d$. Let $v \in V$, the vertex adjacent to $v$ having one less depth is called the parent vertex. If $v \in \mathcal{D_i}$, then the parent of $v$ will be included in $\mathcal{D_{i - 1}}$.
+	Let $T = (V, E)$ be a perfect binary tree of depth $d$. Let $v \in V$, the vertex adjacent to $v$ having one less depth is called the parent vertex. If $v \in \mathcal{D}_i$, then the parent of $v$ will be included in $\mathcal{D}_{i - 1}$.
 \end{definition}
 
 \begin{definition}[Grandparent vertex]
 	A grandparent vertex is the parent of the parent vertex of a given vertex $v$.
 \end{definition}
-
+For binary (and $m$-nary trees) in order to prove Theorem~\ref{theorem:mnary_hk}, it is sufficient to prove.
 \begin{theorem}[Stars around the leaves dominates stars around the root]\label{theorem:leaves_dom_root}
-	For a given perfect binary tree $T = (V, E)$	of depth $d$, there exists a leaf $l$ such that $|\mathcal{I}^k_T(l)| > |\mathcal{I}^k_T(r)|.$
+	For a given perfect binary tree $T = (V, E)$	of depth $d$, there exists a leaf $l$ such that $|\mathcal{I}^k_T(l)| \geq  |\mathcal{I}^k_T(r)|$ where $r$ is the root.
 \end{theorem}
 
-\begin{proof}[Proof for ~\ref{theorem:leaves_dom_root}]
-	$ $ \\
+This is established by the following lemma.
 
-	Due to the symmetric nature of $T$ it is easy to see that $\mathcal{I}^k_T(l)$ is the same for all choices of leaves $l$. We will pick the first leaf from the left, $l$. We will then show that $|\mathcal{I}^k_T(l)| > |\mathcal{I}^k_T(r)|.$
-
-	Firstly, we will count the total number of cocliques of size $k$ that are centered around $r$. We will use an enumerative approach to select $t_i$ vertices from the depth vertex set of depth $i$, $\mathcal{D}_i$, for $i \leq d$. In essence, we will select for all possible depth vertex sets that are not affected by our choice of vertex $t_i$ vertices such that the sum of them will be equal to $k - 1$. Succintly, we want to choose $t_i$ such that:
-	\begin{align*}
-		\displaystyle\sum_{i = 3}^{d}t_i = k - 1
-	\end{align*}
-
-	Since we are counting the star centered at the root $r$, $r$'s children of $\mathcal{D}_2$ cannot be included and hence, our enumeration starts from selecting $t_3$ vertices from $\mathcal{D}_3$.
-
-	There are $\binom{2^{3 - 1}}{t_3} = \binom{2^2}{t_3}$ possible combinations of vertices that you can choose from $\mathcal{D}_3$. Since $T$ is a perfect binary tree, whenever we select a vertex and add it to our coclique, all of it's children in the next depth vertex set invalid selections for that particular coclique. Hence, since we selected $t_3$ vertices from $\mathcal{D}_3$, we cannot select the children of those $t_3$ vertices from $\mathcal{D}_4$. Hence, there are $\binom{2^{4 - 1} - 2t_3}{t_4} = \binom{2^3 - 2t_3}{t_4}$ possible combinations of vertices that you can choose from $\mathcal{D}_4$. A similar pattern continues until you reach the last depth $d$. Overall, the total number of cocliques of size $k$ that include the root $r$ is the following:
-
-	\begin{align}
-		|\mathcal{I}^k_T(r)| & = \binom{2^2}{t_3} \binom{2^3 - 2t_3}{t_4} \binom{2^4 - 2t_4}{t_5}\dots \binom{2^{d - 1} - 2t_{d - 1}}{t_d}
-		\nonumber
-		\\
-		                     & = \binom{2^2}{t_3}\displaystyle\prod_{i = 4}^{d} \binom{2^{i - 1} - 2t_{i - 1}}{t_i}
-		\label{eq:root_star_card}
-	\end{align}
-
-	Now, we calculate the total number of cocliques of size $k$ that are centered around $l$. We will use a similar enumerative method; however we will need to split this counting into cases:
-
-	\begin{caseof}
-		\item $r \in \mathcal{I}^k_T(l)$
-
-		We want to choose $t_i$ such that:
-		\begin{align*}
-			\displaystyle\sum_{i = 3}^{d}t_i = k - 2
-		\end{align*}
-
-		Note that we only need to choose the rest of $k - 2$ vertices because $r, l \in \mathcal{I}^k_T(l)$.
-
-		Note that this enumeration differs with our previous enumeration argument due to the fact that the grandparent of $l$ may or may not be included in the counting which will lead to differing number of possible vertices to be selected in a given coclique.
-
-		We can proceed similarly to our calculation of the number of cocliques of size $k$ centered around $r$ with the two following sub cases:
-
-		\begin{subcaseof}
-			\item Grandparent vertex of $l$ is selected in $t_{d - 2}$\\
-			If the grandparent vertex of $l$ is selected in $t_{d - 2}$, then this case is the same as the one for the enumeration of cocliques containing $r$:
-			\begin{align*}
-				\binom{2^{d - 1 - 1} - 2t_{d - 1 - 1}}{t_{d - 1}} = \binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}}
-			\end{align*}
-			\item Grandparent vertex of $l$ is not selected in $t_{d - 2}$ \\
-			If the grandparent vertex of $l$ is not selected in $t_{d - 2}$, then we have to account for one less vertex that can be selected from $\mathcal{D}_{d - 1}$:
-			\begin{align*}
-				\binom{2^{d - 1 - 1} - 2t_{d - 1 - 1} - 1}{t_{d - 1}} = \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}
-			\end{align*}
-		\end{subcaseof}
-
-		Finally, we also note that since we already included $l$ in our enumeration, we have one less vertex that we can select from for $t_d$:
-		\begin{align*}
-			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}
-		\end{align*}
-
-		Note that our sub cases are independent events and hence we have to add them instead of multiplying them.
-
-		In total, we obtain the number of cocliques of size $k$ centered around $l$ which include $r$ as:
-
-		\begin{align}
-			\binom{2^2}{t_3}\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}\left(\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}} + \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}\right)\displaystyle\prod_{i = 4}^{d - 2}\binom{2^{i - 1} - 2t_{i - 1}}{t_i}\label{eq:leaf_star_card_1}
-		\end{align}
-
-		This concludes the first case.
-
-		\item $r \not\in \mathcal{I}^k_T(l)$
-
-		We want to choose $t_i$ such that:
-		\begin{align*}
-			\displaystyle\sum_{i = 2}^{d}t_i = k - 1
-		\end{align*}
-
-		Note that we only need to choose the rest of the $k - 1$ vertices because $l \in \mathcal{I}^k_T(l)$. We can proceed similarly to the previous case and differentiate the cases where the grandparent vertex of $l$ is included in $t_{d - 2}$ or not.
-
-		\begin{subcaseof}
-			\item Grandparent vertex of $l$ is selected in $t_{d - 2}$\\
-			Similarly to the previous case, we get the following expression:
-			\begin{align*}
-				\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}}
-			\end{align*}
-
-
-			\item Grandparent vertex of $l$ is not selected in $t_{d - 2}$\\
-			Similary to the previous case, we also get the following expression:
-
-			\begin{align*}
-				\binom{2^{d - 2} - 2_{d - 2} - 1}{t_{d - 1}}
-			\end{align*}
-
-		\end{subcaseof}
-
-		Again, we also note that we already included $l$ in our enumeration and thus have one less vertex that we can select from for $t_d$:
-
-		\begin{align*}
-			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}
-		\end{align*}
-
-		All in all, for this case we obtain the number of cocliques of size $k$ centered around $l$ that do not include $r$ as:
-
-		\begin{align}
-			\binom{2^{d - 1} - 2t_{d - 1} - 1}{t_d}\left(\binom{2^{d - 2} - 2t_{d - 2}}{t_{d - 1}} + \binom{2^{d - 2} - 2t_{d - 2} - 1}{t_{d - 1}}\right)\displaystyle\prod_{i = 2}^{d - 2}\binom{2^{i - 1} - 2t_{i - 1}}{t_i}\label{eq:leaf_star_card_2}
-		\end{align}
-
-		This concludes the second case.
-	\end{caseof}
-
-
-	We now show that (\ref{eq:leaf_star_card_1}) + (\ref{eq:leaf_star_card_2}) is greater than (\ref{eq:root_star_card}):
+\begin{lemma}
+    Assume that for every perfect $m$-nary  tree $T = (V, E)$ with root $r$ and any leaf $\ell$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|.$$
+    Then, for every perfect $m$-nary  tree $T = (V, E)$, any leaf $\ell$ and any vertex $v$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(v)|.$$
+\end{lemma}
+\begin{proof}
+Idea: just split your tree into parts obtained by removing $v$. Bottom part has $v$ as a root. 
 \end{proof}
 
+\newpage
+\subsection{Generating functions approach}
 
+In addition, we can count the number of cocliques with the help of the following generating functions.
+
+For the rest of this subsection, $m$ is fixed and we consider $m$-nary trees of depth $d$.
+
+\begin{definition}[Generating functions]
+For fixed $d$ let $T$ denote perfect $m$-nary tree of depth $d$ with root $r$ and a leaf $\ell$. Let $N=\alpha(T)$ (recall~(\ref{eq:alphaT})). Let $$P_{d}(t)=a_0+a_1x+a_2x^2+\ldots +a_N x^{N}$$ be a polynomial in variable $t$ in which coefficient $a_i=\II^{i}_{T}$ for all $i\in [N]$.
+Similarly define polynomials 
+$$Q_d(t)=b_0+b_1x+b_2x^2+\ldots +b_N x^{N},$$
+$$R_d(t)=c_0+c_1x+c_2x^2+\ldots +c_N x^{N},$$
+where $b_i=\II^{i}_{T}(\ell)$, and $c_i=\II^{i}_T(r)$ for all $i\in[N]$.
+\end{definition}
+Polynomials $P_d, Q_d, R_d$ are generating functions for the number of independents sets of size $i$, number of independents sets of size $i$ passing through a leaf, and number of independents sets of size $i$ passing through the root, respectively.
+
+\begin{lemma}
+Polynomials $P_n, Q_n, R_n$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$ 
+\begin{align*}
+    P_n(x) &= (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4  \\
+    R_n(x) &= x(P_{n - 2}(x))^4  \\
+    Q_n(x) &= Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
+\end{align*}
+\end{lemma}
+\begin{proof}
+Remove a root to get the recurrence in each case.
+\end{proof}
+
+\begin{lemma} 
+For even $d$
+\begin{align*}
+(P_{d - 2}(x))^2 \geq  P_{d -1}(x)(P_{d - 3}(x))^2
+\end{align*}
+For odd $d$, the inequality is reversed.
+The above expression reduces down to:
+$$(P_{d - 4})^4 (P_{d - 2})^2 \geq (P_{d - 3})^6$$
+\end{lemma}
+\begin{proof}
+Andrii: have a look at this. 
+\end{proof}
+The HK property (and Theorem~\ref{theorem:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
+
+We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all values of $n\leq 14$ (see~\cite{Atishaya:Github}).
 
 \newpage
+
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{appendix}
 	\section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
