@@ -1,7 +1,30 @@
-cff-version: 1.0.0
-message: "If you want to use the results of the calculations inside of /Scripts, please cite it as below."
+cff-version: 1.2.0
+title: >-
+  Exploring Perfect Binary Trees With Relation To The
+  HK-Property
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
 authors:
-	- family-names: Maharjan, Shirazi, Arman
-	  given-names: Atishaya, Mahsa, Andrii
-title: "Exploring Perfect Binary Trees With Relation To The HK-Property"
-version: 1.0.0
+  - given-names: Atishaya
+    family-names: Maharjan
+    email: maharjaa@myumanitoba.ca
+    affiliation: University of Manitoba
+  - given-names: Mahsa
+    family-names: Shirazi
+    email: mahsa.nasrollahi@gmail.com
+    affiliation: University of Manitoba
+  - given-names: Andrii
+    family-names: Arman
+    email: andrii.arman@umanitoba.ca
+    affiliation: University of Manitoba
+repository-code: 'https://github.com/Atishaya7777/MXML'
+abstract: "\tA perfect binary tree is a full binary tree in which all leaves have the same depth. A set of independent set of size $k$ ($k$-independent set) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all independent set of a perfect binary tree of depth $d$ and compare the number of $k$-independent set containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.\n"
+keywords:
+  - Generating Functions
+  - Independent Sets
+  - Perfect Binary Trees
+  - EKR Theorem
+  - Combinatorics
+license: MIT
