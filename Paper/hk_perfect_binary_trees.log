@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.6)  9 MAR 2025 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.6)  9 MAR 2025 17:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1093,52 +1093,52 @@ LaTeX Warning: Reference `eq:alphaT' on page 8 undefined on input line 446.
 LaTeX Warning: Citation `Atishaya:Github' on page 9 undefined on input line 498.
 
 [9] [10]
-<images/depth_4_size_1.png, id=149, 409.7709pt x 327.3831pt>
+<images/depth_4_size_1.png, id=151, 409.7709pt x 327.3831pt>
 File: images/depth_4_size_1.png Graphic file (type png)
 <use images/depth_4_size_1.png>
 Package pdftex.def Info: images/depth_4_size_1.png  used on input line 619.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<images/depth_4_size_2.png, id=151, 406.8801pt x 327.3831pt>
+<images/depth_4_size_2.png, id=153, 406.8801pt x 327.3831pt>
 File: images/depth_4_size_2.png Graphic file (type png)
 <use images/depth_4_size_2.png>
 Package pdftex.def Info: images/depth_4_size_2.png  used on input line 624.
 (pdftex.def)             Requested size: 161.9989pt x 130.34647pt.
-<images/depth_4_size_5.png, id=152, 412.6617pt x 327.3831pt>
+<images/depth_4_size_5.png, id=154, 412.6617pt x 327.3831pt>
 File: images/depth_4_size_5.png Graphic file (type png)
 <use images/depth_4_size_5.png>
 Package pdftex.def Info: images/depth_4_size_5.png  used on input line 629.
 (pdftex.def)             Requested size: 161.9989pt x 128.51813pt.
-<images/depth_4_size_7.png, id=153, 412.6617pt x 327.3831pt>
+<images/depth_4_size_7.png, id=155, 412.6617pt x 327.3831pt>
 File: images/depth_4_size_7.png Graphic file (type png)
 <use images/depth_4_size_7.png>
 Package pdftex.def Info: images/depth_4_size_7.png  used on input line 634.
 (pdftex.def)             Requested size: 161.9989pt x 128.51813pt.
-<images/depth_4_size_10.png, id=154, 409.7709pt x 327.3831pt>
+<images/depth_4_size_10.png, id=156, 409.7709pt x 327.3831pt>
 File: images/depth_4_size_10.png Graphic file (type png)
 <use images/depth_4_size_10.png>
 Package pdftex.def Info: images/depth_4_size_10.png  used on input line 639.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<images/depth_5_size_1.png, id=155, 409.7709pt x 327.3831pt>
+<images/depth_5_size_1.png, id=157, 409.7709pt x 327.3831pt>
 File: images/depth_5_size_1.png Graphic file (type png)
 <use images/depth_5_size_1.png>
 Package pdftex.def Info: images/depth_5_size_1.png  used on input line 648.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<images/depth_5_size_5.png, id=156, 425.6703pt x 327.3831pt>
+<images/depth_5_size_5.png, id=158, 425.6703pt x 327.3831pt>
 File: images/depth_5_size_5.png Graphic file (type png)
 <use images/depth_5_size_5.png>
 Package pdftex.def Info: images/depth_5_size_5.png  used on input line 653.
 (pdftex.def)             Requested size: 161.9989pt x 124.5967pt.
-<images/depth_5_size_11.png, id=157, 432.1746pt x 327.3831pt>
+<images/depth_5_size_11.png, id=159, 432.1746pt x 327.3831pt>
 File: images/depth_5_size_11.png Graphic file (type png)
 <use images/depth_5_size_11.png>
 Package pdftex.def Info: images/depth_5_size_11.png  used on input line 658.
 (pdftex.def)             Requested size: 161.9989pt x 122.7184pt.
-<images/depth_5_size_16.png, id=158, 425.6703pt x 327.3831pt>
+<images/depth_5_size_16.png, id=160, 425.6703pt x 327.3831pt>
 File: images/depth_5_size_16.png Graphic file (type png)
 <use images/depth_5_size_16.png>
 Package pdftex.def Info: images/depth_5_size_16.png  used on input line 663.
 (pdftex.def)             Requested size: 161.9989pt x 124.5967pt.
-<images/depth_5_size_21.png, id=159, 409.7709pt x 327.3831pt>
+<images/depth_5_size_21.png, id=161, 409.7709pt x 327.3831pt>
 File: images/depth_5_size_21.png Graphic file (type png)
 <use images/depth_5_size_21.png>
 Package pdftex.def Info: images/depth_5_size_21.png  used on input line 668.
@@ -1184,18 +1184,18 @@ Package rerunfilecheck Info: File `hk_perfect_binary_trees.out' has not changed.
 (rerunfilecheck)             Checksum: 3F61CAD34CB524478AEC9147A0912098;1868.
  ) 
 Here is how much of TeX's memory you used:
- 34297 strings out of 474116
- 659352 string characters out of 5743683
+ 34299 strings out of 474116
+ 659425 string characters out of 5743683
  1946187 words of memory out of 5000000
- 55790 multiletter control sequences out of 15000+600000
+ 55791 multiletter control sequences out of 15000+600000
  566999 words of font info for 73 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  84i,16n,87p,1394b,1466s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hk_perfect_binary_trees.pdf (16 pages, 488600 bytes).
+Output written on hk_perfect_binary_trees.pdf (16 pages, 488991 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 

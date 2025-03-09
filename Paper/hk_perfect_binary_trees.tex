@@ -299,7 +299,7 @@ It is not hard to see that the perfect $m$-nary tree has a unique maximum cocliq
 \end{definition}
 
 \begin{conjecture}[HK property for a perfect m-nary tree]
-	For any $k \geq 1$ and a given perfect $m$-nary tree $T$, there exists any leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$. 
+	For any $k \geq 1$ and a given perfect $m$-nary tree $T$, there exists any leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
 \end{conjecture}
 
 We note that the HK conjecture for perfect m-nary trees still remains open.
@@ -318,8 +318,8 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 \begin{proof}
 	$ $
 	\\
-        First, notice that independent set $\II$ that is obtained by taking vertices on levels $d, d-2, \ldots, $ has size exactly $|\II|=\displaystyle{\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}}.$
-        
+	First, notice that independent set $\II$ that is obtained by taking vertices on levels $d, d-2, \ldots, $ has size exactly $|\II|=\displaystyle{\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}}.$
+
 	We prove the claim by induction on $d$.
 
 	\textbf{Base Cases:}
@@ -346,25 +346,25 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 		= 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d-2i+1}\right).
 	\]
 
-        In case $d$ is even ($d = 2k$, for some $k \in \mathbb{N}$), we obtain:
+	In case $d$ is even ($d = 2k$, for some $k \in \mathbb{N}$), we obtain:
 	\begin{align*}
-		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right) \\
-		& = 1 + m^2\left(\sum_{i=1}^{k-1} m^{2k-2i-1}\right) \\
-		& = 1 + \sum_{i=1}^{k-1} m^{2k-2i+1} < m + \sum_{i=1}^{k-1} m^{2k-2i+1} = \sum_{i=1}^{k} m^{2k-2i+1} = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}.
+		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right)                                                                         \\
+		          & = 1 + m^2\left(\sum_{i=1}^{k-1} m^{2k-2i-1}\right)                                                                                               \\
+		          & = 1 + \sum_{i=1}^{k-1} m^{2k-2i+1} < m + \sum_{i=1}^{k-1} m^{2k-2i+1} = \sum_{i=1}^{k} m^{2k-2i+1} = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}.
 	\end{align*}
 
 	So if $d$ is even, any independent set containing root has size smaller than $\II_d$.
 	\newline
 
-        If $d$ is odd ($d = 2k + 1$, for some $k \in \mathbb{N}$), then we obtain:
+	If $d$ is odd ($d = 2k + 1$, for some $k \in \mathbb{N}$), then we obtain:
 	\begin{align*}
-		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right) \\
-		& = m^{2k + 1 - 2(k + 1) + 1} + \left(\sum_{i = 1}^{k} m^{2k + 1 - 2 - 2i + 1 + 2}\right) \\
-		& = m^{2k + 1 - 2(k + 1) + 1} + \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1} \\
-		& = \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1} \\
-		& = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}
+		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right)                \\
+		          & = m^{2k + 1 - 2(k + 1) + 1} + \left(\sum_{i = 1}^{k} m^{2k + 1 - 2 - 2i + 1 + 2}\right) \\
+		          & = m^{2k + 1 - 2(k + 1) + 1} + \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1}                      \\
+		          & = \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1}                                                  \\
+		          & = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}
 	\end{align*}
-        Therefore, the only possible way an independent set containing the root has size equal to $\II_d$ is if $d$ is odd.
+	Therefore, the only possible way an independent set containing the root has size equal to $\II_d$ is if $d$ is odd.
 
 	\medskip
 
@@ -381,25 +381,25 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 	In case $d$ is odd ($d = 2k - 1$, for some $k \in \mathbb{N}$), we obtain:
 	\begin{align*}
 		\alpha(T) & = m\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{d - 1 -2i+1}\right) \\
-		& = m\left(\sum_{i=1}^{k - 1} m^{2k - 1 - 2i}\right) \\
-		& = \sum_{i=1}^{k - 1} m^{2k - 1 - 2i + 1}  \\
-		& = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1} 
-		< \sum_{i = 1}^{\lceil d/2 \rceil}m^{d - 2i + 1} 
+		          & = m\left(\sum_{i=1}^{k - 1} m^{2k - 1 - 2i}\right)                 \\
+		          & = \sum_{i=1}^{k - 1} m^{2k - 1 - 2i + 1}                           \\
+		          & = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1}
+		< \sum_{i = 1}^{\lceil d/2 \rceil}m^{d - 2i + 1}
 	\end{align*}
 
 	In case $d$ is even ($d = 2k$, for some $k \in \mathbb{N}$), we obtain:
 	\begin{align*}
 		\alpha(T) & = m\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{d - 1 -2i+1}\right) \\
-			  & = m\left(\sum_{i=1}^{k} m^{2k - 1 - 2i}\right) \\
-			  & = \sum_{i=1}^{k} m^{2k - 1 - 2i + 1} \\
-			  & = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1}
+		          & = m\left(\sum_{i=1}^{k} m^{2k - 1 - 2i}\right)                     \\
+		          & = \sum_{i=1}^{k} m^{2k - 1 - 2i + 1}                               \\
+		          & = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1}
 	\end{align*}
 
 	Therefore, the only possible way an independent set not containing the root has size equal to $\II_d$ is if $d$ is even.
 
 	\medskip
 
-	In both cases the choices in the disjoint subtrees are forced (by the inductive hypothesis), ensuring the uniqueness of $\mathcal{I}_{d}$. Further, we now know that the root is not in $\mathcal{I}_{d}$ if and only if $d$ is even. 
+	In both cases the choices in the disjoint subtrees are forced (by the inductive hypothesis), ensuring the uniqueness of $\mathcal{I}_{d}$. Further, we now know that the root is not in $\mathcal{I}_{d}$ if and only if $d$ is even.
 
 	Thus, by strong induction, the result holds for all $d$.
 \end{proof}
@@ -416,7 +416,7 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 \end{theorem}
 
 \begin{proof}[Proof for ~\ref{theorem:mnary_hk}]
-We still don't have a proof of this one.
+	We still don't have a proof of this one.
 \end{proof}
 
 
@@ -428,11 +428,11 @@ For binary (and $m$-nary trees) in order to prove Theorem~\ref{theorem:mnary_hk}
 Indeed, if Theorem~\ref{theorem:leaves_dom_root} is true, then Theorem~\ref{theorem:mnary_hk} can be established by using the following lemma.
 
 \begin{lemma}
-    Assume that for every perfect $m$-nary  tree $T = (V, E)$ with root $r$ and any leaf $\ell$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|.$$
-    Then, for every perfect $m$-nary  tree $T = (V, E)$, any leaf $\ell$ and any vertex $v$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(v)|.$$
+	Assume that for every perfect $m$-nary  tree $T = (V, E)$ with root $r$ and any leaf $\ell$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|.$$
+	Then, for every perfect $m$-nary  tree $T = (V, E)$, any leaf $\ell$ and any vertex $v$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(v)|.$$
 \end{lemma}
 \begin{proof}
-Idea: just split your tree into parts obtained by removing $v$. Bottom part has $v$ as a root. 
+	Idea: just split your tree into parts obtained by removing $v$. Bottom part has $v$ as a root.
 \end{proof}
 
 \newpage
@@ -443,55 +443,55 @@ In addition, we can count the number of independent sets with the help of the fo
 For the rest of this subsection, $m$ is fixed and we consider $m$-nary trees of depth $d$.
 
 \begin{definition}[Generating functions]
-For fixed $d$ let $T$ denote perfect $m$-nary tree of depth $d$ with root $r$ and a leaf $\ell$. Let $N=\alpha(T)$ (recall~(\ref{eq:alphaT})). Let $$P_{d}(t)=a_0+a_1x+a_2x^2+\ldots +a_N x^{N}$$ be a polynomial in variable $t$ in which coefficient $a_i=\II^{i}_{T}$ for all $i\in [N]$.
-Similarly define polynomials 
-$$Q_d(t)=b_0+b_1x+b_2x^2+\ldots +b_N x^{N},$$
-$$R_d(t)=c_0+c_1x+c_2x^2+\ldots +c_N x^{N},$$
-where $b_i=\II^{i}_{T}(\ell)$, and $c_i=\II^{i}_T(r)$ for all $i\in[N]$.
+	For fixed $d$ let $T$ denote perfect $m$-nary tree of depth $d$ with root $r$ and a leaf $\ell$. Let $N=\alpha(T)$ (recall~(\ref{eq:alphaT})). Let $$P_{d}(t)=a_0+a_1x+a_2x^2+\ldots +a_N x^{N}$$ be a polynomial in variable $t$ in which coefficient $a_i=\II^{i}_{T}$ for all $i\in [N]$.
+	Similarly define polynomials
+	$$Q_d(t)=b_0+b_1x+b_2x^2+\ldots +b_N x^{N},$$
+	$$R_d(t)=c_0+c_1x+c_2x^2+\ldots +c_N x^{N},$$
+	where $b_i=\II^{i}_{T}(\ell)$, and $c_i=\II^{i}_T(r)$ for all $i\in[N]$.
 \end{definition}
 Polynomials $P_d, Q_d, R_d$ are generating functions for the number of independents sets of size $i$, number of independents sets of size $i$ passing through a leaf, and number of independents sets of size $i$ passing through the root, respectively.
 
 \begin{lemma}\label{lemma:generating_def}
-Polynomials $P_n, Q_n, R_n$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$ 
-\begin{align*}
-    P_n(x) &= (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4  \\
-    R_n(x) &= x(P_{n - 2}(x))^4  \\
-    Q_n(x) &= Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
-\end{align*}
+	Polynomials $P_n, Q_n, R_n$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$
+	\begin{align*}
+		P_n(x) & = (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4                     \\
+		R_n(x) & = x(P_{n - 2}(x))^4                                        \\
+		Q_n(x) & = Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
+	\end{align*}
 \end{lemma}
 \begin{proof}
-Remove a root to get the recurrence in each case.
+	Remove a root to get the recurrence in each case.
 \end{proof}
 
 The HK property (and Theorem~\ref{theorem:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
 
-It is easier to determine several structural properties of the polynomials to compare their reduced version. 
+It is easier to determine several structural properties of the polynomials to compare their reduced version.
 
-\begin{lemma} 
-For odd $d$
-\begin{align*}
-(P_{d }(x))^3 \geq_{c}  P_{d +1}(x)(P_{d -1}(x))^2
-\end{align*}
-For even $d$, the inequality is reversed, namely
-\begin{align*}
-(P_{d}(x))^3 \leq_{c}  P_{d +1}(x)(P_{d - 1}(x))^2
-\end{align*}
+\begin{lemma}
+	For odd $d$
+	\begin{align*}
+		(P_{d }(x))^3 \geq_{c}  P_{d +1}(x)(P_{d -1}(x))^2
+	\end{align*}
+	For even $d$, the inequality is reversed, namely
+	\begin{align*}
+		(P_{d}(x))^3 \leq_{c}  P_{d +1}(x)(P_{d - 1}(x))^2
+	\end{align*}
 \end{lemma}
 \begin{proof}
-The proof of this Lemma is by induction. Note that $P_{0}(x)=1$, $P_{1}(x)=1+x$, $P_2(x)=1+3x+x^2$. Then $$P_{1}^3(x)-P_{2}(x)P_{0}^2(x)=(1+x)^3-(1+3x+x^2)=2x^2+x^3\geq_{c}0.$$
+	The proof of this Lemma is by induction. Note that $P_{0}(x)=1$, $P_{1}(x)=1+x$, $P_2(x)=1+3x+x^2$. Then $$P_{1}^3(x)-P_{2}(x)P_{0}^2(x)=(1+x)^3-(1+3x+x^2)=2x^2+x^3\geq_{c}0.$$
 
-For inductive proof, by repetitive application of Lemma~\ref{lemma:generating_def}
-\begin{align*}
-P_{d}^{3}-P_{d+1}P_{d-1}^2&=P_{d}^{3}-(P_{d}^2+xP_{d-1}^4)P_{d-1}^2\\
-& =P_{d}^2(P_{d}-P_{d-1}^2)-xP_{d-1}^6\\
-& = P_{d}^2(xP_{d-2}^4)-xP_{d-1}^{6}\\
-&= x(P_{d}^2 P_{d-2}^4 - P_{d-1}^6)\\
-&= x(P_{d} P_{d-2}^2 - P_{d-1}^3)(P_{d} P_{d-2}^2 + P_{d-1}^3).
-\end{align*}
+	For inductive proof, by repetitive application of Lemma~\ref{lemma:generating_def}
+	\begin{align*}
+		P_{d}^{3}-P_{d+1}P_{d-1}^2 & =P_{d}^{3}-(P_{d}^2+xP_{d-1}^4)P_{d-1}^2                       \\
+		                           & =P_{d}^2(P_{d}-P_{d-1}^2)-xP_{d-1}^6                           \\
+		                           & = P_{d}^2(xP_{d-2}^4)-xP_{d-1}^{6}                             \\
+		                           & = x(P_{d}^2 P_{d-2}^4 - P_{d-1}^6)                             \\
+		                           & = x(P_{d} P_{d-2}^2 - P_{d-1}^3)(P_{d} P_{d-2}^2 + P_{d-1}^3).
+	\end{align*}
 
-By inductive hypothesis, if $d$ is odd, then $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-negative coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-negative coefficients.
+	By inductive hypothesis, if $d$ is odd, then $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-negative coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-negative coefficients.
 
-Similarly, if $d$ is event, by Inductive hypothesis, $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-positive coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-positive coefficients.
+	Similarly, if $d$ is event, by Inductive hypothesis, $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-positive coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-positive coefficients.
 
 \end{proof}
 
@@ -504,7 +504,7 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 	\section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
 	$ $
 
-	To validate our conjecture for perfect binary trees upto depth 5, we present a simple algorithm to generate all independent of a perfect binary tree of cardinality $k$. We then compare the number of independent set containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
+	To validate our conjecture for perfect binary trees upto depth 5, we present a simple algorithm to generate all independent of a perfect binary tree of cardinality $k$. We then compare the number of independent set containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees \cite{Maharjan_Exploring_Perfect_Binary}.
 
 	To begin with, we present the following algorithm to generate a perfect binary tree of depth $n$:
 
@@ -677,13 +677,13 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 
 	\section{Generating Functions Algorithm and Analysis}\label{generating-functions-algorithm}
 
-	To overcome the computational inefficiency of the brute force algorithm, we use generating functions to count the number of independent sets of a perfect binary tree of depth $d$. We then can compute the difference between the coefficients of the generated polynomials to determine if the HK-property holds for perfect binary trees numerically. 
+	To overcome the computational inefficiency of the brute force algorithm, we use generating functions to count the number of independent sets of a perfect binary tree of depth $d$. We then can compute the difference between the coefficients of the generated polynomials to determine if the HK-property holds for perfect binary trees numerically \cite{Maharjan_Exploring_Perfect_Binary}.
 
 	Recall from Lemma \ref{lemma:generating_def} that the polynomials $P_d, Q_d, R_d$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$:
 	\begin{align*}
-		P_n(x) &= (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4  \\
-		R_n(x) &= x(P_{n - 2}(x))^4  \\
-		Q_n(x) &= Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
+		P_n(x) & = (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4                     \\
+		R_n(x) & = x(P_{n - 2}(x))^4                                        \\
+		Q_n(x) & = Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
 	\end{align*}
 
 	We present the following algorithm to generate the polynomials $P_d, Q_d, R_d$ for a perfect binary tree of depth $d$:
@@ -694,10 +694,10 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\KwOut{$P$ sequence}
 		$P \gets [1, x+1]$\;
 		\For{$i \gets 2$ \textbf{to} $n-1$}{
-		    $P[i] \gets P[i-1]^2 + x \cdot P[i-2]^4$\;
+			$P[i] \gets P[i-1]^2 + x \cdot P[i-2]^4$\;
 		}
 		\Return $P$
-		\end{algorithm}
+	\end{algorithm}
 
 	\begin{algorithm}[H]
 		\caption{Generate $Q$ Sequence}
@@ -705,7 +705,7 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\KwOut{$Q$ sequence}
 		$Q \gets [0, x]$\;
 		\For{$i \gets 2$ \textbf{to} $n-1$}{
-		    $Q[i] \gets Q[i-1] \cdot P[i-1] + x \cdot Q[i-2] \cdot P[i-2]^3$\;
+			$Q[i] \gets Q[i-1] \cdot P[i-1] + x \cdot Q[i-2] \cdot P[i-2]^3$\;
 		}
 		\Return $Q$
 	\end{algorithm}
@@ -716,7 +716,7 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\KwOut{$R$ sequence}
 		$R \gets [0, x]$\;
 		\For{$i \gets 2$ \textbf{to} $n-1$}{
-		    $R[i] \gets x \cdot P[i-2]^4$\;
+			$R[i] \gets x \cdot P[i-2]^4$\;
 		}
 		\Return $R$
 	\end{algorithm}
@@ -730,9 +730,9 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\KwIn{$P, Q, R$ sequences}
 		\KwOut{Boolean}
 		\For{$i \gets 2$ \textbf{to} $n-1$}{
-		    \If{$Q[i] < R[i]$}{
-		        \Return \textbf{False}
-		    }
+			\If{$Q[i] < R[i]$}{
+				\Return \textbf{False}
+			}
 		}
 		\Return \textbf{True}
 	\end{algorithm}
