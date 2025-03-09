@@ -1,0 +1,7 @@
+cff-version: 1.0.0
+message: "If you want to use the results of the calculations inside of /Scripts, please cite it as below."
+authors:
+	- family-names: Maharjan, Shirazi, Arman
+	  given-names: Atishaya, Mahsa, Andrii
+title: "Exploring Perfect Binary Trees With Relation To The HK-Property"
+version: 1.0.0
