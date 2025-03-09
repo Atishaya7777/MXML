@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.6)  23 FEB 2025 19:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.6)  9 MAR 2025 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1057,89 +1057,117 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (16.40317pt too wide) in paragraph at lines 230--231
+Overfull \hbox (16.40317pt too wide) in paragraph at lines 234--235
  [][] 
  []
 
 
-Overfull \hbox (2.16733pt too wide) in paragraph at lines 234--235
+Overfull \hbox (2.16733pt too wide) in paragraph at lines 238--239
 []\OT1/cmr/m/n/10 They fig-ured out that the lob-sters, while not com-pletely obey-ing the HK-property,
  []
 
 [3]
-Overfull \hbox (11.39233pt too wide) in paragraph at lines 261--262
+Overfull \hbox (11.39233pt too wide) in paragraph at lines 265--266
  [][] 
  []
 
 
-Overfull \hbox (11.39233pt too wide) in paragraph at lines 283--284
+Overfull \hbox (11.39233pt too wide) in paragraph at lines 287--288
  [][] 
  []
 
-[4] [5] [6]
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
 
-LaTeX Warning: Reference `eq:alphaT' on page 7 undefined on input line 409.
+ []
 
 
-LaTeX Warning: Citation `Atishaya:Github' on page 7 undefined on input line 443.
+Underfull \vbox (badness 1137) has occurred while \output is active []
 
-[7] [8]
-<depth_4_size_1.png, id=135, 409.7709pt x 327.3831pt>
-File: depth_4_size_1.png Graphic file (type png)
-<use depth_4_size_1.png>
-Package pdftex.def Info: depth_4_size_1.png  used on input line 563.
+ [5] [6] [7]
+
+LaTeX Warning: Reference `eq:alphaT' on page 8 undefined on input line 446.
+
+[8]
+
+LaTeX Warning: Citation `Atishaya:Github' on page 9 undefined on input line 498.
+
+[9] [10]
+<images/depth_4_size_1.png, id=149, 409.7709pt x 327.3831pt>
+File: images/depth_4_size_1.png Graphic file (type png)
+<use images/depth_4_size_1.png>
+Package pdftex.def Info: images/depth_4_size_1.png  used on input line 619.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<depth_4_size_2.png, id=137, 406.8801pt x 327.3831pt>
-File: depth_4_size_2.png Graphic file (type png)
-<use depth_4_size_2.png>
-Package pdftex.def Info: depth_4_size_2.png  used on input line 568.
+<images/depth_4_size_2.png, id=151, 406.8801pt x 327.3831pt>
+File: images/depth_4_size_2.png Graphic file (type png)
+<use images/depth_4_size_2.png>
+Package pdftex.def Info: images/depth_4_size_2.png  used on input line 624.
 (pdftex.def)             Requested size: 161.9989pt x 130.34647pt.
-<depth_4_size_5.png, id=138, 412.6617pt x 327.3831pt>
-File: depth_4_size_5.png Graphic file (type png)
-<use depth_4_size_5.png>
-Package pdftex.def Info: depth_4_size_5.png  used on input line 573.
+<images/depth_4_size_5.png, id=152, 412.6617pt x 327.3831pt>
+File: images/depth_4_size_5.png Graphic file (type png)
+<use images/depth_4_size_5.png>
+Package pdftex.def Info: images/depth_4_size_5.png  used on input line 629.
 (pdftex.def)             Requested size: 161.9989pt x 128.51813pt.
-<depth_4_size_7.png, id=139, 412.6617pt x 327.3831pt>
-File: depth_4_size_7.png Graphic file (type png)
-<use depth_4_size_7.png>
-Package pdftex.def Info: depth_4_size_7.png  used on input line 578.
+<images/depth_4_size_7.png, id=153, 412.6617pt x 327.3831pt>
+File: images/depth_4_size_7.png Graphic file (type png)
+<use images/depth_4_size_7.png>
+Package pdftex.def Info: images/depth_4_size_7.png  used on input line 634.
 (pdftex.def)             Requested size: 161.9989pt x 128.51813pt.
-<depth_4_size_10.png, id=140, 409.7709pt x 327.3831pt>
-File: depth_4_size_10.png Graphic file (type png)
-<use depth_4_size_10.png>
-Package pdftex.def Info: depth_4_size_10.png  used on input line 583.
+<images/depth_4_size_10.png, id=154, 409.7709pt x 327.3831pt>
+File: images/depth_4_size_10.png Graphic file (type png)
+<use images/depth_4_size_10.png>
+Package pdftex.def Info: images/depth_4_size_10.png  used on input line 639.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<depth_5_size_1.png, id=141, 409.7709pt x 327.3831pt>
-File: depth_5_size_1.png Graphic file (type png)
-<use depth_5_size_1.png>
-Package pdftex.def Info: depth_5_size_1.png  used on input line 592.
+<images/depth_5_size_1.png, id=155, 409.7709pt x 327.3831pt>
+File: images/depth_5_size_1.png Graphic file (type png)
+<use images/depth_5_size_1.png>
+Package pdftex.def Info: images/depth_5_size_1.png  used on input line 648.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
-<depth_5_size_5.png, id=142, 425.6703pt x 327.3831pt>
-File: depth_5_size_5.png Graphic file (type png)
-<use depth_5_size_5.png>
-Package pdftex.def Info: depth_5_size_5.png  used on input line 597.
+<images/depth_5_size_5.png, id=156, 425.6703pt x 327.3831pt>
+File: images/depth_5_size_5.png Graphic file (type png)
+<use images/depth_5_size_5.png>
+Package pdftex.def Info: images/depth_5_size_5.png  used on input line 653.
 (pdftex.def)             Requested size: 161.9989pt x 124.5967pt.
-<depth_5_size_11.png, id=143, 432.1746pt x 327.3831pt>
-File: depth_5_size_11.png Graphic file (type png)
-<use depth_5_size_11.png>
-Package pdftex.def Info: depth_5_size_11.png  used on input line 602.
+<images/depth_5_size_11.png, id=157, 432.1746pt x 327.3831pt>
+File: images/depth_5_size_11.png Graphic file (type png)
+<use images/depth_5_size_11.png>
+Package pdftex.def Info: images/depth_5_size_11.png  used on input line 658.
 (pdftex.def)             Requested size: 161.9989pt x 122.7184pt.
-<depth_5_size_16.png, id=144, 425.6703pt x 327.3831pt>
-File: depth_5_size_16.png Graphic file (type png)
-<use depth_5_size_16.png>
-Package pdftex.def Info: depth_5_size_16.png  used on input line 607.
+<images/depth_5_size_16.png, id=158, 425.6703pt x 327.3831pt>
+File: images/depth_5_size_16.png Graphic file (type png)
+<use images/depth_5_size_16.png>
+Package pdftex.def Info: images/depth_5_size_16.png  used on input line 663.
 (pdftex.def)             Requested size: 161.9989pt x 124.5967pt.
-<depth_5_size_21.png, id=145, 409.7709pt x 327.3831pt>
-File: depth_5_size_21.png Graphic file (type png)
-<use depth_5_size_21.png>
-Package pdftex.def Info: depth_5_size_21.png  used on input line 612.
+<images/depth_5_size_21.png, id=159, 409.7709pt x 327.3831pt>
+File: images/depth_5_size_21.png Graphic file (type png)
+<use images/depth_5_size_21.png>
+Package pdftex.def Info: images/depth_5_size_21.png  used on input line 668.
 (pdftex.def)             Requested size: 161.9989pt x 129.42729pt.
- [9] [10 <./depth_4_size_1.png> <./depth_4_size_2.png> <./depth_4_size_5.png> <./depth_4_size_7.png> <./depth_4_size_10.png>] [11 <./depth_5_size_1.png> <./depth_5_size_5.png> <./depth_5_size_11.png> <./depth_5_size_16.png> <./depth_5_size_21.png>]
+ [11]
+Underfull \vbox (badness 6825) has occurred while \output is active []
+
+ [12 <./images/depth_4_size_1.png> <./images/depth_4_size_2.png> <./images/depth_4_size_5.png> <./images/depth_4_size_7.png> <./images/depth_4_size_10.png>]
+Underfull \vbox (badness 6125) has occurred while \output is active []
+
+ [13 <./images/depth_5_size_1.png> <./images/depth_5_size_5.png> <./images/depth_5_size_11.png> <./images/depth_5_size_16.png> <./images/depth_5_size_21.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.692 		\caption{Generate $P$ Sequence}
+                                       
+Underfull \hbox (badness 10000) in paragraph at lines 725--727
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14] [15]
 \openout2 = `Bibliography.aux'.
 
 
 No file Bibliography.tex.
-(./hk_perfect_binary_trees.bbl) [12
+(./hk_perfect_binary_trees.bbl) [16
 
 
 
@@ -1153,21 +1181,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `hk_perfect_binary_trees.out' has not changed.
-(rerunfilecheck)             Checksum: 309CAE9DA998383AC4130FB848921E54;1547.
+(rerunfilecheck)             Checksum: 3F61CAD34CB524478AEC9147A0912098;1868.
  ) 
 Here is how much of TeX's memory you used:
- 34279 strings out of 474116
- 658580 string characters out of 5743683
- 1945187 words of memory out of 5000000
- 55782 multiletter control sequences out of 15000+600000
- 566640 words of font info for 72 fonts, out of 8000000 for 9000
+ 34297 strings out of 474116
+ 659352 string characters out of 5743683
+ 1946187 words of memory out of 5000000
+ 55790 multiletter control sequences out of 15000+600000
+ 566999 words of font info for 73 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 84i,16n,87p,1369b,1466s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hk_perfect_binary_trees.pdf (12 pages, 470374 bytes).
+ 84i,16n,87p,1394b,1466s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hk_perfect_binary_trees.pdf (16 pages, 488600 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 323 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 127 words of extra memory for PDF output out of 10000 (max. 10000000)
 

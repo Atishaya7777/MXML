@@ -157,7 +157,7 @@ Canada}
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
-	A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of cocliques of size $k$ ($k$-coclique) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all cocliques of a perfect binary tree of depth $d$ and compare the number of $k$-cocliques containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.
+	A perfect binary tree is a full binary tree in which all leaves have the same depth. A set of independent set of size $k$ ($k$-independent set) in a graph, containing a fixed vertex $v$ is called a star, and is denoted by $\mathcal{I}^n_G(v)$. We study the size of stars for different vertices in a perfect binary tree. This structure is useful in studying the Erd\H{o}s-Ko-Rado theorem. Hurbert and Kumar conjectured that in trees, the largest stars are on the leaves. The conjecture was shown to be false independently by Baber, Borg, and Feghali, Johnson and Thomas. However, in some classes of trees such as caterpillars, the conjecture holds true. In this paper, we study the perfect binary trees through the lens of star centers and seek to answer if the HK-property holds for perfect binary trees. We give an formula and an inductive proof for the independence number of a perfect binary tree and show that the HK-property holds for perfect binary trees. We then show that the proof structure supports any perfect $m$-nary tree, where $m$ is a natrual number. Finally, we use an algorithm by Niskanen and R. J. to generate all independent set of a perfect binary tree of depth $d$ and compare the number of $k$-independent set containing a vertex $v$ and a leaf $l$ to see, numerically, if the HK-property holds for perfect binary trees.
 \end{abstract}
 
 %______________________________________________________________
@@ -171,9 +171,11 @@ For a given graph $G = (V,E)$, $V(G)$ and $E(G)$ denotes the vertex sets and edg
 
 For $n \in \mathbb{Z^+}$ such that  $0 \leq n \leq |V(G)|$, a path of length $n$ in $G$ is a sequence of distinct vertices $v_1, v_2, \ldots, v_n$ such that $v_i$ is adjacent to $v_{i+1}$ for $1 \leq i \leq n-1$ and it is called a $uv$-path. A cycle is an extension of a path such that the last vertex is connected to the first vertex, i.e for a path of length $n$, $v_nv_i \in E(G)$. As such, the length of the cycle is $n + 1$.
 
-A connected graph is a graph if for all $u,v \in V(G)$, there exists a $uv$-path. A coclique is a set of vertices such that no two vertices in the set are adjacent to each other. We denote a family of indpendent sets of a graph $G$ by $I_G$. A family of coclique of size $n$ in a graph $G$ is denoted by $\mathcal{I}^n_G$. For $v \in V(G)$, the family of indpendent sets, $\mathcal{I}^n_G(v) := \{A \in \mathcal{I}^n_G : v \in A\}$ is called a star of $\mathcal{I}^n_G$ and $v$ is called its center.
+A connected graph is a graph if for all $u,v \in V(G)$, there exists a $uv$-path. An independent set is a set of vertices such that no two vertices in the set are adjacent to each other. We denote a family of indpendent sets of a graph $G$ by $I_G$. A family of coclique of size $n$ in a graph $G$ is denoted by $\mathcal{I}^n_G$. For $v \in V(G)$, the family of indpendent sets, $\mathcal{I}^n_G(v) := \{A \in \mathcal{I}^n_G : v \in A\}$ is called a star of $\mathcal{I}^n_G$ and $v$ is called its center.
 
 A tree is a connected graph with no cycles, it is denoted by $T$. For a vertex $v \in V(T)$, if $deg_T(v) = 1$, it is called a leaf. A vertex that is not a leaf is called an interior vertex. The vertex at the top which branches $2$ children is called the root vertex and is denoted by $r$. The depth of a vertex is defined as the cardinality of the set of vertices of the path from the root vertex to it. The parent of a vertex $v$ is the vertex connected to $v$ on the path to $r$. A child of a vertex $v$ is a vertex of which $v$ is the parent. We study a more particular class of trees called binary trees, denoted by $T_B$, where each interior vertex $v$ has exactly $2$ children and all leaves have the same depth. Further, a perfect binary tree is a binary tree in which every vertex $v \in V(T)$ has either $0$ or $2$ children. A perfect binary tree is denoted by $T_{PB}$, however in this paper we will simply drop the subscript and denote it as $T$ for clarity. A level $n$ of a perfect binary tree is a set of vertices such that all vertices in the set have a depth of $n$. A perfect $m$-nary tree is a tree in which every vertex $v \in V(T)$ has either $0$ or $m$ children, where $m \in \mathbb{Z}^+$.
+
+For a perfect binary tree $T$ of depth $d$, we define the depth vertex set as the set of all vertices at the same depth. A depth vertex set of depth $i$ is denoted by $\mathcal{D}_i$, for $i \leq d$. The maximum independent set of a perfect binary tree $T$ is denoted by $\mathcal{I}_d$. The size of the maximum independent set of a perfect binary tree $T$ is denoted by $\alpha(T)$. Also, we define the parent vertex of a vertex $v$ as the vertex adjacent to $v$ having one less depth. The grandparent vertex of a vertex $v$ is the parent of the parent vertex of $v$.
 
 The star centers of a graph are interesting because they relate to the EKR theorem.
 
@@ -188,6 +190,8 @@ Studying the EKR theorem, ~\cite{MR2763040} Hulbert and Kamat tried to narrow it
 \newpage
 
 However, this conjecture is hard to understand and prove, so they narrowed the class of graphs to be trees and gave the following conjecture:
+
+// TODO: Redraw all of the figures using IPE and not Tikz
 
 \begin{conjecture}[HK-Property]
 	For any $k \geq 1$ and any tree $T$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
@@ -301,7 +305,7 @@ It is not hard to see that the perfect $m$-nary tree has a unique maximum cocliq
 We note that the HK conjecture for perfect m-nary trees still remains open.
 
 \begin{theorem}{\label{theorem:mnary_independence_num}}
-	Let $T$ be a perfect $m$-nary tree of depth $d$. Then the unique maximum independent set $\mathcal{I}_d$ consists precisely of the vertices on levels
+	Let $T$ be a perfect $m$-nary tree of depth $d$ ($m>1$). Then the unique maximum independent set $\mathcal{I}_d$ consists precisely of the vertices on levels
 	\[
 		d,\, d-2,\, d-4,\, \dots,
 	\]
@@ -314,6 +318,8 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 \begin{proof}
 	$ $
 	\\
+        First, notice that independent set $\II$ that is obtained by taking vertices on levels $d, d-2, \ldots, $ has size exactly $|\II|=\displaystyle{\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}}.$
+        
 	We prove the claim by induction on $d$.
 
 	\textbf{Base Cases:}
@@ -326,33 +332,74 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 	\medskip
 
 	\textbf{Inductive Step:}
-	Assume the result holds for all perfect $m$-nary trees of depth up to $d$. Consider a tree $T$ of depth $d+1$. Two cases arise:
+	Assume the result holds for all perfect $m$-nary trees of depth up to $d - 1$. Consider a tree $T$ of depth $d$. Two cases arise:
 
 	\medskip
 
-	\textbf{Case 1:} $r\in \mathcal{I}_{d+1}$ (which occurs when $d+1$ is odd).\\[1mm]
-	Since the root is in the independent set, none of its $m$ children may be included. Removing $r$ and its children disconnects $T$ into $m^2$ disjoint subtrees (each of depth $d-1$). By the inductive hypothesis each such subtree has a unique maximum independent set of size
+	\textbf{Case 1:} $r\in \mathcal{I}_{d}$ (which we will show only occurs when $d$ is odd).\\[1mm]
+	Since the root is in the independent set, none of its $m$ children may be included. Removing $r$ and its children disconnects $T$ into $m^2$ disjoint subtrees (each of depth $d-2$). By the inductive hypothesis each such subtree has a unique maximum independent set of size
 	\[
-		\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{\, (d-1)-2i+1}.
+		\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{\, (d-2)-2i+1}.
 	\]
 	Thus, combining these disjoint choices and adding $r$, we obtain
 	\[
-		\alpha(T)=1 + m^2\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{\,d-2i-1}\right).
+		= 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d-2i+1}\right).
 	\]
-	A short calculation shows that this expression simplifies to the claimed formula.
+
+        In case $d$ is even ($d = 2k$, for some $k \in \mathbb{N}$), we obtain:
+	\begin{align*}
+		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right) \\
+		& = 1 + m^2\left(\sum_{i=1}^{k-1} m^{2k-2i-1}\right) \\
+		& = 1 + \sum_{i=1}^{k-1} m^{2k-2i+1} < m + \sum_{i=1}^{k-1} m^{2k-2i+1} = \sum_{i=1}^{k} m^{2k-2i+1} = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}.
+	\end{align*}
+
+	So if $d$ is even, any independent set containing root has size smaller than $\II_d$.
+	\newline
+
+        If $d$ is odd ($d = 2k + 1$, for some $k \in \mathbb{N}$), then we obtain:
+	\begin{align*}
+		\alpha(T) & = 1 + m^2\left(\sum_{i=1}^{\lceil (d-2)/2 \rceil} m^{d - 2 -2i+1}\right) \\
+		& = m^{2k + 1 - 2(k + 1) + 1} + \left(\sum_{i = 1}^{k} m^{2k + 1 - 2 - 2i + 1 + 2}\right) \\
+		& = m^{2k + 1 - 2(k + 1) + 1} + \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1} \\
+		& = \sum_{i = 1}^{k} m^{2k + 1 - 2i + 1} \\
+		& = \sum_{i = 1}^{\lceil d/2 \rceil}m^{d-2i+1}
+	\end{align*}
+        Therefore, the only possible way an independent set containing the root has size equal to $\II_d$ is if $d$ is odd.
 
 	\medskip
 
-	\textbf{Case 2:} $r\notin \mathcal{I}_{d+1}$ (when $d+1$ is even).\\[1mm]
-	In this case the maximum independent set is obtained by taking the unique maximum independent sets from the $m$ subtrees rooted at the children of $r$, each of depth $d$. Therefore,
+	\textbf{Case 2:} $r\notin \mathcal{I}_{d}$ (which we will show only occurs when $d$ is even).\\[1mm]
+	In this case, the root is not in the independent set, so we obtain $m$ disjoint subtrees (each of depth $d-1$). By the inductive hypothesis each such subtree has a unique maximum independent set of size:
 	\[
-		\alpha(T)=m\,\alpha(T_d)= m\left(\sum_{i=1}^{\lceil d/2 \rceil} m^{\,d-2i+1}\right).
+		\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{\, (d-1)-2i+1}.
 	\]
-	Again, one verifies that this expression agrees with the unified formula.
+	Thus, combining these disjoint choices, we obtain:
+	\[
+		= m\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{d-1-2i+1}\right).
+	\]
+
+	In case $d$ is odd ($d = 2k - 1$, for some $k \in \mathbb{N}$), we obtain:
+	\begin{align*}
+		\alpha(T) & = m\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{d - 1 -2i+1}\right) \\
+		& = m\left(\sum_{i=1}^{k - 1} m^{2k - 1 - 2i}\right) \\
+		& = \sum_{i=1}^{k - 1} m^{2k - 1 - 2i + 1}  \\
+		& = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1} 
+		< \sum_{i = 1}^{\lceil d/2 \rceil}m^{d - 2i + 1} 
+	\end{align*}
+
+	In case $d$ is even ($d = 2k$, for some $k \in \mathbb{N}$), we obtain:
+	\begin{align*}
+		\alpha(T) & = m\left(\sum_{i=1}^{\lceil (d-1)/2 \rceil} m^{d - 1 -2i+1}\right) \\
+			  & = m\left(\sum_{i=1}^{k} m^{2k - 1 - 2i}\right) \\
+			  & = \sum_{i=1}^{k} m^{2k - 1 - 2i + 1} \\
+			  & = \sum_{i = 1}^{\lceil (d - 1)/ 2\rceil}m^{d-2i+1}
+	\end{align*}
+
+	Therefore, the only possible way an independent set not containing the root has size equal to $\II_d$ is if $d$ is even.
 
 	\medskip
 
-	In both cases the choices in the disjoint subtrees are forced (by the inductive hypothesis), ensuring the uniqueness of $\mathcal{I}_{d+1}$. A suitable re-indexing of the summations confirms that the closed-form expression for $\alpha(T)$ holds for depth $d+1$.
+	In both cases the choices in the disjoint subtrees are forced (by the inductive hypothesis), ensuring the uniqueness of $\mathcal{I}_{d}$. Further, we now know that the root is not in $\mathcal{I}_{d}$ if and only if $d$ is even. 
 
 	Thus, by strong induction, the result holds for all $d$.
 \end{proof}
@@ -372,23 +419,13 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 We still don't have a proof of this one.
 \end{proof}
 
-\begin{definition}[Depth Vertex Set]
-	Let $T = (V, E)$ be a perfect binary tree of depth $d$. A depth vertex set is the set of all vertices at the same depth. A depth vertex set of depth $i$ is denoted by $\mathcal{D}_i$, for $i \leq d$.
-\end{definition}
 
-\begin{definition}[Parent vertex]
-	Let $T = (V, E)$ be a perfect binary tree of depth $d$. Let $v \in V$, the vertex adjacent to $v$ having one less depth is called the parent vertex. If $v \in \mathcal{D}_i$, then the parent of $v$ will be included in $\mathcal{D}_{i - 1}$.
-\end{definition}
-
-\begin{definition}[Grandparent vertex]
-	A grandparent vertex is the parent of the parent vertex of a given vertex $v$.
-\end{definition}
 For binary (and $m$-nary trees) in order to prove Theorem~\ref{theorem:mnary_hk}, it is sufficient to prove.
 \begin{theorem}[Stars around the leaves dominates stars around the root]\label{theorem:leaves_dom_root}
 	For a given perfect binary tree $T = (V, E)$	of depth $d$, there exists a leaf $l$ such that $|\mathcal{I}^k_T(l)| \geq  |\mathcal{I}^k_T(r)|$ where $r$ is the root.
 \end{theorem}
 
-This is established by the following lemma.
+Indeed, if Theorem~\ref{theorem:leaves_dom_root} is true, then Theorem~\ref{theorem:mnary_hk} can be established by using the following lemma.
 
 \begin{lemma}
     Assume that for every perfect $m$-nary  tree $T = (V, E)$ with root $r$ and any leaf $\ell$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|.$$
@@ -401,7 +438,7 @@ Idea: just split your tree into parts obtained by removing $v$. Bottom part has 
 \newpage
 \subsection{Generating functions approach}
 
-In addition, we can count the number of cocliques with the help of the following generating functions.
+In addition, we can count the number of independent sets with the help of the following generating functions.
 
 For the rest of this subsection, $m$ is fixed and we consider $m$-nary trees of depth $d$.
 
@@ -414,7 +451,7 @@ where $b_i=\II^{i}_{T}(\ell)$, and $c_i=\II^{i}_T(r)$ for all $i\in[N]$.
 \end{definition}
 Polynomials $P_d, Q_d, R_d$ are generating functions for the number of independents sets of size $i$, number of independents sets of size $i$ passing through a leaf, and number of independents sets of size $i$ passing through the root, respectively.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:generating_def}
 Polynomials $P_n, Q_n, R_n$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$ 
 \begin{align*}
     P_n(x) &= (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4  \\
@@ -426,19 +463,37 @@ Polynomials $P_n, Q_n, R_n$ satisfy the following recurrent formulas for $n\geq 
 Remove a root to get the recurrence in each case.
 \end{proof}
 
+The HK property (and Theorem~\ref{theorem:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
+
+It is easier to determine several structural properties of the polynomials to compare their reduced version. 
+
 \begin{lemma} 
-For even $d$
+For odd $d$
 \begin{align*}
-(P_{d - 2}(x))^2 \geq  P_{d -1}(x)(P_{d - 3}(x))^2
+(P_{d }(x))^3 \geq_{c}  P_{d +1}(x)(P_{d -1}(x))^2
 \end{align*}
-For odd $d$, the inequality is reversed.
-The above expression reduces down to:
-$$(P_{d - 4})^4 (P_{d - 2})^2 \geq (P_{d - 3})^6$$
+For even $d$, the inequality is reversed, namely
+\begin{align*}
+(P_{d}(x))^3 \leq_{c}  P_{d +1}(x)(P_{d - 1}(x))^2
+\end{align*}
 \end{lemma}
 \begin{proof}
-Andrii: have a look at this. 
+The proof of this Lemma is by induction. Note that $P_{0}(x)=1$, $P_{1}(x)=1+x$, $P_2(x)=1+3x+x^2$. Then $$P_{1}^3(x)-P_{2}(x)P_{0}^2(x)=(1+x)^3-(1+3x+x^2)=2x^2+x^3\geq_{c}0.$$
+
+For inductive proof, by repetitive application of Lemma~\ref{lemma:generating_def}
+\begin{align*}
+P_{d}^{3}-P_{d+1}P_{d-1}^2&=P_{d}^{3}-(P_{d}^2+xP_{d-1}^4)P_{d-1}^2\\
+& =P_{d}^2(P_{d}-P_{d-1}^2)-xP_{d-1}^6\\
+& = P_{d}^2(xP_{d-2}^4)-xP_{d-1}^{6}\\
+&= x(P_{d}^2 P_{d-2}^4 - P_{d-1}^6)\\
+&= x(P_{d} P_{d-2}^2 - P_{d-1}^3)(P_{d} P_{d-2}^2 + P_{d-1}^3).
+\end{align*}
+
+By inductive hypothesis, if $d$ is odd, then $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-negative coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-negative coefficients.
+
+Similarly, if $d$ is event, by Inductive hypothesis, $P_{d} P_{d-2}^2 - P_{d-1}^3$ has only non-positive coefficients. So $P_{d}^{3}-P_{d+1}P_{d-1}^2$ has only non-positive coefficients.
+
 \end{proof}
-The HK property (and Theorem~\ref{theorem:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
 
 We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all values of $n\leq 14$ (see~\cite{Atishaya:Github}).
 
@@ -448,7 +503,8 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 \begin{appendix}
 	\section{cocliques Algorithm and Analysis}\label{coclique-algorithm}
 	$ $
-	To validate our conjecture, we present a simple algorithm to generate all cocliques of a perfect binary tree of cardinality $k$. We then compare the number of cocliques containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
+
+	To validate our conjecture for perfect binary trees upto depth 5, we present a simple algorithm to generate all independent of a perfect binary tree of cardinality $k$. We then compare the number of independent set containing a vertex $v$ and a leaf $l$ to see if the HK-property holds for perfect binary trees.
 
 	To begin with, we present the following algorithm to generate a perfect binary tree of depth $n$:
 
@@ -537,12 +593,12 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		}
 	\end{algorithm}
 
-	We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a coclique of maximum cardinality for our perfect binary tree.
+	We then use the algorithm from ~\cite{Niskanen2003CliquerUG} to generate a indepdent set of maximum cardinality for our perfect binary tree.
 
 	\begin{algorithm}[hbt!]
 		\caption{Maximum Indpendent Set Algorithm}\label{alg:max-independent-set}
 		\KwData{A perfect binary tree graph $T$}
-		\KwResult{A maximum coclique of $T$}
+		\KwResult{A maximum independent set of $T$}
 
 		\SetKwFunction{FMain}{maximum\_independent\_set}
 
@@ -560,28 +616,28 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\caption*{Depth 4}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_4_size_1.png}
-			\caption{coclique of size 1}
+			\includegraphics[width=1\linewidth]{images/depth_4_size_1.png}
+			\caption{independent set of size 1}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_4_size_2.png}
-			\caption{coclique of size 2}
+			\includegraphics[width=1\linewidth]{images/depth_4_size_2.png}
+			\caption{independent of size 2}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_4_size_5.png}
-			\caption{coclique of size 5}
+			\includegraphics[width=1\linewidth]{images/depth_4_size_5.png}
+			\caption{independent of size 5}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_4_size_7.png}
-			\caption{coclique of size 7}
+			\includegraphics[width=1\linewidth]{images/depth_4_size_7.png}
+			\caption{independent of size 7}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_4_size_10.png}
-			\caption{coclique of size 10}
+			\includegraphics[width=1\linewidth]{images/depth_4_size_10.png}
+			\caption{independent of size 10}
 		\end{subfigure}
 	\end{figure}
 
@@ -589,34 +645,97 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\caption*{Depth 5}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_5_size_1.png}
-			\caption{coclique of size 1}
+			\includegraphics[width=1\linewidth]{images/depth_5_size_1.png}
+			\caption{independent of size 1}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_5_size_5.png}
+			\includegraphics[width=1\linewidth]{images/depth_5_size_5.png}
 			\caption{coclique of size 5}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_5_size_11.png}
+			\includegraphics[width=1\linewidth]{images/depth_5_size_11.png}
 			\caption{coclique of size 11}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_5_size_16.png}
+			\includegraphics[width=1\linewidth]{images/depth_5_size_16.png}
 			\caption{coclique of size 16}
 		\end{subfigure}
 		\begin{subfigure}[b]{.45\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{depth_5_size_21.png}
+			\includegraphics[width=1\linewidth]{images/depth_5_size_21.png}
 			\caption{coclique of size 21}
 		\end{subfigure}
 	\end{figure}
+	\newpage
 
-	The data shown in the figures above verifies that the Partial HK-Property holds for perfect binary trees of depth 5. The next step would be to verify this for perfect binary trees of depth 6 and 7.
+	The data shown in the figures above verifies that the HK-Property holds for perfect binary trees of depth 5. The next step would be to verify this for perfect binary trees of depth 6 and 7.
 
-	However, the algorithm is very slow and inefficient and it scaled exponentially. Hence, running the algorithm for perfect binary trees of depth 6 and 7 would be very computationally expensive.
+	However, the algorithm is very slow and inefficient and it scales exponentially. Hence, running the algorithm for perfect binary trees of depth 6 and 7 would be very computationally expensive.
+
+	\section{Generating Functions Algorithm and Analysis}\label{generating-functions-algorithm}
+
+	To overcome the computational inefficiency of the brute force algorithm, we use generating functions to count the number of independent sets of a perfect binary tree of depth $d$. We then can compute the difference between the coefficients of the generated polynomials to determine if the HK-property holds for perfect binary trees numerically. 
+
+	Recall from Lemma \ref{lemma:generating_def} that the polynomials $P_d, Q_d, R_d$ satisfy the following recurrent formulas for $n\geq 2$ with $P_{0}=1, P_1=1+x$, and $Q_{0}=0, Q_1=x$:
+	\begin{align*}
+		P_n(x) &= (P_{n - 1}(x))^2 + x(P_{n - 2}(x))^4  \\
+		R_n(x) &= x(P_{n - 2}(x))^4  \\
+		Q_n(x) &= Q_{n - 1}(x)P_{n - 1}(x) + xQ_{n - 2}(x)(P_{n - 2}(x))^3
+	\end{align*}
+
+	We present the following algorithm to generate the polynomials $P_d, Q_d, R_d$ for a perfect binary tree of depth $d$:
+
+	\begin{algorithm}[H]
+		\caption{Generate $P$ Sequence}
+		\KwIn{$n$ (integer)}
+		\KwOut{$P$ sequence}
+		$P \gets [1, x+1]$\;
+		\For{$i \gets 2$ \textbf{to} $n-1$}{
+		    $P[i] \gets P[i-1]^2 + x \cdot P[i-2]^4$\;
+		}
+		\Return $P$
+		\end{algorithm}
+
+	\begin{algorithm}[H]
+		\caption{Generate $Q$ Sequence}
+		\KwIn{$n$ (integer)}
+		\KwOut{$Q$ sequence}
+		$Q \gets [0, x]$\;
+		\For{$i \gets 2$ \textbf{to} $n-1$}{
+		    $Q[i] \gets Q[i-1] \cdot P[i-1] + x \cdot Q[i-2] \cdot P[i-2]^3$\;
+		}
+		\Return $Q$
+	\end{algorithm}
+
+	\begin{algorithm}[H]
+		\caption{Generate $R$ Sequence}
+		\KwIn{$n$ (integer)}
+		\KwOut{$R$ sequence}
+		$R \gets [0, x]$\;
+		\For{$i \gets 2$ \textbf{to} $n-1$}{
+		    $R[i] \gets x \cdot P[i-2]^4$\;
+		}
+		\Return $R$
+	\end{algorithm}
+
+	\vspace{1cm}
+	We then compare the coefficients of the polynomials $Q_d$ and $R_d$ to determine if the HK-property holds for perfect binary trees of depth $d$. The following algorithm checks if the HK-property holds for a given $P, Q, R$ sequence:
+	\newline
+
+	\begin{algorithm}[H]
+		\caption{Check HK-Property}
+		\KwIn{$P, Q, R$ sequences}
+		\KwOut{Boolean}
+		\For{$i \gets 2$ \textbf{to} $n-1$}{
+		    \If{$Q[i] < R[i]$}{
+		        \Return \textbf{False}
+		    }
+		}
+		\Return \textbf{True}
+	\end{algorithm}
 
 \end{appendix}
 
@@ -632,3 +751,4 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \end{document}
+
