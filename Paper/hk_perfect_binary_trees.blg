@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: hk_perfect_binary_trees.aux
+A level-1 auxiliary file: Bibliography.aux
+The style file: plain.bst
+Database file #1: Bibliography.bib
+Warning--entry type for "Maharjan_Exploring_Perfect_Binary" isn't style-file defined
+--line 112 of file Bibliography.bib
+Warning--I didn't find a database entry for "Atishaya:Github"
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            549 strings with 5079 characters,
+and the built_in function-call counts, 2087 in all, are:
+= -- 204
+> -- 84
+< -- 0
++ -- 34
+- -- 26
+* -- 136
+:= -- 353
+add.period$ -- 21
+call.type$ -- 7
+change.case$ -- 33
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 77
+empty$ -- 182
+format.name$ -- 26
+if$ -- 430
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 7
+newline$ -- 38
+num.names$ -- 14
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 55
+stack$ -- 0
+substring$ -- 142
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 26
+warning$ -- 0
+while$ -- 22
+width$ -- 8
+write$ -- 75
+(There were 2 warnings)

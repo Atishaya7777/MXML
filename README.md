@@ -14,5 +14,5 @@ This study delves into the intricate world of graph theory, with a special focus
 To build the paper, you need a LaTeX distribution that includes `pdflatex`. Once you have that, you can build the paper using the following command:
 
 ```
-cd MXML && make
+cd Paper && make
 ```
