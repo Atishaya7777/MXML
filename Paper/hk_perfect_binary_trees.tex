@@ -191,8 +191,6 @@ Studying the EKR theorem, ~\cite{MR2763040} Hulbert and Kamat tried to narrow it
 
 However, this conjecture is hard to understand and prove, so they narrowed the class of graphs to be trees and gave the following conjecture:
 
-// TODO: Redraw all of the figures using IPE and not Tikz
-
 \begin{conjecture}[HK-Property]
 	For any $k \geq 1$ and any tree $T$, there exists a leaf $l$ of $T$ such that $|\mathcal{I}^k_T(v)| \leq |\mathcal{I}^k_T(l)|$ for each $v \in V(T)$.
 \end{conjecture}
@@ -204,36 +202,10 @@ This is interesting for us as $lobster$ graphs resemble a binary tree.
 
 \begin{figure}[hbt!]
 	\centering
-	\begin{tikzpicture}[scale=0.7,level distance=2cm,
-			level 1/.style={sibling distance=10cm},
-			level 2/.style={sibling distance=4cm},
-			every node/.style={circle, draw, fill=white, minimum size=1.75em},]
-		\node (v11) {$v_0$}
-		child {node (v21) {$v_1$}
-				child {node  {}
-						child {node {}}
-					}
-				child {node {}
-						child {node {}}
-					}
-				child {node {}
-						child {node {}}
-					}
-			}
-		child {node (v22) {$v_2$}
-				child {node {}
-						child {node {}}
-					}
-				child {node {}
-						child {node {}}
-					}
-				child {node {}
-						child {node {}}
-					}
-			};
-	\end{tikzpicture}
+	\includegraphics[width=0.6\linewidth]{images/lobster_graph.png}
 	\caption{The largest k-star for $k \geq 5$ is centered at $v_0$ (A lobster)}
 \end{figure}
+
 
 They figured out that the lobsters, while not completely obeying the HK-property, almost obey the HK-property by either having the largest stars centered around the leaves or at the root of the tree.
 
@@ -244,53 +216,20 @@ They figured out that the lobsters, while not completely obeying the HK-property
 
 In the paper by Estrugo and Passtine~\cite{MR4245360}, they gave a couple of classes of graphs that have the HK-property. The classes of graphs that they gave were the $caterpillars$ and the $spiders$. The definition of $caterpillars$ is given above. The $spiders$ are trees that only have 1 vertex with degree greater than 2.
 
-\begin{figure}[htb!]
-	\begin{subfigure}{0.5\textwidth}
-		\centering
-		\begin{tikzpicture}[every node/.style={circle, draw, fill=white, minimum size=1.75em}]
-			% Draw the path (spine)
-			\node (v1) at (0,0) {$v_1$};
-			\node (v2) at (2,0) {$v_2$};
-			\node (v3) at (4,0) {$v_3$};
-			\node (v4) at (6,0) {$v_4$};
-			\draw (v1) -- (v2) -- (v3) -- (v4);
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/caterpillar_graph.png}
+	\caption{A caterpillar; Removing all the leaves, you obtain a path}
+\end{figure}
 
-			% Draw the leaves
-			\node (v7) at (4,2) {$v_7$};
-			\node (v8) at (6,2) {$v_8$};
-			\node (v9) at (6,-2) {$v_9$};  % New vertex attached to v4
-			\draw (v3) -- (v7);
-			\draw (v4) -- (v8);
-			\draw (v4) -- (v9);  % Edge to the new vertex
-		\end{tikzpicture}
-		\caption{A caterpillar}
-	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
-		\centering
-		\begin{tikzpicture}[every node/.style={circle, draw, fill=white, minimum size=1.75em}]
-			% Draw the path (spine)
-			\node (v1) at (0,0) {$v_1$};
-			\node (v2) at (2,0) {$v_2$};
-			\node (v3) at (4,0) {$v_3$};
-			\node (v4) at (6,0) {$v_4$};
-			\draw (v1) -- (v2) -- (v3) -- (v4);
-
-			% Draw the leaves
-			\node (v7) at (1,1.33) {$v_7$};
-			\node (v8) at (3,1.33) {$v_8$};
-			\node (v9) at (1,-1.33) {$v_9$};
-			\node (v10) at (3,-1.33) {$v_{10}$};
-			\draw (v2) -- (v7);
-			\draw (v2) -- (v8);
-			\draw (v2) -- (v9);
-			\draw (v2) -- (v10);
-		\end{tikzpicture}
-		\caption{A Spider}
-	\end{subfigure}
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/spider_graph.png}
+	\caption{A spider; Only one vertex has degree greater than 2}
 \end{figure}
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\section{Perfect M-Nary Trees are HK}
+\section{Perfect M-Nary Trees and Their Independence Number}
 
 It is not hard to see that the perfect $m$-nary tree has a unique maximum coclique.
 
@@ -404,36 +343,97 @@ We note that the HK conjecture for perfect m-nary trees still remains open.
 	Thus, by strong induction, the result holds for all $d$.
 \end{proof}
 
-%% For perfect m-nary trees
-
 \begin{corollary}\label{cor:root_in_not_in}
 	By $Theorem$ (\ref{theorem:mnary_independence_num}), we see that for perfect $m$-nary trees with odd depth $d$, $r \in \mathcal{I}_d$. For even depth $d$, $r \not\in \mathcal{I}_d$.
 \end{corollary}
 
+\section{The HK-Property for Perfect M-Nary Trees}
 
-\begin{theorem}[Perfect m-nary trees are HK]\label{theorem:mnary_hk}
-	Let $T$ be a perfect $m$-nary tree with depth $d$. Then, $T$ is HK.
-\end{theorem}
+\begin{conjecture}[Perfect m-nary trees are HK]\label{conj:mnary_hk}
+	Let $T$ be a perfect $m$-nary tree with depth $d$. Then, $T$ satisfies the HK-property.
+\end{conjecture}
 
-\begin{proof}[Proof for ~\ref{theorem:mnary_hk}]
-	We still don't have a proof of this one.
-\end{proof}
+We conjecture that the HK-property holds for perfect $m$-nary trees. We believe that this result holds due to strong numerical evidence. However, this conjecture remains open, and below we provide some steps that we took in directions of possible proof.
 
+For binary (and $m$-nary trees), Conjecture~\ref{conj:mnary_hk} can be proved from a slightly more restricted form.
+\begin{conjecture}[Stars around the leaves dominates stars around the root]\label{conj:leaves_dom_root}
+	For a given perfect binary tree $T = (V, E)$	of depth $d$, and any leaf $\ell$ of $T$ we have $|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|$ where $r$ is the root.
+\end{conjecture}
 
-For binary (and $m$-nary trees) in order to prove Theorem~\ref{theorem:mnary_hk}, it is sufficient to prove.
-\begin{theorem}[Stars around the leaves dominates stars around the root]\label{theorem:leaves_dom_root}
-	For a given perfect binary tree $T = (V, E)$	of depth $d$, there exists a leaf $l$ such that $|\mathcal{I}^k_T(l)| \geq  |\mathcal{I}^k_T(r)|$ where $r$ is the root.
-\end{theorem}
-
-Indeed, if Theorem~\ref{theorem:leaves_dom_root} is true, then Theorem~\ref{theorem:mnary_hk} can be established by using the following lemma.
-
-\begin{lemma}
+Clearly, Conjecture~\ref{conj:mnary_hk} implies Conjecture~\ref{conj:leaves_dom_root} is true, and Lemma below shows that the converse is also true.
+\begin{lemma}\label{lemma:leaves_dom_root}
 	Assume that for every perfect $m$-nary  tree $T = (V, E)$ with root $r$ and any leaf $\ell$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(r)|.$$
 	Then, for every perfect $m$-nary  tree $T = (V, E)$, any leaf $\ell$ and any vertex $v$ we have $$|\mathcal{I}^k_T(\ell)| \geq  |\mathcal{I}^k_T(v)|.$$
 \end{lemma}
+
+Before we proceed with the proof of Lemma~\ref{lemma:leaves_dom_root}, we need to introduce some notation and definitions.
+
+\begin{definition}[Enumerating Depth Vertex Sets]
+	Recall that the depth vertex set of depth $i$ is denoted by $\mathcal{D}_i$. We index all the vertices in $\mathcal{D}_i$ from left to right as $v_{i, k}$, where $i$ is the depth and $k$ is the index of the vertex in $\mathcal{D}_i$ such that $1 \leq k \leq 2^{i - 1}$.
+\end{definition}
+
+We now show that picking any vertex $v$ in a perfect $m$-nary tree is equivalent to picking an arbitrary vertex in the depth vertex set $\mathcal{D}_d$. 
+
+\begin{lemma}\label{lemma:vertex_in_depth}
+	Define a function $flip_i : \mathcal{D}_i \to \mathcal{D}_i$ as follows:
+	\begin{align*}
+		flip_i(v_{i, k}) = v_{i, 2^{i - 1} - k + 1}.
+	\end{align*}
+	We claim that $flip_i$ is a bijection for all $i$.
+\end{lemma}
 \begin{proof}
-	Idea: just split your tree into parts obtained by removing $v$. Bottom part has $v$ as a root.
+	$ $	
+	\\
+	\textbf{Injective:} Let $v_{i, k_1}, v_{i, k_2} \in \mathcal{D}_i$ such that $flip_i(v_{i, k_1}) = flip_i(v_{i, k_2})$. Then, $v_{i, 2^{i - 1} - k_1 + 1} = v_{i, 2^{i - 1} - k_2 + 1}$. This implies that $k_1 = k_2$.
+	\vspace{0.5em}
+
+	\noindent \textbf{Surjective:} Let $v_{i, k} \in \mathcal{D}_i$. Then, $flip_i(v_{i, 2^{i - 1} - k + 1}) = v_{i, k} \in \mathcal{D}_i$.
+	\vspace{0.5em}
+
+	\noindent Hence, $flip_i$ is a bijection for all $i$.
 \end{proof}
+
+Then, by Lemma~\ref{lemma:vertex_in_depth}, we have that we can select any vertex $v$ in a perfect $m$-nary tree $T$ by selecting an arbitrary vertex in the depth vertex set $\mathcal{D}_i$.
+\vspace{1em}
+
+\noindent \textbf{We now proceed with the proof of Lemma~\ref{lemma:leaves_dom_root}.}
+\begin{proof}[Proof of lemma \ref{lemma:leaves_dom_root}]
+	$ $
+	\\ \\
+	Let $k$ be arbitrary. Let $T_1$ be the perfect $m$-nary sub-tree rooted at $v$. Let $x \in \{v, \ell \}$ and $\mathcal{I} \in \mathcal{I}_T^k(x)$. Let $\mathcal{I}_1 = \mathcal{I} \cap V(T_1)$ and $\mathcal{I}_0 = \mathcal{I} \cap V(T) \setminus V(T_1)$.
+
+Now, consider fixed $k_0, k_1$ such that $k_0 + k_1 = k$, where $k_0 = |\mathcal{I}_0|$ and $k_1 = |\mathcal{I}_1}|$. Since $|\mathcal{I}_T^k(\ell)| \geq |\mathcal{I}_T^k(r)|$ is true for $T_1, k_1, \ell,$ and $v$, there is an injection $\varphi : \mathcal{I}_{T_1}^{k_1}(v) \to \mathcal{I}_{T_1}^{k_1}(\ell)$.
+
+	Now, we consider the independent sets in $T$. Construct $\psi : \mathcal{I}_T^k(v) \to \mathcal{I}_T^k(\ell)$ and define it as follows:
+	\begin{align*}
+		\psi(\mathcal{I}) = \varphi(\mathcal{I}_1) \cup \mathcal{I}_0.
+	\end{align*}
+
+	We now will show that the following:
+	\vspace{0.5em}
+
+	\noindent \textbf{Claim 1:} $\psi(\mathcal{I}) \in \mathcal{I}^k_T(\ell)$.
+	
+		We know that $\mathcal{I}_1 \in \mathcal{I}_{T_1}^{k_1}(\ell)$ and $\mathcal{I}_0 \in \mathcal{I}_{T}^{k_0}(\ell)$. Since $\mathcal{I}_1$ is a subset of $\mathcal{I}$, we have that $\mathcal{I}_1 \cup \mathcal{I}_0 = \mathcal{I} \in \mathcal{I}_T^k(\ell)$.
+	\vspace{0.5em}
+
+	\noindent \textbf{Claim 2:} $\psi$ is injective.
+
+	Let there be $\mathcal{I}_1$ and $\mathcal{I}_2$ such that $\psi(\mathcal{I}_1) = \psi(\mathcal{I}_2)$. Then,
+	\begin{align*}
+		\psi(\mathcal{I}_1) = \psi(\mathcal{I}_2) & \implies |\mathcal{I}_1 \cap V(T_1)| = |\mathcal{I}_2 \cap V(T_1)| \\
+							  & \implies \mathcal{I}_1 \setminus V(T_1) = \mathcal{I}_2 \setminus V(T_1) \\
+							  & \implies \mathcal{I}_1 = \mathcal{I}_2.
+	\end{align*}
+	
+	Hence, $\psi$ is injective.
+
+	Therefore, we have that $|\mathcal{I}_T^k(\ell)| \geq |\mathcal{I}_T^k(v)|$ for all $k$.
+\end{proof}
+
+\begin{corollary}
+	By Lemma~\ref{lemma:vertex_in_depth}, we can apply Lemma~\ref{lemma:leaves_dom_root} to any vertex $v$ and any leaf $\ell$ in a perfect $m$-nary tree.
+\end{corollary}
 
 \newpage
 \subsection{Generating functions approach}
@@ -460,10 +460,71 @@ Polynomials $P_d, Q_d, R_d$ are generating functions for the number of independe
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	Remove a root to get the recurrence in each case.
-\end{proof}
+	$ $
+	\\ \\
+	We prove the recurrence relations for the generating functions $P_n(x)$, $Q_n(x)$, and $R_n(x)$ by considering the structure of the perfect $m$-nary tree of depth $n$.
+	\vspace{0.5em}
 
-The HK property (and Theorem~\ref{theorem:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
+	\textit{Proof for $P_n(x)$}
+
+	The polynomial $P_n(x)$ represents the generating function for the number of independent sets in a perfect $m$-nary tree of depth $n$. We analyze two cases based on whether the root $r$ is included in the independent set:
+
+	\begin{itemize}
+	    \item \textbf{Case 1: The root $r$ is \emph{not} included.} 
+	    Since the children of $r$ are independent subtrees of depth $n-1$, each contributes a factor of $P_{n-1}(x)$, leading to a total contribution of:
+	    \begin{align*}
+		    (P_{n - 1}(x))^m
+	    \end{align*}
+	    
+	    \item \textbf{Case 2: The root $r$ \emph{is} included.} 
+	    In this case, none of its immediate children can be included, but the grandchildren (depth 2) remain eligible. Since each child of $r$ has $m$ children, the independent sets are counted by $P_{n-2}(x)$ for each of these subtrees, giving:
+	    \begin{align*}
+		    x (P_{n-2}(x))^{m^2}
+	    \end{align*}
+	    The factor $x$ accounts for the inclusion of the root.
+	\end{itemize}
+
+	Combining both cases, we obtain the recurrence relation:
+	    \begin{align*}
+		P_n(x) = (P_{n-1}(x))^m + x (P_{n-2}(x))^{m^2}.
+	    \end{align*}
+
+	\textit{Proof for $R_n(x)$}
+
+	The polynomial $R_n(x)$ represents the generating function for independent sets that must include the root $r$. Since selecting $r$ means its children are excluded, the remaining tree consists of $m$ independent subtrees of depth $n-2$. Therefore,
+	\begin{align*}
+		R_n(x) = x (P_{n-2}(x))^{m^2}.
+	\end{align*}
+	Again, the factor $x$ accounts for the inclusion of the root.
+
+	\textit{Proof for $Q_n(x)$} 
+
+	The polynomial $Q_n(x)$ represents the generating function for independent sets that must include a specific leaf $\ell$. We consider two cases:
+
+	\begin{itemize}
+	    \item \textbf{Case 1: The parent of $\ell$ is not in the independent set.} 
+	    The remaining tree behaves as an independent subtree of depth $n-1$. Since $Q_{n-1}(x)$ counts such sets containing $\ell$, the contribution is:
+	    \begin{align*}
+		    Q_{n-1}(x) P_{n-1}(x).
+	    \end{align*}
+	    
+	    \item \textbf{Case 2: The parent of $\ell$ \emph{is} in the independent set.} 
+	    In this case, its siblings and grandparent are excluded, leaving $m$ independent subtrees of depth $n-2$. The contribution follows from:
+	    // TODO: How is it 3??? I get m - 1 which for the m = 2 case should be 1.
+	    \begin{align*}
+		    x Q_{n-2}(x) (P_{n-2}(x))^{m-1}.
+	    \end{align*}
+	    The factor $x$ accounts for the inclusion of the parent of $\ell$.
+	\end{itemize}
+
+	Summing both cases, we obtain:
+	\begin{align*}
+		Q_n(x) = Q_{n-1}(x) P_{n-1}(x) + x Q_{n-2}(x) (P_{n-2}(x))^{m-1}.
+	\end{align*}
+
+	This completes the proof. 
+\end{proof}
+The HK property (and Theorem~\ref{conj:mnary_hk}) in the language of polynomials translates to proving that $Q_{n}(x)\geq_{c} R_{n}(x)$ for all $n$, where $Q\geq _c R \Leftrightarrow_{def} Q-R$ has only positive coefficients.
 
 It is easier to determine several structural properties of the polynomials to compare their reduced version.
 
@@ -495,7 +556,14 @@ It is easier to determine several structural properties of the polynomials to co
 
 \end{proof}
 
-We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all values of $n\leq 14$ (see~\cite{Atishaya:Github}).
+We were able to verify the correctness of Theorem~\ref{conj:mnary_hk} for all values of $n\leq 14$ (see~\cite{Maharjan_Exploring_Perfect_Binary}).
+
+
+\section{Conclusion and Future work}
+
+The HK-property for perfect binary trees is interesting because this classification of graph is very symmetric is very related to caterpillars and lobsters. Even for perfect binary trees, the HK-property is not trivial to prove. Finding an injective function that maps the stars around the leaves to the stars around the root is not trivial. However, we numerically verified that the HK-property holds for perfect binary trees of depth $5$ and further presented a better deterministic algorithm using generating functions.
+
+For future work, finding a valid injective function to map different components of a perfect binary (or even m-nary) trees to each other would be a good start. 
 
 \newpage
 
@@ -737,6 +805,57 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 		\Return \textbf{True}
 	\end{algorithm}
 
+For brevity, we list the first 5 values of $P_n(x)$ and $Q_n(x)$, and the first 3 values of $R_n(x)$:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        $n$ & $P_n(x)$ \\
+        \hline
+        0 & $1$ \\
+        1 & $1 + x$ \\
+        2 & $x^2 + 3x + 1$ \\
+        3 & $2x^3 + 5x^2 + 2x$ \\
+        4 & $x^9 + 16x^8 + 88x^7 + 242x^6 + 375x^5 + 337x^4 + 172x^3 + 46x^2 + 5x$ \\
+        \hline
+    \end{tabular}
+    \caption{Computed values for $P_n(x)$ for $n=0$ to $4$ with $m=2$}
+    \label{tab:values_P}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        $n$ & $Q_n(x)$ \\
+        \hline
+        0 & $0$ \\
+        1 & $x$ \\
+        2 & $x^2 + x$ \\
+        3 & $x^3 + x^2$ \\
+        4 & $x^{10} + 9x^9 + 37x^8 + 84x^7 + 108x^6 + 79x^5 + 35x^4 + 9x^3 + x^2$ \\
+        \hline
+    \end{tabular}
+    \caption{Computed values for $Q_n(x)$ for $n=0$ to $4$ with $m=2$}
+    \label{tab:values_Q}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        $n$ & $R_n(x)$ \\
+        \hline
+        2 & $x^2$ \\
+        3 & $x^3 + x^2$ \\
+        4 & $x^{10} + 9x^9 + 37x^8 + 84x^7 + 108x^6 + 79x^5 + 35x^4 + 9x^3 + x^2$ \\
+        \hline
+    \end{tabular}
+    \caption{Computed values for $R_n(x)$ for $n=2$ to $4$ with $m=2$}
+    \label{tab:values_R}
+\end{table}
+
 \end{appendix}
 
 \newpage
@@ -751,4 +870,3 @@ We were able to verify the correctness of Theorem~\ref{theorem:mnary_hk} for all
 %______________________________________________________________
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \end{document}
-
