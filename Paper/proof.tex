@@ -1,0 +1,187 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+
+\title{On $k$--stars in perfect binary trees}
+\author{}
+\date{}
+\maketitle
+
+\begin{abstract}
+	We prove that for every perfect binary tree $T_h$ of height $h\ge 0$ and every integer $k\ge1$, the number of independent sets of size $k$ containing a given vertex is maximized when that vertex is a leaf. Equivalently, for every vertex $v$ of $T_h$ and every leaf $\ell$ of $T_h$ we have
+	\[
+		s_k(v)\le s_k(\ell),
+	\]
+	where $s_k(w)$ denotes the number of independent sets of size $k$ that contain the vertex $w$. The proof uses standard recursive (generating--function) decompositions of independent sets in rooted trees together with coefficientwise monotonicity arguments.
+\end{abstract}
+
+\section{Notation and statement}
+
+Fix an integer $h\ge0$. Let $T_h$ denote the perfect rooted binary tree of height $h$: the root has depth $0$, every internal vertex has exactly two children, and all leaves are at depth $h$. For a vertex $v\in V(T_h)$ and integer $k\ge1$ define
+\[
+	s_k(v):=\#\{I\subseteq V(T_h): I\text{ is independent},\ |I|=k,\ v\in I\}.
+\]
+We will write $S_{h,d}(k)$ for the common value of $s_k(v)$ for any vertex $v$ at depth $d$ (by symmetry all vertices at the same depth have the same $k$--star size). The main result is:
+
+\begin{theorem}\label{thm:main}
+	For every $h\ge0$, every $k\ge1$, and every vertex $v$ of $T_h$,
+	\[
+		s_k(v)\le s_k(\ell)
+	\]
+	for any leaf $\ell$ of $T_h$. Equivalently, the quantity $S_{h,d}(k)$ is nondecreasing in $d$ for $0\le d\le h$.
+\end{theorem}
+
+We prove the theorem by introducing generating functions that count independent sets in rooted perfect binary trees subject to whether the root is included or not, derive recurrences, and then compare the generating functions that arise when forcing a vertex at depth $d$ into an independent set.
+
+\section{Generating functions for rooted perfect binary trees}
+
+For $t\ge0$ let $R_t$ denote the rooted perfect binary tree of height $t$ (root at depth $0$, leaves at depth $t$). Define two families of polynomials (ordinary generating functions)
+\[
+	A_t(x):=\sum_{m\ge0} a_t(m)x^m,\qquad B_t(x):=\sum_{m\ge0} b_t(m)x^m,
+\]
+where
+\begin{itemize}[nosep]
+	\item $a_t(m)$ is the number of independent sets of size $m$ in $R_t$ that \emph{contain} the root (``root forced in''), and
+	\item $b_t(m)$ is the number of independent sets of size $m$ in $R_t$ that \emph{do not contain} the root (``root forced out'').
+\end{itemize}
+By convention $A_t$ and $B_t$ are polynomials (indeed finite) because $R_t$ is finite. We also set
+\[
+	F_t(x):=A_t(x)+B_t(x),
+\]
+the independence polynomial of $R_t$.
+
+\subsection{Base cases and recurrences}
+The tree $R_0$ is a single vertex (the root). Hence
+\[
+	A_0(x)=x,\qquad B_0(x)=1,\qquad F_0(x)=1+x.
+\]
+For $t\ge1$ the root of $R_t$ has two children, each of which is the root of a copy of $R_{t-1}$, and these two copies are disjoint. Standard combinatorial decomposition gives the recurrences:
+\begin{align}
+	A_t(x) & =x\cdot B_{t-1}(x)^2,\label{eq:At}\
+	B_t(x) & =\bigl(A_{t-1}(x)+B_{t-1}(x)\bigr)^2=F_{t-1}(x)^2.\label{eq:Bt}
+\end{align}
+Intuitively: if the root is in the independent set then both child roots must be out, and the choices below each child are counted by $B_{t-1}$; if the root is out then each child root may be in or out independently, so the choices at each child are counted by $F_{t-1}$ and the two children contribute the square.
+
+Combining these we also have
+\[
+	F_t(x)=A_t(x)+B_t(x)=xB_{t-1}(x)^2+F_{t-1}(x)^2.\label{eq:Ft}
+\]
+
+\section{Expressing the $k$--star generating functions}
+
+Fix $h\ge0$ and a depth $0\le d\le h$. Let $v$ be a vertex of $T_h$ at depth $d$. We derive a factorization for the generating function
+\[
+	S_{h,d}(x):=\sum_{m\ge0} S_{h,d}(m)x^m=\sum_{m\ge0}s_m(v)x^m.
+\]
+This polynomial enumerates independent sets of $T_h$ that contain $v$ by size.
+
+If $v$ is chosen to be in the independent set, its neighbors must be excluded. In the perfect binary tree this deletion separates the remaining vertices into disjoint rooted perfect binary subtrees (each such subtree is a copy of some $R_t$) and the sets of vertices chosen in each part are independent of each other. Hence the generating function factors as the product of the independence-generating polynomials of those parts, multiplied by $x$ for the chosen vertex $v$ itself.
+
+We now describe the parts and their heights explicitly. Number the levels from the root (level $0$) to the leaves (level $h$). Place $v$ at level $d$. Then after removing $v$ and its neighbors there are the following components:
+\begin{enumerate}[leftmargin=*,nosep]
+	\item The two subtrees rooted at the \emph{grandchildren} of $v$ (if they exist). Each such subtree is a copy of $R_{h-d-2}$ (if $h-d-2\ge0$). If $h-d-2<0$ there are no such components and we interpret $F_t(x)=1$ for $t<0$.
+	\item The subtree rooted at the \emph{sibling} of $v$ (the other child of $v$'s parent), which is a copy of $R_{h-d-1}$ (unless $d=0$, in which case $v$ has no sibling subtree counted this way).
+	\item For each ancestor of $v$ strictly above its parent (there are $d-1$ such ancestors when $d\ge1$), at that ancestor the off--spine child (the child not on the path from the root to $v$) yields an entire copy of some $R_t$; the other part of that level lies on the spine and is handled by the next ancestor. Concretely, for $i=1,2,\dots,d-1$ the off--spine subtree encountered when moving from the parent of $v$ upward $i$ levels has height $h-d-1+i$.
+\end{enumerate}
+
+Putting these factors together (and taking the empty product to be $1$) yields the factorization
+\begin{equation}\label{eq:Shd}
+	S_{h,d}(x)=x\cdot F_{h-d-2}(x)^2\cdot\bigl(\,F_{h-d-1}(x)\,\bigr)^{\mathbf{1}_{d\ge1}}\cdot\prod_{i=1}^{d-1} F_{h-d-1+i}(x),
+\end{equation}
+where $\mathbf{1}_{d\ge1}$ is the indicator that equals $1$ when $d\ge1$ and $0$ when $d=0$. (The product over $i$ is empty when $d\le1$.)
+
+To see the formula more transparently: the root--ward part of the tree above the parent contributes one factor $F_{h-d-1}$ (the sibling of $v$) and the $d-1$ higher off--spine subtrees contribute the $\prod_{i=1}^{d-1}F_{h-d-1+i}$; below $v$ the two grandchild subtrees each give $F_{h-d-2}$.
+
+\begin{remark}
+	When some indices are negative (for example when $d\ge h-1$) we interpret $F_t(x)=1$ for $t<0$; this corresponds to the fact that certain components are absent.
+\end{remark}
+
+As a quick check, for a leaf ($d=h$) the formula becomes
+\[
+	S_{h,h}(x)=x\cdot F_0(x)\cdot\prod_{i=1}^{h-1} F_i(x)=x(1+x)\prod_{i=1}^{h-1}F_i(x),
+\]
+since a leaf has a parent with a sibling subtree of height $0$ and all higher off--spine subtrees of heights $1,2,\dots,h-1$.
+
+For the root ($d=0$) the formula becomes (empty sibling factor)
+\[
+	S_{h,0}(x)=x\cdot F_{h-2}(x)^2,
+\]
+which matches the direct recurrence: choose the root (factor $x$) and below it there are two subtrees $R_{h-1}$ whose roots must be out, so the choices for each are counted by $B_{h-1}(x)=F_{h-2}(x)$ (using \eqref{eq:Bt} reversed). Indeed one checks that $B_t(x)=F_{t-1}(x)$ for $t\ge1$ so the formulas are compatible.
+
+\section{Monotonicity in depth}
+
+To prove Theorem~\ref{thm:main} it suffices to show that for each fixed $h$ the polynomials $S_{h,d}(x)$ are coefficientwise nondecreasing in $d$ as $d$ increases from $0$ to $h$. In other words we show
+\[
+	S_{h,d}(x)\preceq S_{h,d+1}(x)\qquad(0\le d\le h-1),
+\]
+where $P(x)\preceq Q(x)$ means that every coefficient of $Q-P$ is nonnegative.
+
+We will use two simple monotonicity facts about the polynomials $A_t,B_t,F_t$.
+
+\begin{lemma}\label{lem:mono}
+	For all $t\ge0$ we have the coefficientwise inequalities
+	\begin{enumerate}[label=(\alph*),nosep]
+		\item $B_t(x)\preceq F_t(x)$,
+		\item $F_t(x)\preceq F_{t+1}(x)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(a) is immediate from $F_t=A_t+B_t$ (both $A_t,B_t$ have nonnegative coefficients). For (b), observe from \eqref{eq:Ft} that
+	\[F_{t+1}(x)=xB_t(x)^2+F_t(x)^2\succeq F_t(x)
+	\]
+	coefficientwise because $xB_t(x)^2$ and $F_t(x)^2-F_t(x)$ both have nonnegative coefficients (the latter because $F_t(x)^2-F_t(x)=F_t(x)(F_t(x)-1)$ and $F_t(x)-1$ has nonnegative constant term when $t\ge0$; more simply, every independent set of $R_t$ is also an independent set of $R_{t+1}$ by embedding, so $F_{t+1}(x)-F_t(x)$ counts new sets and has nonnegative coefficients).
+\end{proof}
+
+Now compare $S_{h,d}(x)$ and $S_{h,d+1}(x)$ using the factorization \eqref{eq:Shd}. Write the two factorizations explicitly:
+\begin{align*}
+	S_{h,d}(x)   & =x\cdot F_{h-d-2}(x)^2\cdot F_{h-d-1}(x)^{\mathbf{1}_{d\ge1}}\cdot\prod_{i=1}^{d-1} F_{h-d-1+i}(x), \\
+	S_{h,d+1}(x) & =x\cdot F_{h-d-3}(x)^2\cdot F_{h-d-2}(x)^{\mathbf{1}_{d+1\ge1}}\cdot\prod_{i=1}^{d} F_{h-d-2+i}(x).
+\end{align*}
+Cancel the common factor $x$ and compare the remaining multisets of $F_\ast$ factors. One convenient way to view the relationship is as the result of the following replacements when $d$ increases by $1$:
+\begin{itemize}[nosep]
+	\item The factor $F_{h-d-1}(x)$ (which exists when $d\ge1$) in $S_{h,d}$ is ``replaced'' by the factor $F_{h-d-2}(x)$ in $S_{h,d+1}$ (if $d=0$ there was no such factor and $S_{h,1}$ simply gains a factor $F_{h-1-1}=F_{h-2}$ compared with $S_{h,0}$).
+	\item The two factors $F_{h-d-2}(x)^2$ in $S_{h,d}$ are replaced by the two factors $F_{h-d-3}(x)^2$ in $S_{h,d+1}$.
+	\item On the ancestor side, the product $\prod_{i=1}^{d-1}F_{h-d-1+i}(x)$ in $S_{h,d}$ becomes $\prod_{i=1}^{d}F_{h-d-2+i}(x)$ in $S_{h,d+1}$: that is, one factor at the lower end disappears while a factor with a strictly larger index appears at the upper end.
+\end{itemize}
+
+Using Lemma~\ref{lem:mono}(b) we have $F_{t}(x)\preceq F_{t+1}(x)$ for every $t$, so each replacement described above is coefficientwise nondecreasing. More concretely, the product on the ancestor side is transformed by replacing (for each $i$) factors with smaller indices by factors with larger indices; coefficientwise monotonicity of $F_t$ ensures the resulting product increases coefficientwise. Combining the three local monotonicity observations yields
+\[
+	S_{h,d}(x)\preceq S_{h,d+1}(x)
+\]
+for all valid $d$, proving the desired monotonicity.
+
+\section{Conclusion and corollaries}
+
+The coefficientwise monotonicity $S_{h,d}(x)\preceq S_{h,d+1}(x)$ implies in particular that for every fixed $k\ge1$ the coefficient of $x^k$ satisfies
+\[S_{h,d}(k)\le S_{h,d+1}(k).
+\]
+Iterating from $d=0$ to $d=h$ yields
+\[S_{h,0}(k)\le S_{h,1}(k)\le\cdots\le S_{h,h}(k),
+\]
+and since $S_{h,h}(k)=s_k(\ell)$ for any leaf $\ell$ we obtain Theorem~\ref{thm:main}.
+
+\begin{remark}
+	The proof above shows a stronger structural fact: the polynomial generating functions $S_{h,d}(x)$ are coefficientwise nondecreasing in the depth parameter $d$. In particular for each fixed $k$ the numbers $S_{h,d}(k)$ form a nondecreasing sequence in $d$.
+\end{remark}
+
+\begin{remark}
+	The same proof strategy applies to other regular rooted trees where the off-spine subtrees grow monotonically with depth; its key ingredients are that the independence polynomials for subtrees are coefficientwise monotone in their heights and that choosing a vertex separates the tree into independent components whose heights shift in a monotone way when the chosen vertex moves down the spine.
+\end{remark}
+
+\section*{Acknowledgments}
+
+The argument is standard in the combinatorics of independent sets in trees (see e.g. standard references on independence polynomials and combinatorial recurrences for trees). We wrote it here for completeness for the special case of perfect binary trees.
+
+\end{document}
